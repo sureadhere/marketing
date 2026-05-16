@@ -1,0 +1,779 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Resources — SureAdhere by Dimagi</title>
+<meta name="description" content="SureAdhere resources — evidence base, product release notes, FAQs, and the people behind the platform.">
+<meta property="og:type" content="website">
+  <meta property="og:url" content="https://dimagi.com/sureadhere-resources/">
+<meta property="og:title" content="Resources — SureAdhere by Dimagi">
+<meta property="og:description" content="Evidence base, product updates, FAQs, and the story behind SureAdhere.">
+<meta property="og:image" content="../assets/images/kelly-collins.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<style>
+
+  /* ── Jump nav ── */
+  .jump-nav {
+    position: sticky;
+    top: 76px;
+    z-index: 40;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+  }
+  .jump-nav-inner {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .jump-nav-inner::-webkit-scrollbar { display: none; }
+  .jump-link {
+    padding: 14px 24px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    color: var(--muted);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: color 150ms, border-color 150ms;
+    flex-shrink: 0;
+  }
+  .jump-link:hover { color: var(--ink); }
+  .jump-link.active { color: #009090; border-bottom-color: #009090; }
+
+  /* ── Evidence base card ── */
+  .evidence-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--paper-2);
+  }
+  @media (max-width: 780px) { .evidence-card { grid-template-columns: 1fr; } }
+  .evidence-card-copy {
+    padding: 48px 52px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+  }
+  .evidence-card-stats {
+    padding: 48px 52px;
+    background: linear-gradient(135deg, #180F60 0%, #009090 100%);
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    justify-content: center;
+  }
+  .ev-stat-num {
+    font-size: 3rem;
+    font-weight: 200;
+    letter-spacing: -0.04em;
+    color: #fff;
+    line-height: 1;
+  }
+  .ev-stat-label {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.65);
+    margin-top: 4px;
+    line-height: 1.4;
+  }
+  .ev-stat-row { display: flex; gap: 48px; flex-wrap: wrap; }
+
+  /* ── Release notes ── */
+  .release-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .release-item {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 0;
+    border-bottom: 1px solid var(--line);
+    transition: background 150ms;
+  }
+  .release-item:last-child { border-bottom: none; }
+  .release-item:hover { background: var(--paper-warm); }
+  .release-meta {
+    padding: 20px 24px;
+    border-right: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    background: var(--paper-2);
+  }
+  .release-version {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: #009090;
+    letter-spacing: 0.04em;
+  }
+  .release-date {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  .release-body {
+    padding: 20px 28px;
+  }
+  .release-bullets {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .release-bullets li {
+    font-size: 0.9rem;
+    color: var(--muted);
+    line-height: 1.55;
+    padding-left: 16px;
+    position: relative;
+  }
+  .release-bullets li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--line);
+  }
+  .release-bullets li strong { color: var(--ink); }
+  @media (max-width: 640px) {
+    .release-item { grid-template-columns: 1fr; }
+    .release-meta { border-right: none; border-bottom: 1px solid var(--line); flex-direction: row; gap: 12px; align-items: center; }
+  }
+
+  /* ── FAQ accordion ── */
+  .faq-group { margin-bottom: 48px; }
+  .faq-group-title {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #009090;
+    margin: 0 0 16px;
+  }
+  .faq-list {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  details.faq-item {
+    border-bottom: 1px solid var(--line);
+  }
+  details.faq-item:last-child { border-bottom: none; }
+  details.faq-item summary {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 24px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--ink);
+    cursor: pointer;
+    user-select: none;
+    transition: background 150ms;
+  }
+  details.faq-item summary::-webkit-details-marker { display: none; }
+  details.faq-item summary:hover { background: var(--paper-warm); }
+  details.faq-item summary::after {
+    content: '+';
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: var(--muted);
+    flex-shrink: 0;
+    transition: transform 200ms;
+  }
+  details.faq-item[open] summary::after { content: '–'; }
+  .faq-answer {
+    padding: 0 24px 20px;
+    font-size: 0.92rem;
+    color: var(--muted);
+    line-height: 1.75;
+    border-top: 1px solid var(--line);
+    background: var(--paper-2);
+  }
+  .faq-answer p { margin: 14px 0 0; }
+  .faq-answer p:first-child { margin-top: 14px; }
+  .faq-answer a { color: #009090; text-decoration: underline; text-underline-offset: 2px; }
+
+  /* ── FAQ columns ── */
+  .faq-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+  @media (max-width: 780px) {
+    .faq-cols { grid-template-columns: 1fr; }
+  }
+
+  /* ── Bio card ── */
+  .bio-grid {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 56px;
+    align-items: start;
+  }
+  @media (max-width: 860px) {
+    .bio-grid { grid-template-columns: 1fr; gap: 36px; }
+    .bio-photo { max-width: 220px; }
+  }
+  .bio-photo {
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--line);
+    background: var(--paper-warm);
+    aspect-ratio: 3/4;
+  }
+  .bio-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .bio-copy { display: flex; flex-direction: column; gap: 18px; padding-top: 4px; }
+  .bio-name {
+    font-size: clamp(1.5rem, 2.8vw, 2rem);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    margin: 0;
+    line-height: 1.15;
+  }
+  .bio-role {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #009090;
+  }
+  .bio-copy p {
+    font-size: 0.97rem;
+    color: var(--muted);
+    line-height: 1.8;
+    margin: 0;
+  }
+  .bio-copy a { color: #009090; }
+
+  /* ── Timeline (horizontal) ── */
+  .timeline-h {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    position: relative;
+    padding-top: 44px;
+    margin-top: 56px;
+  }
+  .timeline-h::before {
+    content: '';
+    position: absolute;
+    top: 7px;
+    left: 8px;
+    right: 8px;
+    height: 2px;
+    background: var(--line);
+    z-index: 0;
+  }
+  .timeline-h-item {
+    padding-right: 24px;
+    position: relative;
+  }
+  .timeline-h-item:last-child { padding-right: 0; }
+  .timeline-h-dot {
+    position: absolute;
+    top: -37px;
+    left: 0;
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: #009090;
+    border: 3px solid var(--paper-warm);
+    box-shadow: 0 0 0 2px #009090;
+    z-index: 1;
+  }
+  .timeline-h-year {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: #009090;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .timeline-h-text {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+  .timeline-h-text strong { color: var(--ink); }
+  @media (max-width: 860px) {
+    .timeline-h { grid-template-columns: repeat(3, 1fr); row-gap: 32px; }
+    .timeline-h::before { right: 0; }
+  }
+  @media (max-width: 580px) {
+    .timeline-h { grid-template-columns: 1fr 1fr; }
+  }
+
+</style>
+</head>
+<body>
+
+<!-- ───── NAV ───── -->
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary">
+      <a class="logo" href="../index.html">
+        <img src="../assets/images/sureadhere-logo-full-color.png" alt="SureAdhere by Dimagi" style="height:38px;width:auto;filter:brightness(0) invert(1);opacity:0.95;">
+      </a>
+      <div class="nav-links">
+        <a href="../index.html">Overview</a>
+        <div class="nav-sol-group">
+          <a class="nav-sol-label" href="../solutions/index.html">Solutions</a>
+          <a href="../clinical-trials/index.html">Clinical Trials</a>
+          <a href="../public-health/index.html">Public Health</a>
+          <a href="../behavioral-health/index.html">Behavioral Health</a>
+        </div>
+        <a href="../resources/index.html" class="nav-active">Resources</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-ghost" href="https://dimagi.com/contact/" target="_blank" rel="noopener">Schedule a demo</a>
+        <a class="btn btn-primary" href="https://sureadhere.b2clogin.com//sureadhere.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_Conditional_MFA&client_id=38aa61ae-2f80-49d8-8566-8aa090b2711f&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fsecure.sureadhere.com&scope=openid&response_type=id_token&prompt=login" target="_blank" rel="noopener">Log in</a>
+      </div>
+      <button class="nav-hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</div>
+
+<!-- ───── HERO ───── -->
+<section class="hero" style="background:#009090;padding:80px 0 72px;">
+  <div class="container">
+    <span class="eyebrow on-dark">// RESOURCES</span>
+    <h1 class="hero-title" style="color:#fff;margin-bottom:20px;">Everything you need <em style="-webkit-text-fill-color:#fff;background:none;font-weight:600;">in one place.</em></h1>
+    <p class="hero-sub" style="color:rgba(255,255,255,0.80);max-width:580px;">Explore the evidence base, latest product updates, answers to common questions, and the story behind SureAdhere.</p>
+  </div>
+</section>
+
+<!-- ───── JUMP NAV ───── -->
+<nav class="jump-nav" aria-label="Page sections">
+  <div class="container">
+    <div class="jump-nav-inner">
+      <a class="jump-link active" href="#evidence">Evidence Base</a>
+      <a class="jump-link" href="#updates">Product Updates</a>
+      <a class="jump-link" href="#faqs">FAQs</a>
+      <a class="jump-link" href="#team">The People Behind SureAdhere</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ───── EVIDENCE BASE ───── -->
+<section class="section" id="evidence" style="padding:80px 0;">
+  <div class="container">
+    <div style="margin-bottom:40px;">
+      <span class="eyebrow">// EVIDENCE BASE</span>
+      <h2 class="section-title" style="margin-top:12px;">Built on <em>peer-reviewed science.</em></h2>
+      <p class="section-lede">SureAdhere's clinical foundation spans 27 published studies, two randomized controlled trials, and WHO and CDC guideline recognition — more rigorous evidence than any comparable platform.</p>
+    </div>
+
+    <div class="evidence-card">
+      <div class="evidence-card-copy">
+        <p style="font-size:1rem;color:var(--muted);line-height:1.8;margin:0;">Our publications library brings together peer-reviewed studies, RCTs, and clinical outcome data across TB, behavioral health, and clinical trials — a body of evidence that has directly shaped global treatment guidelines.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px;">
+          <a class="btn btn-primary btn-arrow" href="../publications/index.html">Browse the evidence</a>
+          <a class="btn btn-ghost btn-arrow" href="https://pubmed.ncbi.nlm.nih.gov/?term=sureadhere+OR+%22video+directly+observed+therapy%22" target="_blank" rel="noopener">View on PubMed</a>
+        </div>
+      </div>
+      <div class="evidence-card-stats">
+        <div class="ev-stat-row">
+          <div>
+            <div class="ev-stat-num">27</div>
+            <div class="ev-stat-label">peer-reviewed publications</div>
+          </div>
+          <div>
+            <div class="ev-stat-num">2</div>
+            <div class="ev-stat-label">randomized controlled trials</div>
+          </div>
+        </div>
+        <div class="ev-stat-row">
+          <div>
+            <div class="ev-stat-num">350+</div>
+            <div class="ev-stat-label">programs trust SureAdhere</div>
+          </div>
+          <div>
+            <div class="ev-stat-num">18</div>
+            <div class="ev-stat-label">countries</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── PRODUCT UPDATES ───── -->
+<section class="section warm" id="updates" style="padding:80px 0;">
+  <div class="container">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:40px;">
+      <div>
+        <span class="eyebrow">// PRODUCT UPDATES</span>
+        <h2 class="section-title" style="margin-top:12px;">What's new in <em>SureAdhere.</em></h2>
+        <p class="section-lede">Recent platform releases, new features, and bug fixes.</p>
+      </div>
+      <a class="btn btn-ghost btn-arrow" href="https://dimagi.atlassian.net/wiki/spaces/sa/pages/2144174098/SureAdhere+release+notes" target="_blank" rel="noopener" style="flex-shrink:0;">View all releases</a>
+    </div>
+
+    <div class="release-list">
+
+      <div class="release-item">
+        <div class="release-meta">
+          <span class="release-version">v3.6.4</span>
+          <span class="release-date">Apr 20, 2026</span>
+        </div>
+        <div class="release-body">
+          <ul class="release-bullets">
+            <li><strong>Patient Background Profiles</strong> now available for all clients; sections collapsed by default</li>
+            <li>Fixed Missed Dose Counter to accurately count only actual missed doses</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="release-item">
+        <div class="release-meta">
+          <span class="release-version">v3.6.3</span>
+          <span class="release-date">Apr 2, 2026</span>
+        </div>
+        <div class="release-body">
+          <ul class="release-bullets">
+            <li><strong>Dose Audit Trail</strong> records all dose changes with staff identification and timestamps</li>
+            <li><strong>All-Time Adherence</strong> option added to dashboard filters alongside 7-day and 30-day views</li>
+            <li><strong>Automatic Inactive Patient Deactivation</strong> after one year of no activity</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="release-item">
+        <div class="release-meta">
+          <span class="release-version">v3.6.2</span>
+          <span class="release-date">Mar 26, 2026</span>
+        </div>
+        <div class="release-body">
+          <ul class="release-bullets">
+            <li><strong>Client &amp; Site Management</strong> — admins can now create and manage clients/sites directly</li>
+            <li>Adherence event records are now read-only to protect data accuracy</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="release-item">
+        <div class="release-meta">
+          <span class="release-version">v3.5.9</span>
+          <span class="release-date">Mar 12, 2026</span>
+        </div>
+        <div class="release-body">
+          <ul class="release-bullets">
+            <li>Simplified patient settings with cleaner layout and on/off switches</li>
+            <li>Overdue dose emails sent to all site-level treatment monitors</li>
+            <li>Login now remembers last-used account</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="release-item">
+        <div class="release-meta">
+          <span class="release-version">v3.5.8</span>
+          <span class="release-date">Mar 9, 2026</span>
+        </div>
+        <div class="release-body">
+          <ul class="release-bullets">
+            <li><strong>Staff Alerts</strong> — automatic email notifications for doses 24 hours overdue</li>
+            <li>Staff notification emails now include direct patient links</li>
+            <li>Fixed virtual visits connectivity issues on restricted networks</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;margin-top:28px;">
+      <a class="btn btn-ghost btn-arrow" href="https://dimagi.atlassian.net/wiki/spaces/sa/pages/2144174098/SureAdhere+release+notes" target="_blank" rel="noopener">See all release notes</a>
+    </div>
+  </div>
+</section>
+
+<!-- ───── FAQs ───── -->
+<section class="section" id="faqs" style="padding:80px 0;">
+  <div class="container">
+    <div style="margin-bottom:48px;max-width:680px;">
+      <span class="eyebrow">// FAQs</span>
+      <h2 class="section-title" style="margin-top:12px;">Common <em>questions answered.</em></h2>
+      <p class="section-lede">Can't find what you need? Visit the <a href="https://dimagi.atlassian.net/wiki/spaces/sa/overview" target="_blank" rel="noopener" style="color:#009090;">full help site</a> or <a href="https://dimagi.com/contact/" target="_blank" rel="noopener" style="color:#009090;">contact our team</a>.</p>
+    </div>
+
+    <div class="faq-cols">
+      <!-- Left column -->
+      <div>
+        <div class="faq-group">
+          <div class="faq-group-title">// General</div>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>What languages does the SureAdhere mobile app support?</summary>
+              <div class="faq-answer">
+                <p>SureAdhere supports 15 languages including Amharic, Filipino, Burmese, Portuguese, Chinese, Russian, French, Somali, German, Spanish, Haitian, Tagalog, Kyrgyz, Ukrainian, Marshallese, and Vietnamese. Additional languages can be added on request.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>What devices are supported?</summary>
+              <div class="faq-answer">
+                <p>The SureAdhere patient app works on iOS 8.2 or later and Android devices. The provider web app runs in all modern browsers.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>How do I get pricing information?</summary>
+              <div class="faq-answer">
+                <p>Pricing is tailored to your program's size and needs. <a href="https://dimagi.com/contact/" target="_blank" rel="noopener">Contact our team</a> for a quote.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="faq-group">
+          <div class="faq-group-title">// Staff Accounts</div>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>How do I create a staff account?</summary>
+              <div class="faq-answer">
+                <p>Only Client Administrators and Site Staff Administrators can create accounts. Click the green plus icon, select <em>New Staff</em>, fill in the required information, and click Save.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>How do I reset my password?</summary>
+              <div class="faq-answer">
+                <p>Two options: (1) On the login page, click <em>Forgot your password?</em> and follow the prompts. (2) Within the app, click <em>Reset Password</em> in the upper right corner and provide your username and email for a verification code.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>How do I change the Provider App language?</summary>
+              <div class="faq-answer">
+                <p>Click the person icon in the top right, select <em>Choose Language</em>, and pick your preference.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right column -->
+      <div>
+        <div class="faq-group">
+          <div class="faq-group-title">// Patient Management</div>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>How do I create a new patient?</summary>
+              <div class="faq-answer">
+                <p>Click the green plus icon, select <em>New Patient</em>, enter the required information, and click Save.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>How do I retrieve a patient's PIN?</summary>
+              <div class="faq-answer">
+                <p>Two methods: (1) <strong>Reset</strong> — go to the patient record &gt; Profile tab &gt; scroll down &gt; click <em>Send/Reset PIN</em>. (2) <strong>Locate existing</strong> — go to the Notifications tab and find the most recent PIN in the list.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>How do I deactivate or reactivate a patient?</summary>
+              <div class="faq-answer">
+                <p>To deactivate: go to Patients &gt; Profile tab &gt; uncheck <em>Account is active</em> under Account Setup &gt; Save. Reactivation follows the same process in reverse. Note: no data is deleted when deactivating.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <div class="faq-group">
+          <div class="faq-group-title">// Regimens</div>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary>How do I stop an individual drug in a regimen?</summary>
+              <div class="faq-answer">
+                <p>Open the regimen edit tab (click the pencil icon), navigate to the drug schedule, click <em>Stop Drug</em>, select the stop date, and click the main Save button.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>Can I edit the days per week a dose is scheduled?</summary>
+              <div class="faq-answer">
+                <p>No — you'll need to create a new drug schedule with the updated frequency instead.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>What should I do if a patient has a gap in treatment?</summary>
+              <div class="faq-answer">
+                <p>It is best to start a new drug schedule to accurately reflect the treatment timeline.</p>
+              </div>
+            </details>
+            <details class="faq-item">
+              <summary>Can I delete a drug or drug schedule?</summary>
+              <div class="faq-answer">
+                <p>Deletion is not allowed in order to prevent accidental loss of data. Instead, use the <em>Stop Drug</em> or <em>Stop Drug Schedule</em> button to end it.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="text-align:center;margin-top:40px;">
+      <a class="btn btn-ghost btn-arrow" href="https://dimagi.atlassian.net/wiki/spaces/sa/pages/2144174205/SureAdhere+Training+Videos+and+FAQs" target="_blank" rel="noopener">View all FAQs &amp; training videos</a>
+    </div>
+  </div>
+</section>
+
+<!-- ───── THE PEOPLE BEHIND SUREADHERE ───── -->
+<section class="section warm" id="team" style="padding:80px 0;">
+  <div class="container">
+    <div style="margin-bottom:64px;">
+      <span class="eyebrow">// THE PEOPLE BEHIND SUREADHERE</span>
+      <h2 class="section-title" style="margin-top:12px;">Born in a research lab. <em>Built for the real world.</em></h2>
+    </div>
+
+    <!-- Story -->
+    <div style="max-width:680px;margin:0 0 0;">
+      <p style="color:var(--muted);font-size:1rem;line-height:1.8;margin:0 0 24px;">Our journey began in 2009 when a group of innovative researchers at the University of California San Diego embarked on a groundbreaking mission. Collaborating closely with tuberculosis programs in California and Baja California, Mexico, they pioneered the world's first-ever video directly observed therapy intervention.</p>
+      <p style="color:var(--muted);font-size:1rem;line-height:1.8;margin:0 0 32px;">Today, SureAdhere is a Dimagi platform — operating in 18 countries and trusted by over 350 programs. The original commitment to rigorous evidence and patient-centered care hasn't changed.</p>
+      <a class="btn btn-ghost btn-arrow" href="https://dimagi.com/sureadheres-story/" target="_blank" rel="noopener">Read the full story</a>
+    </div>
+
+    <!-- Horizontal timeline -->
+    <div class="timeline-h" style="margin-bottom:96px;">
+      <div class="timeline-h-item">
+        <div class="timeline-h-dot"></div>
+        <div class="timeline-h-year">2009 – 2015</div>
+        <div class="timeline-h-text">Research team at UC San Diego pioneers <strong>Video Directly Observed Therapy (VDOT)</strong> to support TB treatment.</div>
+      </div>
+      <div class="timeline-h-item">
+        <div class="timeline-h-dot"></div>
+        <div class="timeline-h-year">2014 – 2016</div>
+        <div class="timeline-h-text"><strong>SureAdhere commercializes VDOT</strong>, bringing the methodology to programs around the world.</div>
+      </div>
+      <div class="timeline-h-item">
+        <div class="timeline-h-dot"></div>
+        <div class="timeline-h-year">2017 – 2018</div>
+        <div class="timeline-h-text"><strong>WHO endorses VDOT</strong> — it becomes a recognized standard of care for TB treatment globally.</div>
+      </div>
+      <div class="timeline-h-item">
+        <div class="timeline-h-dot"></div>
+        <div class="timeline-h-year">2022</div>
+        <div class="timeline-h-text"><strong>SureAdhere joins Dimagi</strong>, combining proven digital adherence technology with the world's leading global health platform.</div>
+      </div>
+      <div class="timeline-h-item">
+        <div class="timeline-h-dot"></div>
+        <div class="timeline-h-year">2023</div>
+        <div class="timeline-h-text"><strong>CDC recommends VDOT</strong> as an equivalent alternative to in-person DOT for TB treatment.</div>
+      </div>
+    </div>
+
+    <!-- Kelly bio -->
+    <div class="bio-grid">
+      <div class="bio-photo">
+        <img src="../assets/images/kelly-collins.jpg" alt="Dr. Kelly Collins">
+      </div>
+      <div class="bio-copy">
+        <div>
+          <div class="bio-role">Managing Director, SureAdhere</div>
+          <h3 class="bio-name">Dr. Kelly Collins</h3>
+        </div>
+        <p>As a social entrepreneur and infectious disease epidemiologist, Kelly's career mission has been to support the implementation and scale of evidence-based, high-impact digital health interventions globally. Kelly is the former CEO and Co-Founder of SureAdhere Mobile Technology, which was <a href="https://www.dimagi.com/blog/dimagi-acquires-sureadhere-digital-solutions/" target="_blank" rel="noopener">acquired by Dimagi</a> in February 2022.</p>
+        <p>Kelly's 12+ years of experience evaluating digital adherence interventions across 5 continents and 25 countries has resulted in 27 publications. She led SureAdhere through two randomized controlled trials evaluating video observed therapy for TB treatment adherence published in the <a href="https://pubmed.ncbi.nlm.nih.gov/30799062/" target="_blank" rel="noopener">Lancet</a> and <a href="https://pubmed.ncbi.nlm.nih.gov/35050357/" target="_blank" rel="noopener">JAMA Open</a> — studies which directly informed WHO treatment guidelines in <a href="https://apps.who.int/iris/bitstream/handle/10665/255052/9789241550000-eng.pdf" target="_blank" rel="noopener">2017</a> and <a href="https://www.who.int/publications/i/item/9789240047716" target="_blank" rel="noopener">2022</a>.</p>
+        <div style="margin-top:4px;">
+          <a class="btn btn-ghost btn-arrow" href="https://www.linkedin.com/in/kelly-collins-dimagi/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ───── CTA ───── -->
+<section class="section dark on-dark" style="background:var(--grad-deep);text-align:center;">
+  <div class="container" style="max-width:680px;">
+    <span class="eyebrow on-dark">// GET IN TOUCH</span>
+    <h2 class="section-title" style="margin-bottom:20px;">Have a question we haven't answered?</h2>
+    <p style="color:rgba(255,255,255,0.72);font-size:1.05rem;margin-bottom:40px;line-height:1.7;">Our team is happy to walk you through the platform, discuss your program's needs, or help troubleshoot.</p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a class="btn btn-on-dark btn-arrow" href="https://dimagi.com/contact/" target="_blank" rel="noopener">Schedule a demo</a>
+      <a class="btn btn-ghost-on-dark" href="https://dimagi.atlassian.net/wiki/spaces/sa/overview" target="_blank" rel="noopener">Visit help site</a>
+    </div>
+  </div>
+</section>
+
+<!-- ───── FOOTER ───── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo" style="gap:10px;">
+          <img src="../assets/images/sureadhere-logo-full-color.png" alt="SureAdhere by Dimagi" style="height:30px;width:auto;filter:brightness(0) invert(1);opacity:0.85;">
+        </div>
+        <p>Patient-centered adherence technology, powered by Dimagi.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Product</h5>
+        <ul>
+          <li><a href="../index.html">Overview</a></li>
+          <li><a href="../clinical-trials/index.html">Clinical Trials</a></li>
+          <li><a href="../public-health/index.html">Public Health</a></li>
+          <li><a href="../behavioral-health/index.html">Behavioral Health</a></li>
+          <li><a href="index.html">Resources</a></li>
+          <li><a href="../publications/index.html">Evidence</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Support</h5>
+        <ul>
+          <li><a href="https://sureadhere.b2clogin.com//sureadhere.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_Conditional_MFA&client_id=38aa61ae-2f80-49d8-8566-8aa090b2711f&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fsecure.sureadhere.com&scope=openid&response_type=id_token&prompt=login" target="_blank" rel="noopener">Patient Log In</a></li>
+          <li><a href="https://dimagi.atlassian.net/wiki/spaces/sa/overview" target="_blank" rel="noopener">Help Site</a></li>
+          <li><a href="https://dimagi.com/contact/" target="_blank" rel="noopener">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>About</h5>
+        <ul>
+          <li><a href="https://dimagi.com/" target="_blank" rel="noopener">About Dimagi</a></li>
+          <li><a href="https://dimagi.com/blog/" target="_blank" rel="noopener">Blog</a></li>
+          <li><a href="https://dimagi.com/contact/" target="_blank" rel="noopener">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>// &copy; 2026 DIMAGI, INC.</span>
+      <span style="display:flex;gap:24px;flex-wrap:wrap;">
+        <a href="../privacy-policy/index.html">PRIVACY</a>
+        <a href="../privacy-policy-chinese/index.html">隐私政策 (中文)</a>
+        <a href="https://dimagi.com/terms-of-service/" target="_blank" rel="noopener">TERMS</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">SECURITY</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+(function () {
+  var ham = document.querySelector('.nav-hamburger');
+  if (ham) {
+    ham.addEventListener('click', function () {
+      this.classList.toggle('is-open');
+      document.querySelector('.nav-links').classList.toggle('is-open');
+      document.querySelector('.nav-cta').classList.toggle('is-open');
+    });
+  }
+})();
+</script>
+</body>
+</html>

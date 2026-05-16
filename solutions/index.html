@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Solutions — SureAdhere by Dimagi</title>
+<meta name="description" content="SureAdhere solutions for public health, behavioral health, and clinical trials — patient-centered adherence technology built for every program type.">
+<meta property="og:type" content="website">
+  <meta property="og:url" content="https://dimagi.com/sureadhere-solutions/">
+<meta property="og:title" content="Solutions — SureAdhere by Dimagi">
+<meta property="og:description" content="SureAdhere solutions for public health, behavioral health, and clinical trials — patient-centered adherence technology built for every program type.">
+<meta property="og:image" content="../assets/images/hero-public-health-live.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<style>
+
+  /* ── HERO ── */
+  .sol-hero {
+    background: #009090;
+    padding: 80px 0 0;
+    overflow: hidden;
+  }
+  .sol-hero-inner { max-width: 760px; }
+  .sol-hero-title {
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-weight: 300;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    color: #fff;
+    margin: 14px 0 20px;
+  }
+  .sol-hero-title em {
+    font-style: normal; font-weight: 600;
+    color: #fff;
+  }
+  .sol-hero-sub {
+    font-size: 18px; font-weight: 300;
+    line-height: 1.6; color: rgba(255,255,255,0.82);
+    margin: 0; max-width: 620px;
+  }
+
+  /* ── PHOTO STRIP ── */
+  .sol-photo-strip {
+    display: flex;
+    gap: 3px;
+    margin-top: 56px;
+    height: 300px;
+    overflow: hidden;
+  }
+  .sol-photo-item {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+  }
+  .sol-photo-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    display: block;
+    transition: transform 500ms ease;
+    filter: brightness(0.88) saturate(0.9);
+  }
+  .sol-photo-item:hover img {
+    transform: scale(1.05);
+    filter: brightness(1) saturate(1);
+  }
+
+  /* ── LOGO MARQUEE ── */
+  .logo-marquee { margin-top: 40px; }
+  .logo-track {
+    display: flex;
+    align-items: center;
+    gap: 64px;
+  }
+  .logo-track img {
+    max-height: 44px;
+    width: auto;
+    opacity: 0.55;
+    filter: grayscale(1);
+    flex-shrink: 0;
+    object-fit: contain;
+  }
+  .logo-track img:hover {
+    opacity: 1;
+    filter: grayscale(0);
+  }
+
+  /* ── SOLUTION CARDS ── */
+  .sol-cards-section {
+    padding: 80px 0 96px;
+    background: var(--paper);
+  }
+  .sol-cards-head { max-width: 600px; margin-bottom: 52px; }
+
+  .sol-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  @media (max-width: 960px) {
+    .sol-card-grid { grid-template-columns: 1fr; max-width: 600px; }
+  }
+
+  .sol-card {
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--paper-2);
+    text-decoration: none;
+    color: var(--ink);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms;
+  }
+  .sol-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, #180F60 0%, #009090 55%, #50C4FF 100%);
+    opacity: 0;
+    transition: opacity 220ms;
+    z-index: 1;
+  }
+  .sol-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 56px -14px rgba(0,144,144,0.22);
+    border-color: rgba(0,144,144,0.32);
+  }
+  .sol-card:hover::before { opacity: 1; }
+
+  .sol-card-img-wrap {
+    width: 100%; height: 250px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .sol-card-img-wrap img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center 25%;
+    display: block;
+    transition: transform 500ms ease;
+    filter: brightness(0.92);
+  }
+  .sol-card:hover .sol-card-img-wrap img {
+    transform: scale(1.04);
+    filter: brightness(1);
+  }
+
+  .sol-card-body {
+    padding: 32px 32px 36px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .sol-card-area {
+    font-size: 22px; font-weight: 600;
+    letter-spacing: -0.02em; line-height: 1.1;
+    color: var(--ink); margin: 0 0 14px;
+  }
+  .sol-card-desc {
+    font-size: 15px; line-height: 1.7;
+    color: var(--muted); flex: 1;
+  }
+  .sol-card-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-top: 24px; padding: 11px 22px;
+    border-radius: 999px; border: 1.5px solid #009090;
+    font-size: 14px; font-weight: 500;
+    color: #009090; background: transparent;
+    transition: background 180ms, color 180ms;
+    align-self: flex-start;
+  }
+  .sol-card:hover .sol-card-cta {
+    background: #009090; color: #fff;
+  }
+
+</style>
+</head>
+<body class="page--solutions">
+
+<!-- ───── NAV ───── -->
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary">
+      <a class="logo" href="../index.html">
+        <img src="../assets/images/sureadhere-logo-full-color.png" alt="SureAdhere by Dimagi" style="height:38px;width:auto;filter:brightness(0) invert(1);opacity:0.95;">
+      </a>
+      <div class="nav-links">
+        <a href="../index.html">Overview</a>
+        <div class="nav-sol-group">
+          <a class="nav-sol-label nav-active" href="index.html">Solutions</a>
+          <a href="../clinical-trials/index.html">Clinical Trials</a>
+          <a href="../public-health/index.html">Public Health</a>
+          <a href="../behavioral-health/index.html">Behavioral Health</a>
+        </div>
+        <a href="../resources/index.html">Resources</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-ghost" href="https://dimagi.com/contact/" target="_blank" rel="noopener">Schedule a demo</a>
+        <a class="btn btn-primary" href="https://sureadhere.b2clogin.com//sureadhere.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_Conditional_MFA&client_id=38aa61ae-2f80-49d8-8566-8aa090b2711f&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fsecure.sureadhere.com&scope=openid&response_type=id_token&prompt=login" target="_blank" rel="noopener">Log in</a>
+      </div>
+      <button class="nav-hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</div>
+
+<!-- ───── HERO ───── -->
+<section class="sol-hero on-dark">
+  <div class="container">
+    <div class="sol-hero-inner">
+      <span class="eyebrow on-dark">// SOLUTIONS</span>
+      <h1 class="sol-hero-title">
+        Built for <em>every program.</em><br>Designed for <em>every patient.</em>
+      </h1>
+      <p class="sol-hero-sub">
+        SureAdhere delivers the same gold-standard adherence technology across public health, behavioral health, and clinical research contexts.
+      </p>
+    </div>
+  </div>
+  <div class="sol-photo-strip">
+    <div class="sol-photo-item">
+      <img src="../assets/images/ph-patient.jpg" alt="Patient receiving care">
+    </div>
+    <div class="sol-photo-item">
+      <img src="../assets/images/bh-headshot.png" alt="Patient doing video check-in on phone with SureAdhere">
+    </div>
+    <div class="sol-photo-item">
+      <img src="../assets/images/hero-public-health.jpg" alt="Nurse on video call with patient">
+    </div>
+    <div class="sol-photo-item">
+      <img src="../assets/images/clinical-trials-image.png" alt="Patient managing medication with SureAdhere app">
+    </div>
+  </div>
+</section>
+
+<!-- ───── SOLUTION CARDS ───── -->
+<section class="sol-cards-section">
+  <div class="container">
+
+    <div class="sol-cards-head">
+      <span class="eyebrow">// WHO WE SERVE</span>
+      <h2 class="section-title" style="margin-top:12px;">Three programs. <em>One platform.</em></h2>
+      <p class="section-lede">SureAdhere delivers the same gold-standard adherence technology — Video Directly Observed Therapy (VDOT) — across public health, behavioral health, and clinical research contexts.</p>
+    </div>
+
+    <div class="sol-card-grid">
+
+      <!-- Clinical Trials -->
+      <a class="sol-card" href="../clinical-trials/index.html">
+        <div class="sol-card-img-wrap">
+          <img src="../assets/images/hero-clinical-trials.png" alt="Clinical trial participant">
+        </div>
+        <div class="sol-card-body">
+          <h3 class="sol-card-area">Clinical Trials</h3>
+          <p class="sol-card-desc">Real-time adherence monitoring for decentralized and hybrid clinical trials — protocol-compliant, 21 CFR Part 11 ready, and built for remote participant engagement.</p>
+          <span class="sol-card-cta">Explore Clinical Trials →</span>
+        </div>
+      </a>
+
+      <!-- Public Health -->
+      <a class="sol-card" href="../public-health/index.html">
+        <div class="sol-card-img-wrap">
+          <img src="../assets/images/hero-public-health-live.jpg" alt="Public health program participants">
+        </div>
+        <div class="sol-card-body">
+          <h3 class="sol-card-area">Public Health</h3>
+          <p class="sol-card-desc">CDC-validated video DOT for TB, HIV, and infectious disease programs — reaching more patients at lower cost, with equivalent outcomes to in-person care.</p>
+          <span class="sol-card-cta">Explore Public Health →</span>
+        </div>
+      </a>
+
+      <!-- Behavioral Health -->
+      <a class="sol-card" href="../behavioral-health/index.html">
+        <div class="sol-card-img-wrap">
+          <img src="../assets/images/hero-behavioral-health-live.jpg" alt="Behavioral health patient and provider">
+        </div>
+        <div class="sol-card-body">
+          <h3 class="sol-card-area">Behavioral Health</h3>
+          <p class="sol-card-desc">Virtual medication-assisted treatment for opioid use disorder — flexible, patient-centered, and proven to nearly double retention rates over standard care.</p>
+          <span class="sol-card-cta">Explore Behavioral Health →</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ───── GLOBALLY TRUSTED ───── -->
+<section class="section warm">
+  <div class="container">
+    <div style="text-align:center;max-width:680px;margin:0 auto;">
+      <span class="eyebrow">// GLOBALLY TRUSTED</span>
+      <h2 class="section-title">Trusted by <em>350+ programs worldwide.</em></h2>
+      <p style="color:var(--muted);font-size:1rem;line-height:1.75;margin:24px 0 0;">
+        Trusted by over 350 public health programs across the US, Europe and Asia, SureAdhere complies with HIPAA and GDPR, and offers dedicated global support with service level agreements based on local time zones.
+      </p>
+    </div>
+
+    <div class="logo-marquee">
+      <div class="logo-track">
+        <img src="../assets/images/logo-williamson-county-hd.png" alt="Williamson County and Cities Health District" loading="lazy">
+        <img src="../assets/images/logo-sf-dph-hd.png" alt="San Francisco Department of Public Health" loading="lazy">
+        <img src="../assets/images/logo-denver-health.png" alt="Denver Health" loading="lazy">
+        <img src="../assets/images/logo-pan-tb.jpg" alt="Pan-TB" loading="lazy">
+        <img src="../assets/images/logo-vermont-care.png" alt="Vermont Care" loading="lazy">
+        <img src="../assets/images/logo-gates-mri-2.png" alt="Gates MRI" loading="lazy">
+        <img src="../assets/images/logo-williamson-county-hd.png" alt="Williamson County and Cities Health District" loading="lazy">
+        <img src="../assets/images/logo-sf-dph-hd.png" alt="San Francisco Department of Public Health" loading="lazy">
+        <img src="../assets/images/logo-denver-health.png" alt="Denver Health" loading="lazy">
+        <img src="../assets/images/logo-pan-tb.jpg" alt="Pan-TB" loading="lazy">
+        <img src="../assets/images/logo-vermont-care.png" alt="Vermont Care" loading="lazy">
+        <img src="../assets/images/logo-gates-mri-2.png" alt="Gates MRI" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── CTA ───── -->
+<section class="section" style="padding: 72px 0; background: var(--indigo-soft); text-align: center;">
+  <div class="container">
+    <span class="eyebrow">// GET STARTED</span>
+    <h2 class="section-title" style="margin-top:14px; margin-bottom:16px;">Ready to see <em>SureAdhere in action?</em></h2>
+    <p class="section-lede" style="max-width:520px; margin: 0 auto 36px;">Talk to our team about your program — we'll show you how SureAdhere can improve outcomes and reduce burden for your patients and staff.</p>
+    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+      <a class="btn btn-primary btn-arrow" href="https://dimagi.com/contact/" target="_blank" rel="noopener">Schedule a demo</a>
+      <a class="btn btn-secondary btn-arrow" href="../publications/index.html">View the evidence</a>
+    </div>
+  </div>
+</section>
+
+<!-- ───── FOOTER ───── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo" style="gap:10px;">
+          <img src="../assets/images/sureadhere-logo-full-color.png" alt="SureAdhere by Dimagi" style="height:30px;width:auto;filter:brightness(0) invert(1);opacity:0.85;">
+        </div>
+        <p>Patient-centered adherence technology, powered by Dimagi.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Product</h5>
+        <ul>
+          <li><a href="../index.html">Overview</a></li>
+          <li><a href="../clinical-trials/index.html">Clinical Trials</a></li>
+          <li><a href="../public-health/index.html">Public Health</a></li>
+          <li><a href="../behavioral-health/index.html">Behavioral Health</a></li>
+          <li><a href="../resources/index.html">Resources</a></li>
+          <li><a href="../publications/index.html">Evidence</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Support</h5>
+        <ul>
+          <li><a href="https://sureadhere.b2clogin.com//sureadhere.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_Conditional_MFA&client_id=38aa61ae-2f80-49d8-8566-8aa090b2711f&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fsecure.sureadhere.com&scope=openid&response_type=id_token&prompt=login" target="_blank" rel="noopener">Patient Log In</a></li>
+          <li><a href="https://dimagi.atlassian.net/wiki/spaces/sa/overview" target="_blank" rel="noopener">Help Site</a></li>
+          <li><a href="https://dimagi.com/contact/" target="_blank" rel="noopener">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>About</h5>
+        <ul>
+          <li><a href="https://dimagi.com/" target="_blank" rel="noopener">About Dimagi</a></li>
+          <li><a href="https://dimagi.com/blog/" target="_blank" rel="noopener">Blog</a></li>
+          <li><a href="https://dimagi.com/contact/" target="_blank" rel="noopener">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>// &copy; 2026 DIMAGI, INC.</span>
+      <span style="display:flex;gap:24px;flex-wrap:wrap;">
+        <a href="../privacy-policy/index.html">PRIVACY</a>
+        <a href="../privacy-policy-chinese/index.html">隐私政策 (中文)</a>
+        <a href="https://dimagi.com/terms-of-service/" target="_blank" rel="noopener">TERMS</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">SECURITY</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+(function () {
+  var ham = document.querySelector('.nav-hamburger');
+  if (ham) {
+    ham.addEventListener('click', function () {
+      this.classList.toggle('is-open');
+      document.querySelector('.nav-links').classList.toggle('is-open');
+      document.querySelector('.nav-cta').classList.toggle('is-open');
+    });
+  }
+})();
+</script>
+</body>
+</html>

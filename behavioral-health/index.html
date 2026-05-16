@@ -1,0 +1,595 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SureAdhere for Behavioral Health — Virtual MAT for Opioid Use Disorder</title>
+<meta name="description" content="SureAdhere enables clinics to offer flexible virtual Medication-Assisted Treatment, reducing travel burden, doubling retention rates, and improving outcomes for opioid use disorder.">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dimagi.com/sureadhere-behavioral-health/">
+<meta property="og:title" content="SureAdhere for Behavioral Health — Virtual MAT for Opioid Use Disorder">
+<meta property="og:description" content="SureAdhere transforms MAT care, reducing travel burden, doubling retention rates, and improving outcomes for opioid use disorder.">
+<meta property="og:image" content="../assets/images/hero-behavioral-health.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<style>
+  /* ── Benefit trio ── */
+  .benefit-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .benefit-card {
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 40px 36px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    text-align: center;
+    align-items: center;
+  }
+  .benefit-card img {
+    width: 64px; height: 64px;
+    object-fit: contain;
+  }
+  .benefit-card h3 {
+    font-size: 1.1rem;
+    font-weight: 500;
+  }
+  .benefit-card p {
+    font-size: 0.92rem;
+    color: var(--muted);
+    line-height: 1.7;
+  }
+  @media (max-width: 860px) {
+    .benefit-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── Impact stats ── */
+  .impact-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+  .impact-stat {
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    padding: 40px 32px;
+    text-align: center;
+  }
+  .impact-stat-val {
+    font-size: clamp(2.4rem, 4vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1;
+    background: var(--grad-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+  }
+  .impact-stat-label {
+    font-size: 0.88rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .impact-stat-cite {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    color: var(--muted-soft);
+    margin-top: 8px;
+    letter-spacing: 0.04em;
+  }
+  @media (max-width: 860px) {
+    .impact-stats { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 500px) {
+    .impact-stats { grid-template-columns: 1fr; }
+  }
+
+  /* ── Compliance band (matches Clinical Trials) ── */
+  .ct-compliance-band {
+    background: var(--paper-cool);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    padding: 80px 0;
+  }
+  .ct-compliance-head {
+    text-align: center;
+    margin-bottom: 44px;
+  }
+  .ct-compliance-head h3 {
+    font-size: 1.55rem;
+    font-weight: 500;
+    margin: 0 0 12px;
+  }
+  .ct-compliance-head p {
+    color: var(--muted);
+    font-size: 0.95rem;
+    max-width: 640px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+  .ct-compliance-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .ct-compliance-badge {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--indigo-deep);
+    background: var(--paper-2);
+    border: 1px solid var(--indigo-soft);
+    border-radius: var(--radius-sm);
+    padding: 14px 28px;
+  }
+
+  /* ── Partner stories (dark purple) ── */
+  .partner-stories-dark {
+    background: linear-gradient(150deg, #0E0840 0%, #180F60 50%, #1C1870 100%);
+    padding: 72px 0;
+    color: var(--paper);
+  }
+  .partner-stories-dark .eyebrow { color: rgba(255,255,255,0.5); }
+  .partner-stories-dark .section-title { color: var(--paper); }
+  .partner-stories-dark .section-title em {
+    background: linear-gradient(90deg, #6ECAC5 0%, #A5DFDB 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .story-featured {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 64px;
+    align-items: start;
+    margin-top: 0;
+  }
+  .story-featured-copy .story-label {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #6ECAC5;
+    margin-bottom: 16px;
+  }
+  .story-featured-copy h3 {
+    font-size: clamp(1.3rem, 2vw, 1.7rem);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    color: var(--paper);
+    margin-bottom: 16px;
+    line-height: 1.25;
+  }
+  .story-featured-copy h3 em {
+    font-style: normal;
+    font-weight: 500;
+    color: #A5DFDB;
+    background: none;
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    -webkit-text-fill-color: #A5DFDB;
+  }
+  .story-featured-copy > p {
+    font-size: 0.95rem;
+    color: rgba(255,255,255,0.68);
+    line-height: 1.75;
+    margin: 0 0 28px;
+  }
+  .story-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px 32px;
+    padding-top: 28px;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    margin-bottom: 32px;
+  }
+  .story-stat-num {
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: var(--paper);
+  }
+  .story-stat-num span { color: #6ECAC5; }
+  .story-stat-lbl {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+    margin-top: 5px;
+  }
+  .story-featured-visual {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(110,202,197,0.2);
+    border-radius: var(--radius-lg);
+    padding: 48px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .story-featured-logo {
+    height: 56px;
+    width: auto;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.85;
+    align-self: flex-start;
+  }
+  .story-quote-text {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.8);
+    font-style: italic;
+    border-left: 3px solid #6ECAC5;
+    padding-left: 20px;
+    margin: 0;
+  }
+  .story-quote-attr {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #6ECAC5;
+  }
+  @media (max-width: 860px) {
+    .story-featured { grid-template-columns: 1fr; gap: 40px; }
+  }
+</style>
+</head>
+<body class="page--solutions">
+
+<!-- ───── NAV ───── -->
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary">
+      <a class="logo" href="../index.html">
+        <img src="../assets/images/sureadhere-logo-full-color.png" alt="SureAdhere by Dimagi" style="height:38px;width:auto;filter:brightness(0) invert(1);opacity:0.95;">
+      </a>
+      <div class="nav-links">
+        <a href="../index.html">Overview</a>
+        <div class="nav-sol-group">
+          <a class="nav-sol-label" href="../solutions/index.html">Solutions</a>
+          <a href="../clinical-trials/index.html">Clinical Trials</a>
+          <a href="../public-health/index.html">Public Health</a>
+          <a href="../behavioral-health/index.html" class="nav-active">Behavioral Health</a>
+        </div>
+        <a href="../resources/index.html">Resources</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-ghost" href="https://dimagi.com/contact/" target="_blank" rel="noopener">Schedule a demo</a>
+        <a class="btn btn-primary" href="https://sureadhere.b2clogin.com//sureadhere.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_Conditional_MFA&client_id=38aa61ae-2f80-49d8-8566-8aa090b2711f&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fsecure.sureadhere.com&scope=openid&response_type=id_token&prompt=login" target="_blank" rel="noopener">Log in</a>
+      </div>
+      <button class="nav-hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</div>
+
+<!-- ───── HERO ───── -->
+<section class="hero" style="padding:96px 0 80px;">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">// FOR BEHAVIORAL HEALTH</span>
+        <h1 class="hero-title">
+          Breaking Barriers to <em>Better Behavioral Health Outcomes</em>
+        </h1>
+        <p class="hero-sub">
+          SureAdhere transforms Medication-Assisted Treatment for opioid use disorder — <strong>improving outcomes</strong> by enabling clinics to offer flexible virtual therapy that keeps patients committed to recovery with greater convenience and dignity.
+        </p>
+        <div class="hero-ctas">
+          <a class="btn btn-indigo btn-arrow" href="https://dimagi.com/contact/" target="_blank" rel="noopener">Schedule a demo</a>
+          <a class="btn btn-ghost btn-arrow" href="#features">Learn more</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="../assets/images/hero-behavioral-health.jpg" alt="Person in recovery using SureAdhere for virtual MAT" style="border-radius:var(--radius-lg);box-shadow:0 16px 48px -12px rgba(0,0,0,0.18);">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── INTRO COPY ───── -->
+<section class="section warm">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;">
+      <div>
+        <span class="eyebrow">// THE CHALLENGE</span>
+        <h2 class="section-title">The Logistical Burden Holding Back <em>MAT Programs</em></h2>
+        <p style="color:var(--muted);font-size:1rem;line-height:1.75;margin:24px 0 16px;">
+          Daily clinic visits for Medication-Assisted Treatment (MAT) can place a heavy burden on patients, compounded by the stigma surrounding opioid use disorder.
+        </p>
+        <p style="color:var(--muted);font-size:1rem;line-height:1.75;margin:0;">
+          SureAdhere transforms care by enabling clinics to offer flexible, virtual therapy options. Patients stay committed to their treatment, while providers ensure adherence through continuous feedback, helping patients achieve better health outcomes with greater convenience and dignity.
+        </p>
+      </div>
+      <div>
+        <img src="../assets/images/bh-community.jpg" alt="Community members supported by behavioral health MAT program" style="border-radius:var(--radius-lg);box-shadow:0 16px 48px -12px rgba(0,0,0,0.14);" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── HOW IT HELPS (tabs) ───── -->
+<style>
+  .cap-tabs {
+    display: flex; gap: 6px;
+    background: #fff; border: 1px solid var(--line);
+    border-radius: 14px; padding: 6px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    margin-bottom: 0;
+  }
+  .cap-tab {
+    flex: 1; display: flex; align-items: center; justify-content: center; gap: 12px;
+    padding: 20px 24px; border-radius: 10px;
+    border: none; background: transparent; cursor: pointer;
+    font-family: var(--sans); font-size: 1.05rem; font-weight: 500;
+    color: var(--muted); transition: all 0.2s ease;
+  }
+  .cap-tab:hover { background: var(--paper-2); color: var(--ink); }
+  .cap-tab.active { background: var(--indigo); color: #fff; box-shadow: 0 2px 10px rgba(24,15,96,0.22); }
+  .cap-tab-num {
+    font-family: var(--mono); font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.1em; opacity: 0.5;
+  }
+  .cap-tab.active .cap-tab-num { opacity: 0.85; }
+  .cap-panel { display: none; }
+  .cap-panel.active {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; align-items: center; padding-top: 64px;
+  }
+  .cap-panel-img { order: -1; display: flex; align-items: center; justify-content: center; }
+  .cap-panel-img img { max-width: 100%; height: auto; object-fit: contain; display: block; }
+  .cap-panel-copy h3 { font-size: 1.86rem; font-weight: 300; letter-spacing: -0.02em; line-height: 1.2; margin: 0 0 16px; }
+  .cap-panel-copy h3 em { font-style: normal; font-weight: 500; background: var(--grad-text); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .cap-panel-copy p { font-size: 1.14rem; color: var(--muted); line-height: 1.75; margin: 0 0 20px; }
+  .cap-panel-copy ul { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .cap-panel-copy ul li { display: flex; align-items: flex-start; gap: 10px; font-size: 1.08rem; color: var(--muted); }
+  .cap-panel-copy ul li::before { content: "→"; color: var(--indigo); font-weight: 600; flex-shrink: 0; margin-top: 1px; }
+  @media (max-width: 860px) {
+    .cap-panel.active { grid-template-columns: 1fr; gap: 36px; }
+    .cap-panel-img { order: -1; }
+    .cap-tab { font-size: 0.88rem; padding: 14px 12px; }
+  }
+  @media (max-width: 560px) {
+    .cap-tabs { flex-direction: column; border-radius: 10px; gap: 4px; }
+    .cap-tab { justify-content: flex-start; border-radius: 8px; padding: 14px 16px; font-size: 0.95rem; }
+  }
+</style>
+<section class="section" id="features">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">// PLATFORM CAPABILITIES</span>
+      <h2 class="section-title">Three ways SureAdhere <em>transforms MAT.</em></h2>
+    </div>
+
+    <div class="cap-tabs">
+      <button class="cap-tab active" data-tab="bh-tab-access">
+        <span class="cap-tab-num">01</span> Treatment Access
+      </button>
+      <button class="cap-tab" data-tab="bh-tab-burden">
+        <span class="cap-tab-num">02</span> Reduce Burden
+      </button>
+      <button class="cap-tab" data-tab="bh-tab-autonomy">
+        <span class="cap-tab-num">03</span> Autonomy
+      </button>
+    </div>
+
+    <div id="bh-tab-access" class="cap-panel active">
+      <div class="cap-panel-copy">
+        <h3>Improve <em>Treatment Access</em></h3>
+        <p>Expand access to high-quality MAT for underserved communities and individuals facing barriers to traditional in-person care.</p>
+        <ul>
+          <li>Virtual therapy for patients without reliable transportation</li>
+          <li>Serve patients across urban and rural settings</li>
+          <li>Higher provider-to-patient ratios reduce wait times</li>
+          <li>Compatible with existing clinic workflows and EHR systems</li>
+        </ul>
+      </div>
+      <div class="cap-panel-img">
+        <img src="../assets/images/bh-step-1.png" alt="SureAdhere patient mobile home screen" loading="lazy" style="max-height:504px;">
+      </div>
+    </div>
+
+    <div id="bh-tab-burden" class="cap-panel">
+      <div class="cap-panel-copy">
+        <h3>Reduce <em>Treatment Burden</em></h3>
+        <p>Overcome the time, cost, and travel burdens associated with in-person MAT through secure and reliable remote treatment support.</p>
+        <ul>
+          <li>Patients record doses via video from home — no clinic commute</li>
+          <li>Saves patients an average of 5.5 hours of travel per week</li>
+          <li>Reduces median weekly travel costs by $72</li>
+          <li>Real-time alerts for providers when a dose is missed</li>
+        </ul>
+      </div>
+      <div class="cap-panel-img">
+        <img src="../assets/images/bh-step-2.png" alt="SureAdhere web quick actions dashboard" loading="lazy" style="max-height:432px;">
+      </div>
+    </div>
+
+    <div id="bh-tab-autonomy" class="cap-panel">
+      <div class="cap-panel-copy">
+        <h3>Increase <em>Autonomy</em></h3>
+        <p>Help patients take charge of their recovery with a platform that fits seamlessly into their lives, offering flexibility and convenience throughout treatment.</p>
+        <ul>
+          <li>Flexible dosing windows that adapt to patients' schedules</li>
+          <li>Secure in-app messaging for discreet, stigma-free communication</li>
+          <li>Treatment calendar and progress tracking for self-monitoring</li>
+          <li>Multilingual and offline-capable for diverse patient needs</li>
+        </ul>
+      </div>
+      <div class="cap-panel-img">
+        <img src="../assets/images/bh-step-3.png" alt="SureAdhere patient mobile symptoms screen" loading="lazy" style="max-height:504px;">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ───── SECURITY & COMPLIANCE ───── -->
+<div class="ct-compliance-band">
+  <div class="container">
+    <div class="ct-compliance-head">
+      <h3>Leading in Privacy &amp; Security</h3>
+      <p>SureAdhere complies with US HIPAA and European GDPR data privacy regulations, and is 42 CFR Part 2 compliant — protecting the confidentiality of substance use disorder treatment records. Our global support team provides comprehensive service level agreements based on local time zones.</p>
+    </div>
+    <div class="ct-compliance-items">
+      <span class="ct-compliance-badge">HIPAA Compliant</span>
+      <span class="ct-compliance-badge">GDPR Compliant</span>
+      <span class="ct-compliance-badge">42 CFR Part 2</span>
+      <span class="ct-compliance-badge">SOC 2 Certified</span>
+      <span class="ct-compliance-badge">Support SLAs</span>
+    </div>
+  </div>
+</div>
+
+<!-- ───── VERMONT PARTNER STORY ───── -->
+<section id="impact" class="partner-stories-dark">
+  <div class="container">
+    <div class="story-featured">
+      <div class="story-featured-copy">
+        <span class="eyebrow" style="display:block;margin-bottom:12px;">// PARTNER STORY</span>
+<h3>Vermont's Virtual MAT Program: <em>Reduces Costs and Boosts Retention.</em></h3>
+        <p>Accessing Medication-Assisted Treatment (MAT) in Vermont comes with significant challenges. Nearly half of patients enrolled in outpatient MAT programs disengage from treatment within their first year due to the heavy logistical burden. The Howard Center's innovative VDOT program — combining a secure medication dispenser with SureAdhere — transformed those outcomes.</p>
+        <div class="story-stats">
+          <div>
+            <div class="story-stat-num">98<span>%</span></div>
+            <div class="story-stat-lbl">1-Year Retention Rate</div>
+          </div>
+          <div>
+            <div class="story-stat-num">$72</div>
+            <div class="story-stat-lbl">Weekly Travel Savings</div>
+          </div>
+          <div>
+            <div class="story-stat-num">93<span>%</span></div>
+            <div class="story-stat-lbl">Engaged in Pro-Social Activities</div>
+          </div>
+          <div>
+            <div class="story-stat-num">5.5<span>hr</span></div>
+            <div class="story-stat-lbl">Clinic Travel Time Saved Weekly</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="story-featured-visual">
+        <img class="story-featured-logo" src="../assets/images/logo-vermont-care.png" alt="Vermont Care Partners" loading="lazy">
+        <p class="story-quote-text">
+          By combining a secure medication dispenser with SureAdhere's VDOT platform, the program addressed the significant logistical challenges faced by patients in accessing MAT — nearly doubling the standard-of-care retention rate.
+        </p>
+        <div class="story-quote-attr">Brooklyn, J.R. et al. — Journal of Addiction Medicine, 2022;16(3):310-316</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ───── CTA ───── -->
+<section class="section" style="background:var(--indigo-soft);text-align:center;">
+  <div class="container" style="max-width:700px;">
+    <span class="eyebrow">// GET STARTED</span>
+    <h2 class="section-title" style="margin-bottom:24px;">Learn how SureAdhere can <em>transform your MAT program.</em></h2>
+    <p style="color:var(--muted);font-size:1.05rem;margin-bottom:40px;line-height:1.7;">
+      See how SureAdhere's virtual therapy platform can improve retention rates, reduce travel burden, and support your patients through recovery.
+    </p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a class="btn btn-indigo btn-arrow" href="https://dimagi.com/contact/" target="_blank" rel="noopener">Contact us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ───── FOOTER ───── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo" style="gap:10px;">
+          <img src="../assets/images/sureadhere-logo-full-color.png" alt="SureAdhere by Dimagi" style="height:30px;width:auto;filter:brightness(0) invert(1);opacity:0.85;">
+        </div>
+        <p>Patient-centered adherence technology, powered by Dimagi.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Product</h5>
+        <ul>
+          <li><a href="../index.html">Overview</a></li>
+          <li><a href="../clinical-trials/index.html">Clinical Trials</a></li>
+          <li><a href="../public-health/index.html">Public Health</a></li>
+          <li><a href="index.html">Behavioral Health</a></li>
+          <li><a href="../resources/index.html">Resources</a></li>
+          <li><a href="../publications/index.html">Evidence</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Support</h5>
+        <ul>
+          <li><a href="https://sureadhere.b2clogin.com//sureadhere.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_Conditional_MFA&client_id=38aa61ae-2f80-49d8-8566-8aa090b2711f&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fsecure.sureadhere.com&scope=openid&response_type=id_token&prompt=login" target="_blank" rel="noopener">Patient Log In</a></li>
+          <li><a href="https://dimagi.atlassian.net/wiki/spaces/sa/overview" target="_blank" rel="noopener">Help Site</a></li>
+          <li><a href="https://dimagi.com/contact/" target="_blank" rel="noopener">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>About</h5>
+        <ul>
+          <li><a href="https://dimagi.com/" target="_blank" rel="noopener">About Dimagi</a></li>
+          <li><a href="https://dimagi.com/blog/" target="_blank" rel="noopener">Blog</a></li>
+          <li><a href="https://dimagi.com/contact/" target="_blank" rel="noopener">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>// &copy; 2026 DIMAGI, INC.</span>
+      <span style="display:flex;gap:24px;flex-wrap:wrap;">
+        <a href="../privacy-policy/index.html">PRIVACY</a>
+        <a href="../privacy-policy-chinese/index.html">隐私政策 (中文)</a>
+        <a href="https://dimagi.com/terms-of-service/" target="_blank" rel="noopener">TERMS</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">SECURITY</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+(function () {
+  var ham = document.querySelector('.nav-hamburger');
+  if (ham) {
+    ham.addEventListener('click', function () {
+      this.classList.toggle('is-open');
+      document.querySelector('.nav-links').classList.toggle('is-open');
+      document.querySelector('.nav-cta').classList.toggle('is-open');
+    });
+  }
+
+  document.querySelectorAll('.cap-tab').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var target = this.getAttribute('data-tab');
+      document.querySelectorAll('.cap-tab').forEach(function (t) { t.classList.remove('active'); });
+      document.querySelectorAll('.cap-panel').forEach(function (p) { p.classList.remove('active'); });
+      this.classList.add('active');
+      var panel = document.getElementById(target);
+      if (panel) panel.classList.add('active');
+    });
+  });
+})();
+</script>
+</body>
+</html>

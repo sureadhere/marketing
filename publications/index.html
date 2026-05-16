@@ -1,0 +1,709 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SureAdhere Evidence — Peer-Reviewed Research &amp; Publications</title>
+<meta name="description" content="Browse 25+ peer-reviewed publications supporting SureAdhere's video directly observed therapy platform for tuberculosis, HIV, and medication adherence.">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dimagi.com/sureadhere-publications/">
+<meta property="og:title" content="SureAdhere Evidence — Peer-Reviewed Research &amp; Publications">
+<meta property="og:description" content="Browse 25+ peer-reviewed publications supporting SureAdhere's video directly observed therapy platform.">
+<meta property="og:image" content="../assets/images/evidence-base-hero.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+<style>
+  /* ── Publication list ── */
+  .pub-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-top: 48px;
+  }
+  .pub-item {
+    display: grid;
+    grid-template-columns: 40px 1fr 64px 148px;
+    align-items: start;
+    gap: 24px;
+    padding: 24px 32px;
+    border-bottom: 1px solid var(--line);
+    transition: background 120ms;
+  }
+  .pub-item:last-child { border-bottom: none; }
+  .pub-item:hover { background: var(--paper-warm); }
+  .pub-num {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--muted-soft);
+    letter-spacing: 0.06em;
+    padding-top: 3px;
+  }
+  .pub-body { display: flex; flex-direction: column; gap: 6px; }
+  .pub-title {
+    font-size: 0.93rem;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.45;
+  }
+  .pub-title a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 150ms, color 150ms;
+  }
+  .pub-title a:hover {
+    color: var(--indigo);
+    border-bottom-color: var(--indigo);
+  }
+  .pub-meta {
+    font-size: 0.8rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .pub-meta em { font-style: italic; }
+  .pub-finding {
+    font-size: 0.82rem;
+    color: var(--muted);
+    line-height: 1.65;
+    border-left: 3px solid #009090;
+    padding-left: 10px;
+    margin-top: 4px;
+  }
+  .pub-rct-tag {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #009090;
+    background: rgba(0,144,144,0.08);
+    border: 1px solid rgba(0,144,144,0.25);
+    border-radius: 999px;
+    padding: 2px 8px;
+    display: inline-block;
+    width: fit-content;
+    margin-bottom: 2px;
+  }
+  .pub-year {
+    font-family: var(--mono);
+    font-size: 0.76rem;
+    font-weight: 600;
+    color: #009090;
+    letter-spacing: 0.04em;
+    padding-top: 3px;
+  }
+  .pub-location {
+    font-size: 0.78rem;
+    color: var(--muted);
+    padding-top: 4px;
+    line-height: 1.5;
+  }
+  @media (max-width: 860px) {
+    .pub-item { grid-template-columns: 36px 1fr 56px; }
+    .pub-location { display: none; }
+  }
+  @media (max-width: 680px) {
+    .pub-item { grid-template-columns: 32px 1fr; padding: 18px 20px; gap: 12px; }
+    .pub-location { display: none; }
+    .pub-year { display: none; }
+  }
+
+  .pub-location-region {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted-soft);
+    margin-top: 2px;
+  }
+
+  /* ── Search ── */
+  .pub-search-wrap {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .pub-search-input {
+    width: 100%;
+    padding: 13px 20px 13px 46px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    font-family: var(--sans);
+    font-size: 0.95rem;
+    color: var(--ink);
+    background: var(--paper-2);
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 150ms, box-shadow 150ms;
+  }
+  .pub-search-input:focus {
+    border-color: var(--indigo);
+    box-shadow: 0 0 0 3px rgba(13,168,157,0.12);
+  }
+  .pub-search-input::placeholder { color: var(--muted-soft); }
+  .pub-search-icon {
+    position: absolute; left: 16px; top: 50%;
+    transform: translateY(-50%);
+    color: var(--muted); pointer-events: none;
+  }
+
+  /* ── Filter group ── */
+  .filter-group {
+    margin-bottom: 24px;
+  }
+  .filter-label {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.62rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+  }
+
+  /* ── No results ── */
+  #pub-no-results {
+    text-align: center;
+    padding: 48px 24px;
+    color: var(--muted);
+    font-size: 0.95rem;
+    display: none;
+    border-top: 1px solid var(--line);
+  }
+
+  /* ── Filter tabs ── */
+  .filter-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+  }
+  .filter-tab {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 8px 18px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--paper-2);
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 120ms;
+  }
+  .filter-tab.active,
+  .filter-tab:hover {
+    background: var(--indigo);
+    color: var(--paper);
+    border-color: var(--indigo);
+  }
+</style>
+</head>
+<body class="page--resources">
+
+<!-- ───── NAV ───── -->
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary">
+      <a class="logo" href="../index.html">
+        <img src="../assets/images/sureadhere-logo-full-color.png" alt="SureAdhere by Dimagi" style="height:38px;width:auto;filter:brightness(0) invert(1);opacity:0.95;">
+      </a>
+      <div class="nav-links">
+        <a href="../index.html">Overview</a>
+        <div class="nav-sol-group">
+          <a class="nav-sol-label" href="../solutions/index.html">Solutions</a>
+          <a href="../clinical-trials/index.html">Clinical Trials</a>
+          <a href="../public-health/index.html">Public Health</a>
+          <a href="../behavioral-health/index.html">Behavioral Health</a>
+        </div>
+        <a href="../resources/index.html">Resources</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-ghost" href="https://dimagi.com/contact/" target="_blank" rel="noopener">Schedule a demo</a>
+        <a class="btn btn-primary" href="https://sureadhere.b2clogin.com//sureadhere.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_Conditional_MFA&client_id=38aa61ae-2f80-49d8-8566-8aa090b2711f&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fsecure.sureadhere.com&scope=openid&response_type=id_token&prompt=login" target="_blank" rel="noopener">Log in</a>
+      </div>
+      <button class="nav-hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</div>
+
+<!-- ───── HERO ───── -->
+<section class="hero" style="padding:80px 0 72px;">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">// EVIDENCE</span>
+        <h1 class="hero-title" style="font-size:clamp(32px,4vw,52px);">
+          SureAdhere <em>research &amp; publications.</em>
+        </h1>
+        <p class="hero-sub">
+          27 peer-reviewed studies supporting video directly observed therapy, from landmark randomized controlled trials to real-world implementation research across the US, Europe, Asia, and beyond.
+        </p>
+        <div class="hero-ctas">
+          <a class="btn btn-indigo btn-arrow" href="#publications">Browse publications</a>
+          <a class="btn btn-ghost btn-arrow" href="https://pubmed.ncbi.nlm.nih.gov/?term=sureadhere+OR+%22video+directly+observed+therapy%22" target="_blank" rel="noopener">View on PubMed</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="../assets/images/evidence-base-hero.png" alt="SureAdhere evidence — peer-reviewed research" style="border-radius:var(--radius-lg);box-shadow:0 16px 48px -12px rgba(0,0,0,0.18);" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ───── STATS BAND ───── -->
+<div style="background:var(--paper-cool);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:32px 0;">
+  <div class="container">
+    <div style="display:flex;gap:48px;flex-wrap:wrap;justify-content:center;">
+      <div style="text-align:center;">
+        <div style="font-size:2.4rem;font-weight:700;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">27</div>
+        <div style="font-size:0.82rem;color:var(--muted);margin-top:6px;">Peer-reviewed publications</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:2.4rem;font-weight:700;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">10+</div>
+        <div style="font-size:0.82rem;color:var(--muted);margin-top:6px;">Countries represented in research</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:2.4rem;font-weight:700;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">WHO</div>
+        <div style="font-size:0.82rem;color:var(--muted);margin-top:6px;">Global treatment guidelines informed</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-size:2.4rem;font-weight:700;background:var(--grad-text);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;">CDC</div>
+        <div style="font-size:0.82rem;color:var(--muted);margin-top:6px;">US treatment guidelines updated</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ───── PUBLICATIONS LIST ───── -->
+<section class="section warm" id="publications" style="padding:60px 0 80px;">
+  <div class="container">
+    <div class="section-head" style="margin-bottom:32px;">
+      <span class="eyebrow">// FULL EVIDENCE BASE</span>
+      <h2 class="section-title"><em>Peer-Reviewed Publications</em></h2>
+      <p class="section-lede" style="max-width:720px;margin-top:16px;">These peer-reviewed studies — spanning RCTs, cohort studies, and real-world implementation research — form the scientific foundation behind SureAdhere and have directly informed WHO and CDC treatment guidelines.</p>
+    </div>
+
+    <!-- Search + Location Filter -->
+    <div class="pub-search-wrap">
+      <svg class="pub-search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <input type="text" id="pub-search" class="pub-search-input" placeholder="Search by title, author, or keyword…" autocomplete="off">
+    </div>
+    <div class="filter-group">
+      <span class="filter-label">Location</span>
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-region-filter="all">All Locations</button>
+        <button class="filter-tab" data-region-filter="usa">USA</button>
+        <button class="filter-tab" data-region-filter="europe">Europe</button>
+        <button class="filter-tab" data-region-filter="asia">Asia</button>
+        <button class="filter-tab" data-region-filter="africa">Africa</button>
+      </div>
+    </div>
+
+    <div class="pub-list">
+
+      <!-- 01 · 2022 -->
+      <div class="pub-item" data-type="rct" data-region="usa">
+        <div class="pub-num">01</div>
+        <div class="pub-body">
+          <span class="pub-rct-tag">RCT</span>
+          <div class="pub-title"><a href="https://pubmed.ncbi.nlm.nih.gov/35050357/" target="_blank" rel="noopener">In-Person vs Electronic Directly Observed Therapy for Tuberculosis Treatment Adherence: A Randomized Noninferiority Trial</a></div>
+          <div class="pub-meta">Burzynski J, Mangan JM, Lam CK, et al. <em>JAMA Netw Open.</em> 2022;5(1):e2144210.</div>
+          <div class="pub-finding">Electronic DOT was non-inferior to in-person DOT (−2.6% difference) across 4 clinics and 216 patients — providing key evidence for inclusion of eDOT in the standard of care.</div>
+        </div>
+        <div class="pub-year">2022</div>
+        <div class="pub-location">USA<span class="pub-location-region">Multi-state</span></div>
+      </div>
+
+      <!-- 02 · 2022 -->
+      <div class="pub-item" data-type="feasibility" data-region="asia">
+        <div class="pub-num">02</div>
+        <div class="pub-body">
+          <div class="pub-title"><a href="https://pubmed.ncbi.nlm.nih.gov/35898139/" target="_blank" rel="noopener">Feasibility and Acceptability of Asynchronous VOT Among Patients with MDR-TB</a></div>
+          <div class="pub-meta">Casalme DJO, Marcelo DB, et al. <em>Int J Tuberc Lung Dis.</em> 2022;26(8):760-765.</div>
+        </div>
+        <div class="pub-year">2022</div>
+        <div class="pub-location">Philippines<span class="pub-location-region">Asia</span></div>
+      </div>
+
+      <!-- 03 · 2021 -->
+      <div class="pub-item" data-type="implementation" data-region="usa">
+        <div class="pub-num">03</div>
+        <div class="pub-body">
+          <div class="pub-title"><a href="https://pubmed.ncbi.nlm.nih.gov/34330351/" target="_blank" rel="noopener">Real-world Implementation of Video-Observed Therapy in an Urban TB Program in The United States</a></div>
+          <div class="pub-meta">Perry A, Chitnis A, Chin A, et al. <em>Int J Tuberc Lung Dis.</em> 2021;25(8):655-661.</div>
+        </div>
+        <div class="pub-year">2021</div>
+        <div class="pub-location">USA<span class="pub-location-region">Urban</span></div>
+      </div>
+
+      <!-- 04 · 2021 -->
+      <div class="pub-item" data-type="implementation" data-region="asia">
+        <div class="pub-num">04</div>
+        <div class="pub-body">
+          <div class="pub-title"><a href="https://pubmed.ncbi.nlm.nih.gov/33961645/" target="_blank" rel="noopener">Assessing Private Provider Perceptions and The Acceptability of Video Observed Treatment Technology for Tuberculosis Treatment Adherence in Three Cities Across Vietnam</a></div>
+          <div class="pub-meta">Nguyen LH, Tran PTM, Dam TA, et al. <em>PLoS One.</em> 2021;16(5):e0250644.</div>
+        </div>
+        <div class="pub-year">2021</div>
+        <div class="pub-location">Vietnam<span class="pub-location-region">Asia</span></div>
+      </div>
+
+      <!-- 05 · 2020 -->
+      <div class="pub-item" data-type="rct" data-region="europe">
+        <div class="pub-num">05</div>
+        <div class="pub-body">
+          <span class="pub-rct-tag">RCT</span>
+          <div class="pub-title"><a href="https://pubmed.ncbi.nlm.nih.gov/32381495/" target="_blank" rel="noopener">Video-observed Therapy and Medication Adherence for Tuberculosis Patients: Randomised Controlled Trial in Moldova</a></div>
+          <div class="pub-meta">Ravenscroft L, Kettle S, Persian R, et al. <em>Eur Respir J.</em> 2020;56(2):2000493.</div>
+        </div>
+        <div class="pub-year">2020</div>
+        <div class="pub-location">Moldova<span class="pub-location-region">Europe</span></div>
+      </div>
+
+      <!-- 06 · 2020 -->
+      <div class="pub-item" data-type="implementation" data-region="usa">
+        <div class="pub-num">06</div>
+        <div class="pub-body">
+          <div class="pub-title"><a href="https://pubmed.ncbi.nlm.nih.gov/32718411/" target="_blank" rel="noopener">Transforming Essential Services for Tuberculosis During the COVID-19 Pandemic: Lessons from New York City</a></div>
+          <div class="pub-meta">Burzynski J, Macaraig M, Nilsen D, Schluger NW. <em>Int J Tuberc Lung Dis.</em> 2020;24(7):735-736.</div>
+        </div>
+        <div class="pub-year">2020</div>
+        <div class="pub-location">USA<span class="pub-location-region">New York City</span></div>
+      </div>
+
+      <!-- 07 · 2020 -->
+      <div class="pub-item" data-type="feasibility" data-region="africa">
+        <div class="pub-num">07</div>
+        <div class="pub-body">
+          <div class="pub-title"><a href="https://pubmed.ncbi.nlm.nih.gov/32280670/" target="_blank" rel="noopener">Video Directly Observed Therapy for Supporting and Monitoring Adherence to Tuberculosis Treatment in Uganda: A Pilot Cohort Study</a></div>
+          <div class="pub-meta">Sekandi JN, Buregyeya E, Zalwango S, et al. <em>ERJ Open Res.</em> 2020;6(1):00175-2019.</div>
+          <div class="pub-finding">82.2% of expected videos received; median adherence 85%; 92% of patients reported being very satisfied — VDOT proved feasible and acceptable in a resource-limited African setting.</div>
+        </div>
+        <div class="pub-year">2020</div>
+        <div class="pub-location">Uganda<span class="pub-location-region">Africa</span></div>
+      </div>
+
+      <!-- 08 · 2020 -->
+      <div class="pub-item" data-type="feasibility" data-region="usa">
+        <div class="pub-num">08</div>
+        <div class="pub-body">
+          <div class="pub-title"><a href="https://pubmed.ncbi.nlm.nih.gov/32398202/" target="_blank" rel="noopener">Evaluation of Recorded Video-Observed Therapy for Anti-Tuberculosis Treatment</a></div>
+          <div class="pub-meta">Garfein RS, Liu L, Cuevas-Mota J, et al. <em>Int J Tuberc Lung Dis.</em> 2020;24(5):520-525.</div>
+        </div>
+        <div class="pub-year">2020</div>
+        <div class="pub-location">USA<span class="pub-location-region">California</span></div>
+      </div>
+
+      <!-- 09 · 2020 -->
+      <div class="pub-item" data-type="feasibility" data-region="asia">
+        <div class="pub-num">09</div>
+        <div class="pub-body">
+          <div class="pub-title"><a href="https://pubmed.ncbi.nlm.nih.gov/32735222/" target="_blank" rel="noopener">A Comprehensive App That Improves Tuberculosis Treatment Management Through Video-Observed Therapy: Usability Study</a></div>
+          <div class="pub-meta">Guo X, Yang Y, Takiff HE, et al. <em>JMIR Mhealth Uhealth.</em> 2020;8(7):e17658.</div>
+        </div>
+        <div class="pub-year">2020</div>
+        <div class="pub-location">China<span class="pub-location-region">Asia</span></div>
+      </div>
+
+      <!-- 10 · 2020 -->
+      <div class="pub-item" data-type="review" data-region="asia">
+        <div class="pub-num">10</div>
+        <div class="pub-body">
+          <div class="pub-title"><a href="https://pubmed.ncbi.nlm.nih.gov/32716309/" target="_blank" rel="noopener">Perceptions and Acceptability of Digital Interventions Among Tuberculosis Patients in Cambodia: Qualitative Study of Video-Based Directly Observed Therapy</a></div>
+          <div class="pub-meta">Rabinovich L, Molton JS, Ooi WT, Paton NI, Batra S, Yoong J. <em>J Med Internet Res.</em> 2020;22(7):e16856.</div>
+        </div>
+        <div class="pub-year">2020</div>
+        <div class="pub-location">Cambodia<span class="pub-location-region">Asia</span></div>
+      </div>
+
+      <!-- 11 · 2020 -->
+      <div class="pub-item" data-type="review" data-region="usa">
+        <div class="pub-num">11</div>
+        <div class="pub-body">
+          <div class="pub-title"><a href="https://pubmed.ncbi.nlm.nih.gov/31959145/" target="_blank" rel="noopener">Requiring Smartphone Ownership for mHealth Interventions: Who Could Be Left Out? Lessons from New York City</a></div>
+          <div class="pub-meta">Bommakanti KK, Smith LL, Liu L, et al. <em>BMC Public Health.</em> 2020;20(1):81.</div>
+        </div>
+        <div class="pub-year">2020</div>
+        <div class="pub-location">USA<span class="pub-location-region">New York City</span></div>
+      </div>
+
+      <!-- 12 · 2020 -->
+      <div class="pub-item" data-type="review" data-region="usa">
+        <div class="pub-num">12</div>
+        <div class="pub-body">
+          <div class="pub-title"><a href="https://pubmed.ncbi.nlm.nih.gov/32941064/" target="_blank" rel="noopener">Cost of Tuberculosis Therapy Directly Observed on Video for Health Departments and Patients in New York City; San Francisco, California; and Rhode Island (2017–2018)</a></div>
+          <div class="pub-meta">Beeler Asay GR, Lam CK, Stewart B, et al. <em>Am J Public Health.</em> 2020;110(11):1696-1703.</div>
+        </div>
+        <div class="pub-year">2020</div>
+        <div class="pub-location">USA<span class="pub-location-region">Multi-city</span></div>
+      </div>
+
+      <!-- 13 · 2019 -->
+      <div class="pub-item" data-type="rct" data-region="europe">
+        <div class="pub-num">13</div>
+        <div class="pub-body">
+          <span class="pub-rct-tag">RCT</span>
+          <div class="pub-title"><a href="https://pubmed.ncbi.nlm.nih.gov/30799062/" target="_blank" rel="noopener">Smartphone-enabled Video-Observed versus Directly Observed Treatment for Tuberculosis: A Multicentre, Analyst-blinded, Randomised, Controlled Superiority Trial</a></div>
+          <div class="pub-meta">Story A, Aldridge RW, Smith CM, et al. <em>Lancet.</em> 2019;393(10177):1216-1224.</div>
+          <div class="pub-finding">VOT was superior to in-person DOT (75% vs 60% completing 80%+ of scheduled observations) across 22 clinics — more acceptable, effective, and cheaper than DOT.</div>
+        </div>
+        <div class="pub-year">2019</div>
+        <div class="pub-location">UK<span class="pub-location-region">London</span></div>
+      </div>
+
+      <!-- 14 · 2019 -->
+      <div class="pub-item" data-type="implementation" data-region="europe">
+        <div class="pub-num">14</div>
+        <div class="pub-body">
+          <div class="pub-title"><a href="https://pubmed.ncbi.nlm.nih.gov/31948218/" target="_blank" rel="noopener">Use of Video Directly Observed Treatment for Tuberculosis in Northern Norway</a></div>
+          <div class="pub-meta">Bendiksen R, Ovesen T, Asfeldt AM, et al. <em>Tidsskr Nor Laegeforen.</em> 2020;140(1).</div>
+        </div>
+        <div class="pub-year">2019</div>
+        <div class="pub-location">Norway<span class="pub-location-region">Europe</span></div>
+      </div>
+
+      <!-- 15 · 2019 -->
+      <div class="pub-item" data-type="feasibility" data-region="asia">
+        <div class="pub-num">15</div>
+        <div class="pub-body">
+          <div class="pub-title"><a href="https://pubmed.ncbi.nlm.nih.gov/31456581/" target="_blank" rel="noopener">Use of Smartphone-Based Video Directly Observed Therapy (vDOT) in Tuberculosis Care: Single-Arm, Prospective Feasibility Study</a></div>
+          <div class="pub-meta">Bendiksen R, Ovesen T, Asfeldt AM, et al. <em>Tidsskr Nor Laegeforen.</em> 2020;140(1).</div>
+        </div>
+        <div class="pub-year">2019</div>
+        <div class="pub-location">India<span class="pub-location-region">Asia</span></div>
+      </div>
+
+      <!-- 16 · 2019 -->
+      <div class="pub-item" data-type="feasibility" data-region="usa">
+        <div class="pub-num">16</div>
+        <div class="pub-body">
+          <div class="pub-title"><a href="https://pubmed.ncbi.nlm.nih.gov/30707103/" target="_blank" rel="noopener">Change in Patient Comfort Using Mobile Phones Following the Use of an App to Monitor Tuberculosis Treatment Adherence: Longitudinal Study</a></div>
+          <div class="pub-meta">Do D, Garfein RS, Cuevas-Mota J, Collins K, Liu L. <em>JMIR Mhealth Uhealth.</em> 2019;7(2):e11638.</div>
+        </div>
+        <div class="pub-year">2019</div>
+        <div class="pub-location">USA<span class="pub-location-region">California</span></div>
+      </div>
+
+      <!-- 17 · 2019 -->
+      <div class="pub-item" data-type="review" data-region="europe">
+        <div class="pub-num">17</div>
+        <div class="pub-body">
+          <div class="pub-title"><a href="https://pubmed.ncbi.nlm.nih.gov/30799059/" target="_blank" rel="noopener">Video-Observed Therapy for Tuberculosis: Strengthening Care</a></div>
+          <div class="pub-meta">Fraser H, Keshavjee S. <em>Lancet.</em> 2019;393(10177):1180-1181.</div>
+        </div>
+        <div class="pub-year">2019</div>
+        <div class="pub-location">Global<span class="pub-location-region">Commentary</span></div>
+      </div>
+
+      <!-- 18 · 2019 -->
+      <div class="pub-item" data-type="review" data-region="usa">
+        <div class="pub-num">18</div>
+        <div class="pub-body">
+          <div class="pub-title"><a href="https://pubmed.ncbi.nlm.nih.gov/31867442/" target="_blank" rel="noopener">Synchronous and Asynchronous Video Observed Therapy (VOT) for Tuberculosis Treatment Adherence Monitoring and Support</a></div>
+          <div class="pub-meta">Garfein RS, Doshi RP. <em>J Clin Tuberc Other Mycobact Dis.</em> 2019;17:100098.</div>
+        </div>
+        <div class="pub-year">2019</div>
+        <div class="pub-location">USA<span class="pub-location-region">Review</span></div>
+      </div>
+
+      <!-- 19 · 2018 -->
+      <div class="pub-item" data-type="implementation" data-region="usa">
+        <div class="pub-num">19</div>
+        <div class="pub-body">
+          <div class="pub-title"><a href="https://pubmed.ncbi.nlm.nih.gov/30226154/" target="_blank" rel="noopener">Tuberculosis Treatment Monitoring by Video Directly Observed Therapy in 5 Health Districts, California, USA</a></div>
+          <div class="pub-meta">Garfein RS, Liu L, Cuevas-Mota J, et al. <em>Emerg Infect Dis.</em> 2018;24(10):1806-1815.</div>
+          <div class="pub-finding">VDOT adherence was 93% vs 66% for in-person DOT, at 32% lower cost — feasible, acceptable, and achieving high adherence across 5 California health districts.</div>
+        </div>
+        <div class="pub-year">2018</div>
+        <div class="pub-location">USA<span class="pub-location-region">California</span></div>
+      </div>
+
+      <!-- 20 · 2018 -->
+      <div class="pub-item" data-type="implementation" data-region="usa">
+        <div class="pub-num">20</div>
+        <div class="pub-body">
+          <div class="pub-title"><a href="https://pubmed.ncbi.nlm.nih.gov/30459146/" target="_blank" rel="noopener">Using Video Technology to Increase Treatment Completion for Patients With Latent Tuberculosis Infection on 3-Month Isoniazid and Rifapentine: An Implementation Study</a></div>
+          <div class="pub-meta">Lam CK, McGinnis Pilote K, Haque A, Burzynski J, Chuck C, Macaraig M. <em>J Med Internet Res.</em> 2018;20(11):e287.</div>
+        </div>
+        <div class="pub-year">2018</div>
+        <div class="pub-location">USA<span class="pub-location-region">New York City</span></div>
+      </div>
+
+      <!-- 21 · 2018 -->
+      <div class="pub-item" data-type="review" data-region="usa">
+        <div class="pub-num">21</div>
+        <div class="pub-body">
+          <div class="pub-title"><a href="https://pubmed.ncbi.nlm.nih.gov/29732378/" target="_blank" rel="noopener">Advancing Patient-Centered Care in Tuberculosis Management: A Mixed-Methods Appraisal of Video Directly Observed Therapy</a></div>
+          <div class="pub-meta">Holzman SB, Zenilman A, Shah M. <em>Open Forum Infect Dis.</em> 2018;5(4):ofy046.</div>
+        </div>
+        <div class="pub-year">2018</div>
+        <div class="pub-location">USA<span class="pub-location-region">Multi-site</span></div>
+      </div>
+
+      <!-- 22 · 2018 -->
+      <div class="pub-item" data-type="review" data-region="usa">
+        <div class="pub-num">22</div>
+        <div class="pub-body">
+          <div class="pub-title"><a href="https://pubmed.ncbi.nlm.nih.gov/29697568/" target="_blank" rel="noopener">Video Directly Observed Therapy: Enhancing Care for Patients with Active Tuberculosis</a></div>
+          <div class="pub-meta">Ingram D. <em>Nursing.</em> 2018;48(5):64-66.</div>
+        </div>
+        <div class="pub-year">2018</div>
+        <div class="pub-location">USA<span class="pub-location-region">Clinical Practice</span></div>
+      </div>
+
+      <!-- 23 · 2017 -->
+      <div class="pub-item" data-type="implementation" data-region="europe">
+        <div class="pub-num">23</div>
+        <div class="pub-body">
+          <div class="pub-title"><a href="https://pubmed.ncbi.nlm.nih.gov/28331042/" target="_blank" rel="noopener">Video-observed Treatment for Tuberculosis Patients in Belarus: Findings from the First Programmatic Experience</a></div>
+          <div class="pub-meta">Sinkou H, Hurevich H, Rusovich V, et al. <em>Eur Respir J.</em> 2017;49(3):1602049.</div>
+        </div>
+        <div class="pub-year">2017</div>
+        <div class="pub-location">Belarus<span class="pub-location-region">Europe</span></div>
+      </div>
+
+      <!-- 24 · 2017 -->
+      <div class="pub-item" data-type="implementation" data-region="asia">
+        <div class="pub-num">24</div>
+        <div class="pub-body">
+          <div class="pub-title"><a href="https://pubmed.ncbi.nlm.nih.gov/29030137/" target="_blank" rel="noopener">Video Directly Observed Therapy to Support Adherence with Treatment for Tuberculosis in Vietnam: A Prospective Cohort Study</a></div>
+          <div class="pub-meta">Nguyen TA, Pham MT, Nguyen TL, et al. <em>Int J Infect Dis.</em> 2017;65:85-89.</div>
+          <div class="pub-finding">71.1% of patients took all required doses; median 88.4% of doses correctly recorded — VDOT was feasible and resulted in high adherence in a resource-limited outpatient setting.</div>
+        </div>
+        <div class="pub-year">2017</div>
+        <div class="pub-location">Vietnam<span class="pub-location-region">Asia</span></div>
+      </div>
+
+      <!-- 25 · 2017 -->
+      <div class="pub-item" data-type="implementation" data-region="usa">
+        <div class="pub-num">25</div>
+        <div class="pub-body">
+          <div class="pub-title"><a href="https://pubmed.ncbi.nlm.nih.gov/28406884/" target="_blank" rel="noopener">Use of Video Directly Observed Treatment for Tuberculosis in Johnson County, Kansas, 2015</a></div>
+          <div class="pub-meta">Holzschuh EL, Province S, Johnson K, et al. <em>MMWR Morb Mortal Wkly Rep.</em> 2017;66(14):387-389.</div>
+        </div>
+        <div class="pub-year">2017</div>
+        <div class="pub-location">USA<span class="pub-location-region">Kansas</span></div>
+      </div>
+
+      <!-- 26 · 2016 -->
+      <div class="pub-item" data-type="implementation" data-region="usa">
+        <div class="pub-num">26</div>
+        <div class="pub-body">
+          <div class="pub-title"><a href="https://pubmed.ncbi.nlm.nih.gov/27084810/" target="_blank" rel="noopener">Enhancing Management of Tuberculosis Treatment with Video Directly Observed Therapy in New York City</a></div>
+          <div class="pub-meta">Chuck C, Robinson E, Macaraig M, Alexander M, Burzynski J. <em>Int J Tuberc Lung Dis.</em> 2016;20(5):588-593.</div>
+        </div>
+        <div class="pub-year">2016</div>
+        <div class="pub-location">USA<span class="pub-location-region">New York City</span></div>
+      </div>
+
+      <!-- 27 · 2015 -->
+      <div class="pub-item" data-type="feasibility" data-region="usa">
+        <div class="pub-num">27</div>
+        <div class="pub-body">
+          <div class="pub-title"><a href="https://pubmed.ncbi.nlm.nih.gov/26260824/" target="_blank" rel="noopener">Feasibility of Tuberculosis Treatment Monitoring by Video Directly Observed Therapy: a Binational Pilot Study</a></div>
+          <div class="pub-meta">Garfein RS, Collins K, Muñoz F, et al. <em>Int J Tuberc Lung Dis.</em> 2015;19(9):1057-1064.</div>
+        </div>
+        <div class="pub-year">2015</div>
+        <div class="pub-location">USA / Mexico<span class="pub-location-region">Binational</span></div>
+      </div>
+
+      <div id="pub-no-results">No publications match your search. Try different terms or clear the filters.</div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ───── CTA ───── -->
+<section class="section warm">
+  <div class="container" style="max-width:700px;text-align:center;">
+    <span class="eyebrow">// GET STARTED</span>
+    <h2 class="section-title" style="margin-bottom:24px;">Learn how SureAdhere can <em>amplify your program.</em></h2>
+    <p style="color:var(--muted);font-size:1.05rem;margin-bottom:40px;line-height:1.7;">
+      See how the evidence-backed SureAdhere platform can improve outcomes and reduce burden for your patients and care teams.
+    </p>
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
+      <a class="btn btn-indigo btn-arrow" href="https://dimagi.com/contact/" target="_blank" rel="noopener">Contact us</a>
+      <a class="btn btn-ghost btn-arrow" href="../index.html">Back to overview</a>
+    </div>
+  </div>
+</section>
+
+<!-- ───── FOOTER ───── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo" style="gap:10px;">
+          <img src="../assets/images/sureadhere-logo-full-color.png" alt="SureAdhere by Dimagi" style="height:30px;width:auto;filter:brightness(0) invert(1);opacity:0.85;">
+        </div>
+        <p>Patient-centered adherence technology, powered by Dimagi.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Product</h5>
+        <ul>
+          <li><a href="../index.html">Overview</a></li>
+          <li><a href="../clinical-trials/index.html">Clinical Trials</a></li>
+          <li><a href="../public-health/index.html">Public Health</a></li>
+          <li><a href="../behavioral-health/index.html">Behavioral Health</a></li>
+          <li><a href="../resources/index.html">Resources</a></li>
+          <li><a href="index.html">Evidence</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Support</h5>
+        <ul>
+          <li><a href="https://sureadhere.b2clogin.com//sureadhere.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_Conditional_MFA&client_id=38aa61ae-2f80-49d8-8566-8aa090b2711f&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fsecure.sureadhere.com&scope=openid&response_type=id_token&prompt=login" target="_blank" rel="noopener">Patient Log In</a></li>
+          <li><a href="https://dimagi.atlassian.net/wiki/spaces/sa/overview" target="_blank" rel="noopener">Help Site</a></li>
+          <li><a href="https://dimagi.com/contact/" target="_blank" rel="noopener">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>About</h5>
+        <ul>
+          <li><a href="https://dimagi.com/" target="_blank" rel="noopener">About Dimagi</a></li>
+          <li><a href="https://dimagi.com/blog/" target="_blank" rel="noopener">Blog</a></li>
+          <li><a href="https://dimagi.com/contact/" target="_blank" rel="noopener">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>// &copy; 2026 DIMAGI, INC.</span>
+      <span style="display:flex;gap:24px;flex-wrap:wrap;">
+        <a href="../privacy-policy/index.html">PRIVACY</a>
+        <a href="../privacy-policy-chinese/index.html">隐私政策 (中文)</a>
+        <a href="https://dimagi.com/terms-of-service/" target="_blank" rel="noopener">TERMS</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">SECURITY</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+(function () {
+  var ham = document.querySelector('.nav-hamburger');
+  if (ham) {
+    ham.addEventListener('click', function () {
+      this.classList.toggle('is-open');
+      document.querySelector('.nav-links').classList.toggle('is-open');
+      document.querySelector('.nav-cta').classList.toggle('is-open');
+    });
+  }
+})();
+</script>
+</body>
+</html>
