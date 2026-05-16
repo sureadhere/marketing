@@ -201,6 +201,13 @@ nav.primary {
 .nav-links .nav-sol-label { color: rgba(255,255,255,0.4); }
 .nav-links .nav-sol-label:hover { color: rgba(255,255,255,0.72); }
 
+/* ---- NAV SECTION DIVIDERS ---- */
+.nav-links a.nav-sep {
+  border-left: 1px solid rgba(255,255,255,0.22);
+  padding-left: 28px;
+  margin-left: 0;
+}
+
 .nav-cta { display: flex; gap: 10px; align-items: center; }
 .nav-wrap .btn-ghost { color: #fff; border-color: rgba(255,255,255,0.45); }
 .nav-wrap .btn-ghost:hover { border-color: #fff; }
