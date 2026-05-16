@@ -203,9 +203,17 @@ nav.primary {
 
 /* ---- NAV SECTION DIVIDERS ---- */
 .nav-links a.nav-sep {
-  border-left: 1px solid rgba(255,255,255,0.22);
-  padding-left: 28px;
-  margin-left: 0;
+  position: relative;
+}
+.nav-links a.nav-sep::before {
+  content: '';
+  position: absolute;
+  left: -14px;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 14px;
+  width: 1px;
+  background: rgba(255,255,255,0.3);
 }
 
 .nav-cta { display: flex; gap: 10px; align-items: center; }
@@ -2338,6 +2346,20 @@ footer {
 .footer-col li { margin-bottom: 12px; }
 .footer-col a { color: rgba(255,255,255,0.65); transition: color 120ms; }
 .footer-col a:hover { color: var(--paper); }
+.footer-badges {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 20px;
+}
+.footer-badges a { display: block; line-height: 0; }
+.footer-badges img {
+  height: 36px;
+  width: auto;
+  opacity: 0.85;
+  transition: opacity 150ms;
+}
+.footer-badges a:hover img { opacity: 1; }
 .footer-sub-head {
   color: rgba(255,255,255,0.38);
   font-family: var(--mono);
