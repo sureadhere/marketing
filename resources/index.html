@@ -17,13 +17,39 @@
 <link rel="stylesheet" href="../assets/styles.css">
 <style>
 
+  /* ── Photo strip ── */
+  .sol-photo-strip {
+    display: flex;
+    gap: 3px;
+    margin-top: 0;
+    height: 300px;
+    overflow: hidden;
+  }
+  .sol-photo-item {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+  }
+  .sol-photo-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    display: block;
+    transition: transform 500ms ease;
+    filter: brightness(0.88) saturate(0.9);
+  }
+  .sol-photo-item:hover img {
+    transform: scale(1.05);
+    filter: brightness(1) saturate(1);
+  }
+
   /* ── Jump nav ── */
   .jump-nav {
     position: sticky;
     top: 76px;
     z-index: 40;
-    background: var(--paper);
-    border-bottom: 1px solid var(--line);
+    background: #D4F3F2;
+    border-bottom: 1px solid rgba(0,144,144,0.18);
   }
   .jump-nav-inner {
     display: flex;
@@ -33,10 +59,11 @@
   }
   .jump-nav-inner::-webkit-scrollbar { display: none; }
   .jump-link {
-    padding: 14px 24px;
+    padding: 20px 28px;
+    font-family: var(--sans);
     font-size: 13px;
     font-weight: 500;
-    letter-spacing: 0.01em;
+    letter-spacing: 0;
     color: var(--muted);
     text-decoration: none;
     border-bottom: 2px solid transparent;
@@ -44,8 +71,8 @@
     transition: color 150ms, border-color 150ms;
     flex-shrink: 0;
   }
-  .jump-link:hover { color: var(--ink); }
-  .jump-link.active { color: #009090; border-bottom-color: #009090; }
+  .jump-link:hover { color: #009090; }
+  .jump-link.active { color: #009090; border-bottom-color: #009090; font-weight: 600; }
 
   /* ── Evidence base card ── */
   .evidence-card {
@@ -336,12 +363,9 @@
       </a>
       <div class="nav-links">
         <a href="../index.html">Overview</a>
-        <div class="nav-sol-group">
-          <a class="nav-sol-label" href="../solutions/index.html">Solutions</a>
-          <a href="../clinical-trials/index.html">Clinical Trials</a>
-          <a href="../public-health/index.html">Public Health</a>
-          <a href="../behavioral-health/index.html">Behavioral Health</a>
-        </div>
+        <a href="../clinical-trials/index.html">Clinical Trials</a>
+        <a href="../public-health/index.html">Public Health</a>
+        <a href="../behavioral-health/index.html">Behavioral Health</a>
         <a href="../resources/index.html" class="nav-active">Resources</a>
       </div>
       <div class="nav-cta">
@@ -356,11 +380,25 @@
 </div>
 
 <!-- ───── HERO ───── -->
-<section class="hero" style="background:#009090;padding:80px 0 72px;">
+<section class="hero" style="background:#009090;padding:80px 0 0;">
   <div class="container">
     <span class="eyebrow on-dark">// RESOURCES</span>
     <h1 class="hero-title" style="color:#fff;margin-bottom:20px;">Everything you need <em style="-webkit-text-fill-color:#fff;background:none;font-weight:600;">in one place.</em></h1>
-    <p class="hero-sub" style="color:rgba(255,255,255,0.80);max-width:580px;">Explore the evidence base, latest product updates, answers to common questions, and the story behind SureAdhere.</p>
+    <p class="hero-sub" style="color:rgba(255,255,255,0.80);max-width:580px;margin-bottom:56px;">Explore the evidence base, latest product updates, answers to common questions, and the story behind SureAdhere.</p>
+  </div>
+  <div class="sol-photo-strip">
+    <div class="sol-photo-item">
+      <img src="../assets/images/ph-patient.jpg" alt="Patient receiving care">
+    </div>
+    <div class="sol-photo-item">
+      <img src="../assets/images/bh-headshot.png" alt="Patient doing video check-in on phone with SureAdhere">
+    </div>
+    <div class="sol-photo-item">
+      <img src="../assets/images/hero-public-health.jpg" alt="Nurse on video call with patient">
+    </div>
+    <div class="sol-photo-item">
+      <img src="../assets/images/clinical-trials-image.png" alt="Patient managing medication with SureAdhere app">
+    </div>
   </div>
 </section>
 
@@ -371,7 +409,7 @@
       <a class="jump-link active" href="#evidence">Evidence Base</a>
       <a class="jump-link" href="#updates">Product Updates</a>
       <a class="jump-link" href="#faqs">FAQs</a>
-      <a class="jump-link" href="#team">The People Behind SureAdhere</a>
+      <a class="jump-link" href="#team">Story &amp; Team</a>
     </div>
   </div>
 </nav>
@@ -513,7 +551,7 @@
 <section class="section" id="faqs" style="padding:80px 0;">
   <div class="container">
     <div style="margin-bottom:48px;max-width:680px;">
-      <span class="eyebrow">// FAQs</span>
+      <span class="eyebrow">// FAQS</span>
       <h2 class="section-title" style="margin-top:12px;">Common <em>questions answered.</em></h2>
       <p class="section-lede">Can't find what you need? Visit the <a href="https://dimagi.atlassian.net/wiki/spaces/sa/overview" target="_blank" rel="noopener" style="color:#009090;">full help site</a> or <a href="https://dimagi.com/contact/" target="_blank" rel="noopener" style="color:#009090;">contact our team</a>.</p>
     </div>
@@ -634,11 +672,11 @@
   </div>
 </section>
 
-<!-- ───── THE PEOPLE BEHIND SUREADHERE ───── -->
+<!-- ───── STORY &amp; TEAM ───── -->
 <section class="section warm" id="team" style="padding:80px 0;">
   <div class="container">
     <div style="margin-bottom:64px;">
-      <span class="eyebrow">// THE PEOPLE BEHIND SUREADHERE</span>
+      <span class="eyebrow">// STORY &amp; TEAM</span>
       <h2 class="section-title" style="margin-top:12px;">Born in a research lab. <em>Built for the real world.</em></h2>
     </div>
 
@@ -739,6 +777,8 @@
           <li><a href="https://sureadhere.b2clogin.com//sureadhere.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_Conditional_MFA&client_id=38aa61ae-2f80-49d8-8566-8aa090b2711f&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fsecure.sureadhere.com&scope=openid&response_type=id_token&prompt=login" target="_blank" rel="noopener">Patient Log In</a></li>
           <li><a href="https://dimagi.atlassian.net/wiki/spaces/sa/overview" target="_blank" rel="noopener">Help Site</a></li>
           <li><a href="https://dimagi.com/contact/" target="_blank" rel="noopener">Contact Us</a></li>
+            <li><a href="https://apps.apple.com/us/app/sureadhere-by-dimagi/id6444502883" target="_blank" rel="noopener">App Store</a></li>
+            <li><a href="https://play.google.com/store/apps/details?id=com.dimagi.sureadhere&amp;hl=en_US" target="_blank" rel="noopener">Google Play</a></li>
         </ul>
       </div>
       <div class="footer-col">
