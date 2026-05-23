@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <link rel="icon" type="image/png" href="../assets/favicon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Contact SureAdhere: Schedule a Demo or Talk to Our Team</title>
+<title>Contact | SureAdhere</title>
 <meta name="description" content="Get in touch with the SureAdhere team to schedule a demo, ask about pricing, or learn how video Directly Observed Therapy can support your program.">
 
 <meta property="og:type" content="website">
@@ -13,7 +13,26 @@
 <meta property="og:title" content="Contact SureAdhere: Schedule a Demo or Talk to Our Team">
 <meta property="og:description" content="Get in touch with the SureAdhere team to schedule a demo, ask about pricing, or learn how video Directly Observed Therapy can support your program.">
 <meta property="og:image" content="../assets/images/platform-computer.png">
-<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Contact SureAdhere",
+  "description": "Get in touch with the SureAdhere team to schedule a demo, ask about pricing, or learn how video Directly Observed Therapy can support your program.",
+  "url": "https://dimagi.com/sureadhere/contact/",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "SureAdhere by Dimagi",
+    "url": "https://dimagi.com/sureadhere/",
+    "parentOrganization": {
+      "@type": "Organization",
+      "name": "Dimagi, Inc.",
+      "url": "https://dimagi.com/"
+    }
+  }
+}
+</script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -145,70 +164,6 @@
     .form-card { padding: 28px 22px; }
   }
 
-  /* ── HubSpot form styling (applies if inline-form mode) ── */
-  #hubspot-form .hs-form-field { margin-bottom: 18px; }
-  #hubspot-form label {
-    display: block;
-    font-size: 0.82rem;
-    font-weight: 500;
-    color: var(--ink);
-    margin-bottom: 6px;
-  }
-  #hubspot-form .hs-form-required { color: var(--indigo-deep); margin-left: 2px; }
-  #hubspot-form input[type=text],
-  #hubspot-form input[type=email],
-  #hubspot-form input[type=tel],
-  #hubspot-form input[type=number],
-  #hubspot-form select,
-  #hubspot-form textarea {
-    width: 100% !important;
-    font-family: var(--sans, 'Work Sans', system-ui, sans-serif) !important;
-    font-size: 0.95rem !important;
-    color: var(--ink) !important;
-    background: #FFFFFF !important;
-    border: 1px solid #DDE3E5 !important;
-    border-radius: var(--radius-sm) !important;
-    padding: 12px 14px !important;
-    line-height: 1.4 !important;
-    transition: border-color 150ms ease, box-shadow 150ms ease !important;
-    box-sizing: border-box !important;
-  }
-  #hubspot-form input:focus,
-  #hubspot-form select:focus,
-  #hubspot-form textarea:focus {
-    outline: none !important;
-    border-color: var(--indigo) !important;
-    box-shadow: 0 0 0 3px rgba(13,168,157,0.15) !important;
-  }
-  #hubspot-form input[type=submit] {
-    background: var(--indigo) !important;
-    color: #ffffff !important;
-    border: 1px solid var(--indigo) !important;
-    border-radius: var(--radius-sm) !important;
-    padding: 14px 28px !important;
-    font-family: var(--sans, 'Work Sans', system-ui, sans-serif) !important;
-    font-size: 0.95rem !important;
-    font-weight: 500 !important;
-    cursor: pointer !important;
-    transition: background 150ms ease, transform 150ms ease, box-shadow 150ms ease !important;
-    width: auto !important;
-  }
-  #hubspot-form input[type=submit]:hover {
-    background: var(--indigo-deep) !important;
-    border-color: var(--indigo-deep) !important;
-    transform: translateY(-1px);
-    box-shadow: 0 6px 18px -6px rgba(13,168,157,0.4);
-  }
-  #hubspot-form .submitted-message {
-    padding: 20px;
-    background: var(--indigo-soft);
-    border: 1px solid var(--indigo);
-    border-radius: var(--radius);
-    color: var(--ink);
-    font-size: 0.95rem;
-    line-height: 1.6;
-  }
-
   .form-fallback {
     padding: 32px;
     background: #F8FBFA;
@@ -249,7 +204,7 @@
       </div>
       <div class="nav-cta">
         <a class="btn btn-ghost" href="#hubspot-form">Schedule a demo</a>
-        <a class="btn btn-primary" href="../login/" target="_blank" rel="noopener">Log in</a>
+        <a class="btn btn-primary" href="../login/" target="_blank" rel="noopener">Sign In</a>
       </div>
       <button class="nav-hamburger" aria-label="Open menu">
         <span></span><span></span><span></span>
@@ -264,7 +219,6 @@
     <div class="contact-stack">
 
       <div class="contact-intro">
-        <span class="eyebrow">// CONTACT US</span>
         <h1>Get In <em>Touch</em></h1>
         <p>Tell us what you're looking for and our team will be in touch.</p>
       </div>
@@ -279,7 +233,7 @@
 
       <div class="support-card">
         <div class="support-card-content">
-          <span class="eyebrow">// FOR EXISTING USERS</span>
+          <span class="eyebrow">FOR EXISTING USERS</span>
           <h3>Looking for support?</h3>
           <p>Find product docs, troubleshooting, and how-to guides on the SureAdhere Help Site.</p>
         </div>
@@ -298,7 +252,7 @@
         <div class="logo" style="gap:10px;">
           <img src="../assets/images/sureadhere-logo-full-color.png" alt="SureAdhere by Dimagi" style="height:30px;width:auto;filter:brightness(0) invert(1);opacity:0.85;">
         </div>
-        <p>Patient-centered adherence technology, powered by Dimagi.</p>
+        <p>Patient-centered adherence technology.</p>
       </div>
       <div class="footer-col">
         <h5>Product</h5>
@@ -316,7 +270,7 @@
         <ul>
           <li><a href="../login/" target="_blank" rel="noopener">Patient Log In</a></li>
           <li><a href="https://dimagi.atlassian.net/wiki/spaces/sa/overview" target="_blank" rel="noopener">Help Site</a></li>
-          <li><a href="index.html" aria-current="page">Contact Us</a></li>
+          <li><a href="index.html" aria-current="page">Contact us</a></li>
         </ul>
         <div class="footer-badges">
           <a href="https://apps.apple.com/us/app/sureadhere-by-dimagi/id6444502883" target="_blank" rel="noopener"><img src="../assets/images/badge-app-store.svg" alt="Download on the App Store" class="badge-apple"></a>
@@ -328,11 +282,12 @@
         <ul>
           <li><a href="https://dimagi.com/" target="_blank" rel="noopener">About Dimagi</a></li>
           <li><a href="https://dimagi.com/blog/" target="_blank" rel="noopener">Blog</a></li>
+          <li><a href="https://dimagi.com/podcast/" target="_blank" rel="noopener">Podcast</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>// &copy; 2026 DIMAGI, INC.</span>
+      <span>&copy; 2026 DIMAGI, INC.</span>
       <span style="display:flex;gap:24px;flex-wrap:wrap;">
         <a href="../privacy-policy/index.html">PRIVACY</a>
         <a href="../privacy-policy-chinese/index.html">隐私政策 (中文)</a>

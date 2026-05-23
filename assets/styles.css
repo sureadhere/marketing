@@ -106,15 +106,14 @@ h1 em, h2 em, h3 em {
   background-clip: text;
 }
 
-/* ---- EYEBROW (mono, bar prefix) ---- */
+/* ---- EYEBROW (sans, bar prefix) ---- */
 .eyebrow {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  font-family: var(--mono);
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--indigo);
   margin-bottom: 20px;
@@ -168,7 +167,16 @@ nav.primary {
   font-weight: 600; font-size: 18px; letter-spacing: -0.02em;
   color: #fff;
 }
-.nav-wrap .logo-img { filter: brightness(0) invert(1); opacity: 0.95; }
+.nav-wrap .logo-img { filter: brightness(0) invert(1); opacity: 0.95; transition: filter 220ms ease, opacity 220ms ease; }
+.nav-wrap .logo img,
+.nav-wrap .logo .logo-img { transition: filter 220ms ease, opacity 220ms ease; }
+.nav-wrap .logo:hover img,
+.nav-wrap .logo:focus-visible img,
+.nav-wrap .logo:hover .logo-img,
+.nav-wrap .logo:focus-visible .logo-img {
+  filter: brightness(0) saturate(100%) invert(10%) sepia(85%) saturate(3000%) hue-rotate(251deg) brightness(80%) contrast(118%) !important;
+  opacity: 1 !important;
+}
 .logo-img {
   height: 36px; width: auto;
   display: block;
@@ -195,8 +203,8 @@ nav.primary {
   font-size: 14px; font-weight: 300;
   letter-spacing: -0.005em;
 }
-.nav-links a { color: rgba(255,255,255,0.75); transition: color 120ms; }
-.nav-links a:hover { color: #fff; }
+.nav-links a { color: rgba(255,255,255,0.75); transition: color 120ms, font-weight 120ms; text-decoration: none; }
+.nav-links a:hover { color: #fff; font-weight: 700; text-decoration: none; }
 .nav-links a:active { color: rgba(255,255,255,0.6); }
 .nav-links a.nav-active { color: #fff; font-weight: 500; }
 
@@ -2426,7 +2434,7 @@ footer {
   margin: 0 0 22px;
 }
 .footer-col ul { list-style: none; padding: 0; margin: 0; }
-.footer-col li { margin-bottom: 12px; }
+.footer-col li { margin-bottom: 6px; }
 .footer-col a { color: rgba(255,255,255,0.65); transition: color 120ms; }
 .footer-col a:hover { color: var(--paper); }
 .footer-badges {
