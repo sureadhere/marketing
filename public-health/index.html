@@ -4,12 +4,13 @@
 <meta charset="utf-8" />
 <link rel="icon" type="image/png" href="../assets/favicon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>SureAdhere for Public Health — TB, HIV &amp; Hepatitis C Treatment</title>
+<title>SureAdhere for Public Health: TB, HIV &amp; Hepatitis C Treatment</title>
 <meta name="description" content="SureAdhere's CDC-validated video DOT platform supports TB, HIV, and hepatitis C programs, delivering equivalent outcomes to in-person care while reducing burden on patients and providers.">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://dimagi.com/sureadhere-public-health/">
-<meta property="og:title" content="SureAdhere for Public Health — TB, HIV &amp; Hepatitis C Treatment">
+<link rel="canonical" href="https://dimagi.com/sureadhere-public-health/">
+<meta property="og:title" content="SureAdhere for Public Health: TB, HIV &amp; Hepatitis C Treatment">
 <meta property="og:description" content="SureAdhere's CDC-validated video DOT platform supports TB, HIV, and hepatitis C programs, delivering equivalent outcomes to in-person care.">
 <meta property="og:image" content="../assets/images/hero-public-health.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -59,20 +60,19 @@
   .testimonial-expand[open] .t-chevron { transform: rotate(45deg); }
   .t-body { padding: 28px 28px 32px; font-size: 0.95rem; color: var(--muted); line-height: 1.8; font-style: italic; }
 
-  /* ── Compliance badges ── */
-  .ct-compliance-badge {
-    font-family: var(--mono);
-    font-size: 0.72rem; font-weight: 600;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--indigo-deep);
-    background: var(--paper-2);
-    border: 1px solid var(--indigo-soft);
-    border-radius: var(--radius-sm);
-    padding: 10px 20px;
-  }
+  /* ── Compliance badges (page-specific override: smaller padding) ── */
+  .ct-compliance-badge { padding: 10px 20px; }
+
+  /* ── Partner-story public-health overrides ── */
+  .partner-stories-dark { background: var(--grad-deep); padding: 96px 0; }
+  .partner-stories-dark .section-head { margin-bottom: 48px; }
+  .partner-stories-dark .eyebrow { color: #6ECAC5; }
+  .story-featured { margin-top: 56px; padding-bottom: 0; border-bottom: 0; }
+  .story-stats { margin-bottom: 0; }
 </style>
 </head>
 <body class="page--solutions">
+<a class="skip-link" href="#main">Skip to main content</a>
 
 <!-- ───── NAV ───── -->
 <div class="nav-wrap">
@@ -84,13 +84,13 @@
       <div class="nav-links">
         <a href="../index.html">Overview</a>
         <a href="../clinical-trials/index.html" class="nav-sep">Clinical Trials</a>
-        <a href="../public-health/index.html" class="nav-active">Public Health</a>
+        <a href="../public-health/index.html" class="nav-active" aria-current="page">Public Health</a>
         <a href="../behavioral-health/index.html">Behavioral Health</a>
         <a href="../resources/index.html" class="nav-sep">Resources</a>
       </div>
       <div class="nav-cta">
-        <a class="btn btn-ghost" href="https://dimagi.com/contact/" target="_blank" rel="noopener">Schedule a demo</a>
-        <a class="btn btn-primary" href="https://sureadhere.b2clogin.com//sureadhere.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_Conditional_MFA&client_id=38aa61ae-2f80-49d8-8566-8aa090b2711f&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fsecure.sureadhere.com&scope=openid&response_type=id_token&prompt=login" target="_blank" rel="noopener">Log in</a>
+        <a class="btn btn-ghost" href="../contact/">Schedule a demo</a>
+        <a class="btn btn-primary" href="../login/" target="_blank" rel="noopener">Log in</a>
       </div>
       <button class="nav-hamburger" aria-label="Open menu">
         <span></span><span></span><span></span>
@@ -100,7 +100,7 @@
 </div>
 
 <!-- ───── HERO ───── -->
-<section class="hero" style="padding:96px 0 80px;">
+<section id="main" class="hero" style="padding:96px 0 80px;">
   <div class="container">
     <div class="hero-grid">
       <div>
@@ -112,7 +112,7 @@
           Support and engage patients throughout complex treatment regimens with SureAdhere.
         </p>
         <div class="hero-ctas">
-          <a class="btn btn-indigo btn-arrow" href="https://dimagi.com/contact/" target="_blank" rel="noopener">Schedule a demo</a>
+          <a class="btn btn-indigo btn-arrow" href="../contact/">Schedule a demo</a>
           <a class="btn btn-ghost btn-arrow" href="#features">Learn more</a>
         </div>
       </div>
@@ -131,14 +131,14 @@
         <span class="eyebrow">// THE CHALLENGE</span>
         <h2 class="section-title">Patient-Centered Tools for <em>Better Public Health Outcomes</em></h2>
         <p style="color:var(--muted);font-size:1rem;line-height:1.75;margin:24px 0 16px;">
-          Infectious diseases like tuberculosis, HIV, and hepatitis C demand long, complex treatment regimens — and keeping patients on track is one of the hardest challenges in public health. Missed doses drive drug resistance, treatment failure, and ongoing transmission.
+          Infectious diseases like tuberculosis, HIV, and hepatitis C demand long, complex treatment regimens, and keeping patients on track is one of the hardest challenges in public health. Missed doses drive drug resistance, treatment failure, and ongoing transmission.
         </p>
         <p style="color:var(--muted);font-size:1rem;line-height:1.75;margin:0;">
-          SureAdhere meets patients where they are — replacing in-person clinic visits with flexible, remote adherence support across TB, HIV, ART, and hepatitis C programs, without sacrificing outcomes.
+          SureAdhere meets patients where they are, replacing in-person clinic visits with flexible, remote adherence support across TB, HIV, ART, and hepatitis C programs, without sacrificing outcomes.
         </p>
       </div>
       <div>
-        <img src="../assets/images/ph-platform.png" alt="SureAdhere public health platform dashboard" style="border-radius:var(--radius-lg);border:1px solid var(--line);" loading="lazy">
+        <img src="../assets/images/ph-platform.png" alt="SureAdhere public health platform dashboard" style="border-radius:var(--radius-lg);" loading="lazy">
       </div>
     </div>
   </div>
@@ -146,7 +146,7 @@
 
 
 <!-- ───── PLATFORM CAPABILITIES ───── -->
-<section class="section warm" id="features">
+<section class="section" id="features">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">// PLATFORM CAPABILITIES</span>
@@ -221,7 +221,7 @@
   <div class="container">
     <div style="text-align:center;margin-bottom:44px;">
       <h3 style="font-size:1.55rem;font-weight:500;margin:0 0 12px;">Leading in Privacy &amp; Security</h3>
-      <p style="color:var(--muted);font-size:0.95rem;margin:0 auto;max-width:640px;line-height:1.7;">SureAdhere complies with US HIPAA and European GDPR data privacy regulations, and is certified under SOC 2 — protecting patient data across every program type. Our global support team provides comprehensive service level agreements based on local time zones.</p>
+      <p style="color:var(--muted);font-size:0.95rem;margin:0 auto;max-width:640px;line-height:1.7;">SureAdhere complies with US HIPAA and European GDPR data privacy regulations, and is certified under SOC 2, protecting patient data across every program type. Our global support team provides comprehensive service level agreements based on local time zones.</p>
     </div>
     <div style="display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;">
       <span class="ct-compliance-badge">HIPAA Compliant</span>
@@ -233,13 +233,50 @@
   </div>
 </div>
 
+<!-- ───── PARTNER STORY ───── -->
+<section class="partner-stories-dark">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">// PARTNER STORY</span>
+      <h2 class="section-title">Health departments who trust <em>SureAdhere.</em></h2>
+    </div>
+
+    <div class="story-featured">
+      <div class="story-featured-copy">
+        <div class="story-label">// PARTNER STORY &nbsp;·&nbsp; OCTOBER 2018</div>
+        <h3>5 California Health Districts: <em>VDOT cuts TB treatment costs by a third.</em></h3>
+        <p>Five California county health departments, including San Francisco DPH, adopted SureAdhere's video DOT platform to monitor TB treatment across geographically dispersed patients. A multi-site implementation study (Garfein et al., <em>Emerg Infect Dis</em> 2018) found VDOT delivered substantially higher adherence than in-person DOT, at a fraction of the cost, while patients overwhelmingly preferred it.</p>
+        <div class="story-stats">
+          <div>
+            <div class="story-stat-num">93<span>%</span></div>
+            <div class="story-stat-lbl">VDOT Adherence</div>
+          </div>
+          <div>
+            <div class="story-stat-num">32<span>%</span></div>
+            <div class="story-stat-lbl">Lower Cost vs DOT</div>
+          </div>
+          <div>
+            <div class="story-stat-num">5</div>
+            <div class="story-stat-lbl">Health Districts</div>
+          </div>
+        </div>
+      </div>
+      <div class="story-featured-visual">
+        <img class="story-featured-logo" src="../assets/images/logo-sf-dph-hd.png" alt="San Francisco Department of Public Health" loading="lazy">
+        <p class="story-quote-text">"VDOT was feasible, acceptable, and resulted in high adherence to TB therapy while saving staff time and reducing costs to health departments."</p>
+        <div class="story-quote-attr">Garfein et al., Emerging Infectious Diseases, 2018;24(10):1806-1815</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ───── PUBLIC HEALTH AREAS ───── -->
 <section class="section">
   <div class="container">
     <div class="section-head">
       <span class="eyebrow">// PUBLIC HEALTH AREAS</span>
       <h2 class="section-title">One platform, <em>many programs.</em></h2>
-      <p class="section-lede">SureAdhere's proven adherence technology adapts across infectious disease programs — from TB to HIV, PrEP, and hepatitis C.</p>
+      <p class="section-lede">SureAdhere's proven adherence technology adapts across infectious disease programs, from TB to HIV, PrEP, and hepatitis C.</p>
     </div>
 
     <div class="use-cases" style="grid-template-columns:repeat(3,1fr);">
@@ -249,7 +286,7 @@
         </div>
         <div class="use-case-body">
           <h3>Tuberculosis <em>(TB)</em></h3>
-          <p>SureAdhere's CDC-validated Video Directly Observed Therapy (VDOT) delivers equivalent outcomes to in-person DOT — giving patients the flexibility to take their doses from home while providers maintain the oversight needed to ensure treatment completion.</p>
+          <p>SureAdhere's CDC-validated Video Directly Observed Therapy (VDOT) delivers equivalent outcomes to in-person DOT, giving patients the flexibility to take their doses from home while providers maintain the oversight needed to ensure treatment completion.</p>
         </div>
       </div>
 
@@ -300,7 +337,7 @@
     <!-- CDC callout -->
     <div style="border:1px solid rgba(255,255,255,0.18);border-radius:var(--radius-lg);padding:36px 40px;background:rgba(255,255,255,0.06);margin-bottom:56px;">
       <p style="color:rgba(255,255,255,0.88);font-size:1rem;line-height:1.8;margin:0 0 20px;">
-        A landmark CDC-led study, published in <a href="https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2788246" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.88);text-decoration:underline;text-underline-offset:3px;">JAMA Network Open</a>, demonstrated that SureAdhere's video directly observed therapy (VDOT) is as effective as in-person DOT. These findings have shaped global TB treatment guidelines, including recommendations from the WHO and CDC — leading US health departments to adopt VDOT as the standard of care.
+        A landmark CDC-led study, published in <a href="https://jamanetwork.com/journals/jamanetworkopen/fullarticle/2788246" target="_blank" rel="noopener" style="color:rgba(255,255,255,0.88);text-decoration:underline;text-underline-offset:3px;">JAMA Network Open</a>, demonstrated that SureAdhere's video directly observed therapy (VDOT) is as effective as in-person DOT. These findings have shaped global TB treatment guidelines, including recommendations from the WHO and CDC, leading US health departments to adopt VDOT as the standard of care.
       </p>
       <a class="btn btn-on-dark btn-arrow" href="../publications/index.html">View all publications</a>
     </div>
@@ -331,10 +368,10 @@
     <span class="eyebrow">// GET STARTED</span>
     <h2 class="section-title" style="margin-bottom:24px;">Ready to strengthen <em>your public health program?</em></h2>
     <p style="color:var(--muted);font-size:1.05rem;margin-bottom:40px;line-height:1.7;">
-      Join 350+ programs already using SureAdhere to reach more patients, improve adherence, and deliver better outcomes — at lower cost.
+      Join 350+ programs already using SureAdhere to reach more patients, improve adherence, and deliver better outcomes at lower cost.
     </p>
     <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-      <a class="btn btn-indigo btn-arrow" href="https://dimagi.com/contact/" target="_blank" rel="noopener">Contact us</a>
+      <a class="btn btn-indigo btn-arrow" href="../contact/">Contact us</a>
     </div>
   </div>
 </section>
@@ -353,19 +390,19 @@
         <h5>Product</h5>
         <ul>
           <li><a href="../index.html">Overview</a></li>
-          <li><a href="../clinical-trials/index.html" class="nav-sep">Clinical Trials</a></li>
+          <li><a href="../clinical-trials/index.html">Clinical Trials</a></li>
           <li><a href="index.html">Public Health</a></li>
           <li><a href="../behavioral-health/index.html">Behavioral Health</a></li>
-          <li><a href="../resources/index.html" class="nav-sep">Resources</a></li>
+          <li><a href="../resources/index.html">Resources</a></li>
           <li><a href="../publications/index.html">Evidence</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h5>Support</h5>
         <ul>
-          <li><a href="https://sureadhere.b2clogin.com//sureadhere.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_Conditional_MFA&client_id=38aa61ae-2f80-49d8-8566-8aa090b2711f&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fsecure.sureadhere.com&scope=openid&response_type=id_token&prompt=login" target="_blank" rel="noopener">Patient Log In</a></li>
+          <li><a href="../login/" target="_blank" rel="noopener">Patient Log In</a></li>
           <li><a href="https://dimagi.atlassian.net/wiki/spaces/sa/overview" target="_blank" rel="noopener">Help Site</a></li>
-          <li><a href="https://dimagi.com/contact/" target="_blank" rel="noopener">Contact Us</a></li>
+          <li><a href="../contact/">Contact Us</a></li>
         </ul>
           <div class="footer-badges">
             <a href="https://apps.apple.com/us/app/sureadhere-by-dimagi/id6444502883" target="_blank" rel="noopener"><img src="../assets/images/badge-app-store.svg" alt="Download on the App Store" class="badge-apple"></a>
@@ -377,7 +414,6 @@
         <ul>
           <li><a href="https://dimagi.com/" target="_blank" rel="noopener">About Dimagi</a></li>
           <li><a href="https://dimagi.com/blog/" target="_blank" rel="noopener">Blog</a></li>
-          <li><a href="https://dimagi.com/contact/" target="_blank" rel="noopener">Contact</a></li>
         </ul>
       </div>
     </div>
@@ -415,6 +451,13 @@
       document.querySelector('.nav-cta').classList.toggle('is-open');
     });
   }
+  document.querySelectorAll('.nav-links a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      document.querySelector('.nav-hamburger').classList.remove('is-open');
+      document.querySelector('.nav-links').classList.remove('is-open');
+      document.querySelector('.nav-cta').classList.remove('is-open');
+    });
+  });
 })();
 </script>
 </body>

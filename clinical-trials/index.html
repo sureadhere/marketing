@@ -4,12 +4,13 @@
 <meta charset="utf-8" />
 <link rel="icon" type="image/png" href="../assets/favicon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>SureAdhere for Clinical Trials — Participant Adherence &amp; Engagement</title>
+<title>SureAdhere for Clinical Trials: Participant Adherence &amp; Engagement</title>
 <meta name="description" content="SureAdhere ensures high protocol adherence, reduces dropout, and accelerates drug development with real-time data and remote participant engagement for infectious disease clinical trials.">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://dimagi.com/sureadhere-clinical-trials/">
-<meta property="og:title" content="SureAdhere for Clinical Trials — Participant Adherence &amp; Engagement">
+<link rel="canonical" href="https://dimagi.com/sureadhere-clinical-trials/">
+<meta property="og:title" content="SureAdhere for Clinical Trials: Participant Adherence &amp; Engagement">
 <meta property="og:description" content="SureAdhere ensures high protocol adherence, reduces dropout, and accelerates drug development for infectious disease clinical trials.">
 <meta property="og:image" content="../assets/images/hero-clinical-trials.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -124,227 +125,6 @@
     .feat-visual { min-height: auto; }
   }
 
-  /* ── Security / compliance band (matches home page) ── */
-  .ct-compliance-band {
-    background: var(--paper-cool);
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-    padding: 80px 0;
-  }
-  .ct-compliance-head {
-    text-align: center;
-    margin-bottom: 44px;
-  }
-  .ct-compliance-head h3 {
-    font-size: 1.55rem;
-    font-weight: 500;
-    margin: 0 0 12px;
-  }
-  .ct-compliance-head p {
-    color: var(--muted);
-    font-size: 0.95rem;
-    margin: 0;
-    max-width: 640px;
-    margin: 0 auto;
-    line-height: 1.7;
-  }
-  .ct-compliance-items {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    flex-wrap: wrap;
-  }
-  .ct-compliance-badge {
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--indigo-deep);
-    background: var(--paper-2);
-    border: 1px solid var(--indigo-soft);
-    border-radius: var(--radius-sm);
-    padding: 14px 28px;
-  }
-
-  /* ── Partner stories (dark purple) ── */
-  .partner-stories-dark {
-    background: linear-gradient(150deg, #0E0840 0%, #180F60 50%, #1C1870 100%);
-    padding: 88px 0;
-    color: var(--paper);
-  }
-  .partner-stories-dark .eyebrow { color: rgba(255,255,255,0.5); }
-  .partner-stories-dark .section-title { color: var(--paper); }
-  .partner-stories-dark .section-title em {
-    background: linear-gradient(90deg, #6ECAC5 0%, #A5DFDB 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  /* featured story row */
-  .story-featured {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 64px;
-    align-items: center;
-    margin-top: 56px;
-    padding-bottom: 56px;
-    border-bottom: 1px solid rgba(255,255,255,0.12);
-  }
-  .story-featured-copy .story-label {
-    font-family: var(--mono);
-    font-size: 0.68rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #6ECAC5;
-    margin-bottom: 16px;
-  }
-  .story-featured-copy h3 {
-    font-size: clamp(1.3rem, 2vw, 1.7rem);
-    font-weight: 300;
-    letter-spacing: -0.02em;
-    color: var(--paper);
-    margin-bottom: 16px;
-    line-height: 1.25;
-  }
-  .story-featured-copy h3 em {
-    font-style: normal;
-    font-weight: 500;
-    color: #A5DFDB;
-    background: none;
-    -webkit-background-clip: unset;
-    background-clip: unset;
-    -webkit-text-fill-color: #A5DFDB;
-  }
-  .story-featured-copy > p {
-    font-size: 0.95rem;
-    color: rgba(255,255,255,0.68);
-    line-height: 1.75;
-    margin: 0 0 28px;
-  }
-  .story-stats {
-    display: flex;
-    gap: 32px;
-    padding-top: 28px;
-    border-top: 1px solid rgba(255,255,255,0.15);
-    margin-bottom: 32px;
-  }
-  .story-stat-num {
-    font-size: 2rem;
-    font-weight: 600;
-    letter-spacing: -0.03em;
-    color: var(--paper);
-  }
-  .story-stat-num span { color: #6ECAC5; }
-  .story-stat-lbl {
-    font-family: var(--mono);
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.5);
-    margin-top: 5px;
-  }
-  .story-featured-visual {
-    background: rgba(255,255,255,0.06);
-    border: 1px solid rgba(110,202,197,0.2);
-    border-radius: var(--radius-lg);
-    padding: 48px 40px;
-    display: flex;
-    flex-direction: column;
-    gap: 24px;
-  }
-  .story-featured-logo {
-    height: 36px;
-    width: auto;
-    object-fit: contain;
-    filter: brightness(0) invert(1);
-    opacity: 0.85;
-    align-self: flex-start;
-  }
-  .story-quote-text {
-    font-size: 1rem;
-    line-height: 1.75;
-    color: rgba(255,255,255,0.8);
-    font-style: italic;
-    border-left: 3px solid #6ECAC5;
-    padding-left: 20px;
-    margin: 0;
-  }
-  .story-quote-attr {
-    font-family: var(--mono);
-    font-size: 0.68rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: #6ECAC5;
-  }
-
-  /* secondary stories */
-  .story-secondary-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-    margin-top: 40px;
-  }
-  .story-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: var(--radius-lg);
-    padding: 36px 32px;
-  }
-  .story-card-tag {
-    font-family: var(--mono);
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #6ECAC5;
-    margin-bottom: 14px;
-  }
-  .story-card h4 {
-    font-size: 1.05rem;
-    font-weight: 400;
-    color: var(--paper);
-    line-height: 1.4;
-    margin-bottom: 12px;
-  }
-  .story-card p {
-    font-size: 0.88rem;
-    color: rgba(255,255,255,0.58);
-    line-height: 1.7;
-    margin: 0 0 20px;
-  }
-  .story-card-stats {
-    display: flex;
-    gap: 20px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.1);
-  }
-  .story-card-stat-num {
-    font-size: 1.4rem;
-    font-weight: 600;
-    letter-spacing: -0.02em;
-    color: var(--paper);
-  }
-  .story-card-stat-num span { color: #6ECAC5; }
-  .story-card-stat-lbl {
-    font-family: var(--mono);
-    font-size: 0.6rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.45);
-    margin-top: 4px;
-  }
-  @media (max-width: 860px) {
-    .story-featured { grid-template-columns: 1fr; gap: 40px; }
-    .story-secondary-grid { grid-template-columns: 1fr; }
-  }
-
   /* ── Expert bio strip ── */
   .expert-strip {
     background: var(--paper-warm);
@@ -398,6 +178,7 @@
 </style>
 </head>
 <body class="page--solutions">
+<a class="skip-link" href="#main">Skip to main content</a>
 
 <!-- ───── NAV ───── -->
 <div class="nav-wrap">
@@ -408,14 +189,14 @@
       </a>
       <div class="nav-links">
         <a href="../index.html">Overview</a>
-        <a href="../clinical-trials/index.html" class="nav-sep nav-active">Clinical Trials</a>
+        <a href="../clinical-trials/index.html" class="nav-sep nav-active" aria-current="page">Clinical Trials</a>
         <a href="../public-health/index.html">Public Health</a>
         <a href="../behavioral-health/index.html">Behavioral Health</a>
         <a href="../resources/index.html" class="nav-sep">Resources</a>
       </div>
       <div class="nav-cta">
-        <a class="btn btn-ghost" href="https://dimagi.com/contact/" target="_blank" rel="noopener">Schedule a demo</a>
-        <a class="btn btn-primary" href="https://sureadhere.b2clogin.com//sureadhere.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_Conditional_MFA&client_id=38aa61ae-2f80-49d8-8566-8aa090b2711f&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fsecure.sureadhere.com&scope=openid&response_type=id_token&prompt=login" target="_blank" rel="noopener">Log in</a>
+        <a class="btn btn-ghost" href="../contact/">Schedule a demo</a>
+        <a class="btn btn-primary" href="../login/" target="_blank" rel="noopener">Log in</a>
       </div>
       <button class="nav-hamburger" aria-label="Open menu">
         <span></span><span></span><span></span>
@@ -425,7 +206,7 @@
 </div>
 
 <!-- ───── HERO ───── -->
-<section class="hero" style="padding:96px 0 80px;">
+<section id="main" class="hero" style="padding:96px 0 80px;">
   <div class="container">
     <div class="hero-grid">
       <div>
@@ -437,7 +218,7 @@
           SureAdhere's end-to-end platform ensures adherence to treatment protocols, provides actionable insights, and enables remote participant engagement, empowering clinical trial teams to make faster, data-driven decisions.
         </p>
         <div class="hero-ctas">
-          <a class="btn btn-indigo btn-arrow" href="https://dimagi.com/contact/" target="_blank" rel="noopener">Schedule a demo</a>
+          <a class="btn btn-indigo btn-arrow" href="../contact/">Schedule a demo</a>
           <a class="btn btn-ghost btn-arrow" href="#features">Learn more</a>
         </div>
       </div>
@@ -565,9 +346,9 @@
     <!-- Gates MRI -->
     <div class="story-featured">
       <div class="story-featured-copy">
-        <div class="story-label">// PARTNER STORY</div>
+        <div class="story-label">// PARTNER STORY &nbsp;·&nbsp; OCTOBER 2024</div>
         <h3 style="color:#fff;">Gates MRI &amp; PAN-TB Consortium: <em>Phase 2b/c TB treatment shortening trial.</em></h3>
-        <p>Gates MRI selected SureAdhere as the central adherence platform for the PAN-TB TBDO6 study — evaluating two novel regimens across 11 sites in South Africa and the Philippines. Exceptionally high adherence allowed early go/no-go decisions without adherence as a confounding factor.</p>
+        <p>Gates MRI selected SureAdhere as the central adherence platform for the PAN-TB TBDO6 study, evaluating two novel regimens across 11 sites in South Africa and the Philippines. Exceptionally high adherence allowed early go/no-go decisions without adherence as a confounding factor.</p>
         <div class="story-stats">
           <div>
             <div class="story-stat-num">99<span>%</span></div>
@@ -586,16 +367,16 @@
       <div class="story-featured-visual" style="align-items:flex-start;justify-content:center;min-height:220px;">
         <img src="../assets/images/logo-gates-mri-2.png" alt="Gates Medical Research Institute" loading="lazy" style="width:100%;max-width:300px;height:auto;object-fit:contain;filter:brightness(0) invert(1);opacity:0.9;">
         <p class="story-quote-text">"Why can't we use SureAdhere in all of our clinical trials?"</p>
-        <div class="story-quote-attr">— Treatment Support Worker, South African Trial Site</div>
+        <div class="story-quote-attr">Treatment Support Worker, South African Trial Site</div>
       </div>
     </div>
 
     <!-- Featured: Dermata -->
     <div class="story-featured" style="border-bottom:none;margin-bottom:0;padding-bottom:0;">
       <div class="story-featured-copy">
-        <div class="story-label">// FEATURED STORY</div>
+        <div class="story-label">// FEATURED STORY &nbsp;·&nbsp; FEBRUARY 2024</div>
         <h3 style="color:#fff;">Dermata Therapeutics: <em>Protocol compliance for Phase 2 &amp; 3 dermatology trials.</em></h3>
-        <p>SureAdhere has partnered with Dermata Therapeutics since 2019, supporting two Phase 2 clinical trials evaluating DMT310 for acne and rosacea — across 32 US sites. High adherence across both trials enabled confident futility decisions for rosacea and removed adherence as a confounder on primary endpoints for acne. Dermata's board subsequently selected SureAdhere for their Phase 3 acne trial, currently enrolling.</p>
+        <p>SureAdhere has partnered with Dermata Therapeutics since 2019, supporting two Phase 2 clinical trials evaluating DMT310 for acne and rosacea across 32 US sites. High adherence across both trials enabled confident futility decisions for rosacea and removed adherence as a confounder on primary endpoints for acne. Dermata's board subsequently selected SureAdhere for their Phase 3 acne trial, currently enrolling.</p>
         <div class="story-stats">
           <div>
             <div class="story-stat-num">97<span>%</span></div>
@@ -616,7 +397,7 @@
         <p class="story-quote-text">
           "The SureAdhere leadership team and their VDOT software have provided the confidence in treatment compliance we have been seeking for years in conducting clinical research. The application is very user friendly and available for all subjects randomized to our clinical studies."
         </p>
-        <div class="story-quote-attr">— Head of Clinical Operations, Dermata Therapeutics</div>
+        <div class="story-quote-attr">Head of Clinical Operations, Dermata Therapeutics</div>
       </div>
     </div>
   </div>
@@ -631,7 +412,7 @@
       Whether you're planning a new trial or looking to improve adherence in an active study, our team is ready to walk you through the platform and discuss your specific requirements.
     </p>
     <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-      <a class="btn btn-indigo btn-arrow" href="https://dimagi.com/contact/" target="_blank" rel="noopener">Contact us</a>
+      <a class="btn btn-indigo btn-arrow" href="../contact/">Contact us</a>
     </div>
   </div>
 </section>
@@ -653,16 +434,16 @@
           <li><a href="index.html">Clinical Trials</a></li>
           <li><a href="../public-health/index.html">Public Health</a></li>
           <li><a href="../behavioral-health/index.html">Behavioral Health</a></li>
-          <li><a href="../resources/index.html" class="nav-sep">Resources</a></li>
+          <li><a href="../resources/index.html">Resources</a></li>
           <li><a href="../publications/index.html">Evidence</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h5>Support</h5>
         <ul>
-          <li><a href="https://sureadhere.b2clogin.com//sureadhere.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_Conditional_MFA&client_id=38aa61ae-2f80-49d8-8566-8aa090b2711f&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fsecure.sureadhere.com&scope=openid&response_type=id_token&prompt=login" target="_blank" rel="noopener">Patient Log In</a></li>
+          <li><a href="../login/" target="_blank" rel="noopener">Patient Log In</a></li>
           <li><a href="https://dimagi.atlassian.net/wiki/spaces/sa/overview" target="_blank" rel="noopener">Help Site</a></li>
-          <li><a href="https://dimagi.com/contact/" target="_blank" rel="noopener">Contact Us</a></li>
+          <li><a href="../contact/">Contact Us</a></li>
         </ul>
           <div class="footer-badges">
             <a href="https://apps.apple.com/us/app/sureadhere-by-dimagi/id6444502883" target="_blank" rel="noopener"><img src="../assets/images/badge-app-store.svg" alt="Download on the App Store" class="badge-apple"></a>
@@ -674,7 +455,6 @@
         <ul>
           <li><a href="https://dimagi.com/" target="_blank" rel="noopener">About Dimagi</a></li>
           <li><a href="https://dimagi.com/blog/" target="_blank" rel="noopener">Blog</a></li>
-          <li><a href="https://dimagi.com/contact/" target="_blank" rel="noopener">Contact</a></li>
         </ul>
       </div>
     </div>
@@ -701,6 +481,13 @@
       document.querySelector('.nav-cta').classList.toggle('is-open');
     });
   }
+  document.querySelectorAll('.nav-links a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      document.querySelector('.nav-hamburger').classList.remove('is-open');
+      document.querySelector('.nav-links').classList.remove('is-open');
+      document.querySelector('.nav-cta').classList.remove('is-open');
+    });
+  });
 
   document.querySelectorAll('.cap-tab').forEach(function (btn) {
     btn.addEventListener('click', function () {

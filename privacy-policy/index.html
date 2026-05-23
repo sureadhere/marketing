@@ -8,6 +8,7 @@
 <meta name="description" content="SureAdhere Privacy Policy: how we collect, use, and handle your information when you use SureAdhere services.">
 <meta property="og:type" content="website">
   <meta property="og:url" content="https://dimagi.com/sureadhere-privacy-policy/">
+<link rel="canonical" href="https://dimagi.com/sureadhere-privacy-policy/">
 <meta property="og:title" content="SureAdhere Privacy Policy">
 <meta property="og:description" content="How we collect, use, and handle your information when you use SureAdhere services.">
 <meta property="og:image" content="../assets/images/sureadhere-logo-full-color.png">
@@ -79,6 +80,7 @@
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 
 <!-- ───── NAV ───── -->
 <div class="nav-wrap">
@@ -95,8 +97,8 @@
         <a href="../resources/index.html" class="nav-sep">Resources</a>
       </div>
       <div class="nav-cta">
-        <a class="btn btn-ghost" href="https://dimagi.com/contact/" target="_blank" rel="noopener">Schedule a demo</a>
-        <a class="btn btn-primary" href="https://sureadhere.b2clogin.com//sureadhere.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_Conditional_MFA&client_id=38aa61ae-2f80-49d8-8566-8aa090b2711f&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fsecure.sureadhere.com&scope=openid&response_type=id_token&prompt=login" target="_blank" rel="noopener">Log in</a>
+        <a class="btn btn-ghost" href="../contact/">Schedule a demo</a>
+        <a class="btn btn-primary" href="../login/" target="_blank" rel="noopener">Log in</a>
       </div>
       <button class="nav-hamburger" aria-label="Open menu">
         <span></span><span></span><span></span>
@@ -106,10 +108,10 @@
 </div>
 
 <!-- ───── CONTENT ───── -->
-<main>
+<main id="main">
   <div class="policy-wrap">
     <h1>SureAdhere Privacy Policy</h1>
-    <p class="policy-meta">Posted: June 09, 2025 &nbsp;·&nbsp; Effective Date: June 09, 2025</p>
+    <p class="policy-meta">Effective Date: June 09, 2025 &nbsp;·&nbsp; Last Updated: April 07, 2026</p>
 
     <p>This notice describes the Privacy Policy of SureAdhere ("SureAdhere" or "We") when Users ("You") use our websites, mobile application, web application, software, and services ("Services").</p>
 
@@ -396,19 +398,19 @@
         <h5>Product</h5>
         <ul>
           <li><a href="../index.html">Overview</a></li>
+          <li><a href="../clinical-trials/index.html">Clinical Trials</a></li>
           <li><a href="../public-health/index.html">Public Health</a></li>
           <li><a href="../behavioral-health/index.html">Behavioral Health</a></li>
-          <li><a href="../clinical-trials/index.html" class="nav-sep">Clinical Trials</a></li>
-          <li><a href="../resources/index.html" class="nav-sep">Resources</a></li>
+          <li><a href="../resources/index.html">Resources</a></li>
           <li><a href="../publications/index.html">Evidence</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h5>Support</h5>
         <ul>
-          <li><a href="https://sureadhere.b2clogin.com//sureadhere.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_Conditional_MFA&client_id=38aa61ae-2f80-49d8-8566-8aa090b2711f&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fsecure.sureadhere.com&scope=openid&response_type=id_token&prompt=login" target="_blank" rel="noopener">Patient Log In</a></li>
+          <li><a href="../login/" target="_blank" rel="noopener">Patient Log In</a></li>
           <li><a href="https://dimagi.atlassian.net/wiki/spaces/sa/overview" target="_blank" rel="noopener">Help Site</a></li>
-          <li><a href="https://dimagi.com/contact/" target="_blank" rel="noopener">Contact Us</a></li>
+          <li><a href="../contact/">Contact Us</a></li>
         </ul>
           <div class="footer-badges">
             <a href="https://apps.apple.com/us/app/sureadhere-by-dimagi/id6444502883" target="_blank" rel="noopener"><img src="../assets/images/badge-app-store.svg" alt="Download on the App Store" class="badge-apple"></a>
@@ -420,13 +422,12 @@
         <ul>
           <li><a href="https://dimagi.com/" target="_blank" rel="noopener">About Dimagi</a></li>
           <li><a href="https://dimagi.com/blog/" target="_blank" rel="noopener">Blog</a></li>
-          <li><a href="https://dimagi.com/contact/" target="_blank" rel="noopener">Contact</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <span>// &copy; 2026 DIMAGI, INC.</span>
-      <span style="display:flex;gap:24px;">
+      <span style="display:flex;gap:24px;flex-wrap:wrap;">
         <a href="../privacy-policy/index.html">PRIVACY</a>
         <a href="../privacy-policy-chinese/index.html">隐私政策 (中文)</a>
         <a href="https://dimagi.com/terms-of-service/" target="_blank" rel="noopener">TERMS</a>
@@ -447,6 +448,13 @@
       document.querySelector('.nav-cta').classList.toggle('is-open');
     });
   }
+  document.querySelectorAll('.nav-links a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      document.querySelector('.nav-hamburger').classList.remove('is-open');
+      document.querySelector('.nav-links').classList.remove('is-open');
+      document.querySelector('.nav-cta').classList.remove('is-open');
+    });
+  });
 })();
 </script>
 </body>

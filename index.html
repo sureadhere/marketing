@@ -4,15 +4,58 @@
 <meta charset="utf-8" />
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>SureAdhere — Patient-Centered Adherence Technology</title>
+<title>SureAdhere: Patient-Centered Adherence Technology</title>
 <meta name="description" content="SureAdhere delivers gold-standard video directly observed therapy (VDOT) for TB, behavioral health, and clinical trials, improving outcomes while reducing burden on patients and providers.">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://dimagi.com/sureadhere/">
-<meta property="og:title" content="SureAdhere — Patient-Centered Adherence Technology">
+<meta property="og:title" content="SureAdhere: Patient-Centered Adherence Technology">
 <meta property="og:description" content="SureAdhere delivers gold-standard video directly observed therapy (VDOT) for TB, behavioral health, and clinical trials, improving outcomes while reducing burden on patients and providers.">
-<meta property="og:image" content="assets/images/hero-behavioral-health-live.jpg">
+<meta property="og:image" content="assets/images/platform-computer.png">
+<link rel="canonical" href="https://dimagi.com/sureadhere/">
 <meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://dimagi.com/sureadhere/#organization",
+      "name": "SureAdhere",
+      "alternateName": "SureAdhere by Dimagi",
+      "url": "https://dimagi.com/sureadhere/",
+      "logo": "https://dimagi.com/sureadhere/assets/images/sureadhere-logo-full-color.png",
+      "description": "SureAdhere is a patient-centered video directly observed therapy (VDOT) platform supporting medication adherence across tuberculosis, behavioral health, and clinical trials.",
+      "parentOrganization": {
+        "@type": "Organization",
+        "name": "Dimagi, Inc.",
+        "url": "https://dimagi.com/"
+      },
+      "sameAs": [
+        "https://www.linkedin.com/company/dimagi/",
+        "https://twitter.com/dimagi"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://dimagi.com/sureadhere/#website",
+      "url": "https://dimagi.com/sureadhere/",
+      "name": "SureAdhere",
+      "publisher": { "@id": "https://dimagi.com/sureadhere/#organization" },
+      "inLanguage": "en"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "name": "SureAdhere",
+      "operatingSystem": "iOS, Android, Web",
+      "applicationCategory": "HealthApplication",
+      "url": "https://dimagi.com/sureadhere/",
+      "publisher": { "@id": "https://dimagi.com/sureadhere/#organization" }
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -310,6 +353,7 @@
 </style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to main content</a>
 
 <!-- ───── NAV ───── -->
 <div class="nav-wrap">
@@ -319,15 +363,15 @@
         <img src="assets/images/sureadhere-logo-full-color.png" alt="SureAdhere by Dimagi" style="height:38px;width:auto;filter:brightness(0) invert(1);opacity:0.95;">
       </a>
       <div class="nav-links">
-        <a href="index.html" class="nav-active">Overview</a>
+        <a href="index.html" class="nav-active" aria-current="page">Overview</a>
         <a href="clinical-trials/index.html" class="nav-sep">Clinical Trials</a>
         <a href="public-health/index.html">Public Health</a>
         <a href="behavioral-health/index.html">Behavioral Health</a>
         <a href="resources/index.html" class="nav-sep">Resources</a>
       </div>
       <div class="nav-cta">
-        <a class="btn btn-ghost" href="https://dimagi.com/contact/" target="_blank" rel="noopener">Schedule a demo</a>
-        <a class="btn btn-primary" href="https://sureadhere.b2clogin.com//sureadhere.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_Conditional_MFA&client_id=38aa61ae-2f80-49d8-8566-8aa090b2711f&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fsecure.sureadhere.com&scope=openid&response_type=id_token&prompt=login" target="_blank" rel="noopener">Log in</a>
+        <a class="btn btn-ghost" href="contact/">Schedule a demo</a>
+        <a class="btn btn-primary" href="login/" target="_blank" rel="noopener">Log in</a>
       </div>
       <button class="nav-hamburger" aria-label="Open menu">
         <span></span><span></span><span></span>
@@ -337,7 +381,7 @@
 </div>
 
 <!-- ───── HERO ───── -->
-<section class="hero hero-dark on-dark">
+<section id="main" class="hero hero-dark on-dark">
   <div class="container">
     <div class="hero-grid">
       <div>
@@ -352,7 +396,7 @@
           SureAdhere is a patient engagement app that lets patients take their medication over video when it works for them, saving providers resources while ensuring adherence to complex regimens and improving health outcomes.
         </p>
         <div class="hero-ctas">
-          <a class="btn btn-on-dark btn-arrow" href="https://dimagi.com/contact/" target="_blank" rel="noopener">Schedule a demo</a>
+          <a class="btn btn-on-dark btn-arrow" href="contact/">Schedule a demo</a>
           <a class="btn btn-ghost-on-dark btn-arrow" href="#who-we-serve">See who we serve</a>
         </div>
       </div>
@@ -444,7 +488,7 @@
 </section>
 
 <!-- ───── LOGO MARQUEE (after Who We Serve) ───── -->
-<div class="logo-strip-sa" style="background:var(--surface-warm,#faf9f7);">
+<div class="logo-strip-sa" style="background:var(--paper-warm);">
   <p class="logo-strip-label">Trusted by 350+ public health departments, health systems &amp; clinical research organizations worldwide</p>
   <div class="sa-logo-marquee">
     <div class="sa-logo-track">
@@ -484,14 +528,16 @@
       <h2 class="section-title">Discover the <em>SureAdhere Platform</em></h2>
       <p class="section-lede">A complete platform built for both patients and providers, combining an easy-to-use mobile app with a powerful provider web application for real-time visibility and control.</p>
       <div style="margin-top:24px;">
-        <a class="btn btn-indigo btn-arrow" href="https://dimagi.com/contact/" target="_blank" rel="noopener">Schedule a demo</a>
+        <a class="btn btn-indigo btn-arrow" href="contact/">Schedule a demo</a>
       </div>
     </div>
 
     <div class="platform-split" style="margin-top:48px;">
       <div class="platform-split-panel">
-        <div class="platform-screenshot" style="height:300px;display:flex;align-items:center;justify-content:center;padding:24px;background:#ffffff;">
-          <img src="assets/images/platform-phone.webp" alt="SureAdhere patient mobile app screens" loading="lazy" style="width:auto;height:100%;max-height:252px;object-fit:contain;">
+        <div class="platform-screenshot" style="height:300px;display:flex;align-items:center;justify-content:center;gap:12px;padding:24px;background:#ffffff;">
+          <img src="assets/images/bh-home.jpg" alt="SureAdhere mobile app welcome screen" loading="lazy" style="height:252px;width:auto;object-fit:contain;">
+          <img src="assets/images/ct-pills.jpg" alt="SureAdhere mobile app dose capture" loading="lazy" style="height:252px;width:auto;object-fit:contain;">
+          <img src="assets/images/ct-calendar.jpg" alt="SureAdhere mobile app treatment calendar" loading="lazy" style="height:252px;width:auto;object-fit:contain;">
         </div>
         <span class="eyebrow muted">// MOBILE APP</span>
         <h3>Easy Video Directly Observed Therapy for Patients</h3>
@@ -506,7 +552,7 @@
 
       <div class="platform-split-panel">
         <div class="platform-screenshot" style="height:300px;overflow:hidden;background:#ffffff;">
-          <img src="assets/images/platform-computer.png" alt="SureAdhere Provider Web Application dashboard" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top;">
+          <img src="assets/images/platform-computer.png" alt="SureAdhere Provider Web Application dashboard" loading="lazy" style="width:135%;max-width:none;height:100%;object-fit:cover;object-position:left top;">
         </div>
         <span class="eyebrow muted">// WEB PLATFORM</span>
         <h3>Streamline Complex Treatment Support for Providers</h3>
@@ -566,7 +612,7 @@
       Have questions about our platform features, demos, or pricing? Our team is here to help.
     </p>
     <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-      <a class="btn btn-indigo btn-arrow" href="https://dimagi.com/contact/" target="_blank" rel="noopener">Schedule a demo</a>
+      <a class="btn btn-indigo btn-arrow" href="contact/">Schedule a demo</a>
     </div>
   </div>
 </section>
@@ -585,19 +631,19 @@
         <h5>Product</h5>
         <ul>
           <li><a href="index.html">Overview</a></li>
-          <li><a href="clinical-trials/index.html" class="nav-sep">Clinical Trials</a></li>
+          <li><a href="clinical-trials/index.html">Clinical Trials</a></li>
           <li><a href="public-health/index.html">Public Health</a></li>
           <li><a href="behavioral-health/index.html">Behavioral Health</a></li>
-          <li><a href="resources/index.html" class="nav-sep">Resources</a></li>
+          <li><a href="resources/index.html">Resources</a></li>
           <li><a href="publications/index.html">Evidence</a></li>
         </ul>
       </div>
       <div class="footer-col">
         <h5>Support</h5>
         <ul>
-          <li><a href="https://sureadhere.b2clogin.com//sureadhere.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_Conditional_MFA&client_id=38aa61ae-2f80-49d8-8566-8aa090b2711f&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fsecure.sureadhere.com&scope=openid&response_type=id_token&prompt=login" target="_blank" rel="noopener">Patient Log In</a></li>
+          <li><a href="login/" target="_blank" rel="noopener">Patient Log In</a></li>
           <li><a href="https://dimagi.atlassian.net/wiki/spaces/sa/overview" target="_blank" rel="noopener">Help Site</a></li>
-          <li><a href="https://dimagi.com/contact/" target="_blank" rel="noopener">Contact Us</a></li>
+          <li><a href="contact/">Contact Us</a></li>
         </ul>
           <div class="footer-badges">
             <a href="https://apps.apple.com/us/app/sureadhere-by-dimagi/id6444502883" target="_blank" rel="noopener"><img src="assets/images/badge-app-store.svg" alt="Download on the App Store" class="badge-apple"></a>
@@ -609,7 +655,6 @@
         <ul>
           <li><a href="https://dimagi.com/" target="_blank" rel="noopener">About Dimagi</a></li>
           <li><a href="https://dimagi.com/blog/" target="_blank" rel="noopener">Blog</a></li>
-          <li><a href="https://dimagi.com/contact/" target="_blank" rel="noopener">Contact</a></li>
         </ul>
       </div>
     </div>
@@ -636,6 +681,13 @@
       document.querySelector('.nav-cta').classList.toggle('is-open');
     });
   }
+  document.querySelectorAll('.nav-links a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      document.querySelector('.nav-hamburger').classList.remove('is-open');
+      document.querySelector('.nav-links').classList.remove('is-open');
+      document.querySelector('.nav-cta').classList.remove('is-open');
+    });
+  });
 })();
 </script>
 </body>

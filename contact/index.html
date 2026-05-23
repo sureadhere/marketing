@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="icon" type="image/png" href="../assets/favicon.png">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contact SureAdhere: Schedule a Demo or Talk to Our Team</title>
+<meta name="description" content="Get in touch with the SureAdhere team to schedule a demo, ask about pricing, or learn how video Directly Observed Therapy can support your program.">
+
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://dimagi.com/sureadhere/contact/">
+<link rel="canonical" href="https://dimagi.com/sureadhere/contact/">
+<meta property="og:title" content="Contact SureAdhere: Schedule a Demo or Talk to Our Team">
+<meta property="og:description" content="Get in touch with the SureAdhere team to schedule a demo, ask about pricing, or learn how video Directly Observed Therapy can support your program.">
+<meta property="og:image" content="../assets/images/platform-computer.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/styles.css">
+
+<style>
+  body { background: #E5F8F8; }
+
+  /* ─────────────────────────────────────────────────────────── */
+  /*  MAIN CONTACT SECTION (light teal — matches site CTA band)  */
+  /* ─────────────────────────────────────────────────────────── */
+  .contact-section {
+    position: relative;
+    padding: 80px 0 96px;
+    background:
+      radial-gradient(800px 360px at 0% 0%, rgba(13,168,157,0.10), transparent 65%),
+      radial-gradient(700px 320px at 100% 100%, rgba(13,168,157,0.06), transparent 65%),
+      #E5F8F8;
+    overflow: hidden;
+  }
+
+  .contact-stack {
+    max-width: 720px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  @media (max-width: 600px) {
+    .contact-section { padding: 64px 0 72px; }
+    .contact-stack { gap: 32px; }
+  }
+
+  /* ── Left column ── */
+  .contact-intro h1 {
+    font-size: clamp(2.6rem, 5vw, 3.8rem);
+    font-weight: 300;
+    letter-spacing: -0.025em;
+    line-height: 1.04;
+    margin: 0 0 16px;
+    color: var(--ink);
+  }
+  .contact-intro h1 em {
+    font-style: normal;
+    font-weight: 500;
+    background: var(--grad-text);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .contact-intro p {
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.7;
+    color: var(--muted);
+    margin: 0;
+    max-width: 480px;
+    letter-spacing: 0.005em;
+  }
+
+  /* ── Intro (centered) ── */
+  .contact-intro { text-align: center; }
+  .contact-intro .eyebrow { display: inline-block; margin-bottom: 16px; }
+  .contact-intro p { margin-left: auto; margin-right: auto; }
+
+  /* ── Support card — two columns: text + CTA ── */
+  .support-card {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: center;
+    padding: 28px 32px;
+    background: #F4F6F8;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 18px 40px -22px rgba(13,58,58,0.15);
+    text-align: left;
+  }
+  .support-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .support-card .eyebrow { margin: 0; }
+  .support-card h3 {
+    font-size: 1.35rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin: 0;
+  }
+  .support-card p {
+    font-size: 0.98rem;
+    font-weight: 400;
+    color: var(--muted);
+    line-height: 1.65;
+    margin: 0;
+  }
+  .support-card .btn {
+    white-space: nowrap;
+    background: #180F60;
+    color: #FFFFFF;
+    border: 1px solid #180F60;
+    transition: background 150ms ease, border-color 150ms ease, transform 150ms ease, box-shadow 150ms ease;
+  }
+  .support-card .btn:hover {
+    background: #251A88;
+    border-color: #251A88;
+    color: #FFFFFF;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px -8px rgba(24,15,96,0.45);
+  }
+  @media (max-width: 600px) {
+    .support-card { grid-template-columns: 1fr; gap: 16px; padding: 24px; }
+  }
+
+  /* ── Form card ── */
+  .form-card {
+    position: relative;
+    background: #FFFFFF;
+    border: none;
+    border-radius: var(--radius-lg);
+    padding: 36px;
+    box-shadow: 0 24px 56px -22px rgba(13,58,58,0.20);
+    overflow: hidden;
+  }
+  @media (max-width: 600px) {
+    .form-card { padding: 28px 22px; }
+  }
+
+  /* ── HubSpot form styling (applies if inline-form mode) ── */
+  #hubspot-form .hs-form-field { margin-bottom: 18px; }
+  #hubspot-form label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  #hubspot-form .hs-form-required { color: var(--indigo-deep); margin-left: 2px; }
+  #hubspot-form input[type=text],
+  #hubspot-form input[type=email],
+  #hubspot-form input[type=tel],
+  #hubspot-form input[type=number],
+  #hubspot-form select,
+  #hubspot-form textarea {
+    width: 100% !important;
+    font-family: var(--sans, 'Work Sans', system-ui, sans-serif) !important;
+    font-size: 0.95rem !important;
+    color: var(--ink) !important;
+    background: #FFFFFF !important;
+    border: 1px solid #DDE3E5 !important;
+    border-radius: var(--radius-sm) !important;
+    padding: 12px 14px !important;
+    line-height: 1.4 !important;
+    transition: border-color 150ms ease, box-shadow 150ms ease !important;
+    box-sizing: border-box !important;
+  }
+  #hubspot-form input:focus,
+  #hubspot-form select:focus,
+  #hubspot-form textarea:focus {
+    outline: none !important;
+    border-color: var(--indigo) !important;
+    box-shadow: 0 0 0 3px rgba(13,168,157,0.15) !important;
+  }
+  #hubspot-form input[type=submit] {
+    background: var(--indigo) !important;
+    color: #ffffff !important;
+    border: 1px solid var(--indigo) !important;
+    border-radius: var(--radius-sm) !important;
+    padding: 14px 28px !important;
+    font-family: var(--sans, 'Work Sans', system-ui, sans-serif) !important;
+    font-size: 0.95rem !important;
+    font-weight: 500 !important;
+    cursor: pointer !important;
+    transition: background 150ms ease, transform 150ms ease, box-shadow 150ms ease !important;
+    width: auto !important;
+  }
+  #hubspot-form input[type=submit]:hover {
+    background: var(--indigo-deep) !important;
+    border-color: var(--indigo-deep) !important;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 18px -6px rgba(13,168,157,0.4);
+  }
+  #hubspot-form .submitted-message {
+    padding: 20px;
+    background: var(--indigo-soft);
+    border: 1px solid var(--indigo);
+    border-radius: var(--radius);
+    color: var(--ink);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .form-fallback {
+    padding: 32px;
+    background: #F8FBFA;
+    border: 1px dashed #DDE3E5;
+    border-radius: var(--radius);
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+  .form-fallback strong { color: var(--ink); font-weight: 500; }
+
+  .footer-badges {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 12px !important;
+    flex-wrap: wrap !important;
+  }
+  .footer-badges img { height: 38px !important; width: auto !important; }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<!-- ───── NAV ───── -->
+<div class="nav-wrap">
+  <div class="container">
+    <nav class="primary">
+      <a class="logo" href="../index.html">
+        <img src="../assets/images/sureadhere-logo-full-color.png" alt="SureAdhere by Dimagi" style="height:38px;width:auto;filter:brightness(0) invert(1);opacity:0.95;">
+      </a>
+      <div class="nav-links">
+        <a href="../index.html">Overview</a>
+        <a href="../clinical-trials/index.html" class="nav-sep">Clinical Trials</a>
+        <a href="../public-health/index.html">Public Health</a>
+        <a href="../behavioral-health/index.html">Behavioral Health</a>
+        <a href="../resources/index.html" class="nav-sep">Resources</a>
+      </div>
+      <div class="nav-cta">
+        <a class="btn btn-ghost" href="#hubspot-form">Schedule a demo</a>
+        <a class="btn btn-primary" href="../login/" target="_blank" rel="noopener">Log in</a>
+      </div>
+      <button class="nav-hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </nav>
+  </div>
+</div>
+
+<!-- ───── CONTACT (single dark teal section, two columns) ───── -->
+<section id="main" class="contact-section">
+  <div class="container">
+    <div class="contact-stack">
+
+      <div class="contact-intro">
+        <span class="eyebrow">// CONTACT US</span>
+        <h1>Get In <em>Touch</em></h1>
+        <p>Tell us what you're looking for and our team will be in touch.</p>
+      </div>
+
+      <div class="form-card">
+        <div id="hubspot-form">
+          <div class="form-fallback" id="hubspot-form-fallback">
+            <strong>Loading form&hellip;</strong>
+          </div>
+        </div>
+      </div>
+
+      <div class="support-card">
+        <div class="support-card-content">
+          <span class="eyebrow">// FOR EXISTING USERS</span>
+          <h3>Looking for support?</h3>
+          <p>Find product docs, troubleshooting, and how-to guides on the SureAdhere Help Site.</p>
+        </div>
+        <a class="btn btn-arrow" href="https://dimagi.atlassian.net/wiki/spaces/sa/overview" target="_blank" rel="noopener">Visit the Help Site</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ───── FOOTER ───── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo" style="gap:10px;">
+          <img src="../assets/images/sureadhere-logo-full-color.png" alt="SureAdhere by Dimagi" style="height:30px;width:auto;filter:brightness(0) invert(1);opacity:0.85;">
+        </div>
+        <p>Patient-centered adherence technology, powered by Dimagi.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Product</h5>
+        <ul>
+          <li><a href="../index.html">Overview</a></li>
+          <li><a href="../clinical-trials/index.html">Clinical Trials</a></li>
+          <li><a href="../public-health/index.html">Public Health</a></li>
+          <li><a href="../behavioral-health/index.html">Behavioral Health</a></li>
+          <li><a href="../resources/index.html">Resources</a></li>
+          <li><a href="../publications/index.html">Evidence</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Support</h5>
+        <ul>
+          <li><a href="../login/" target="_blank" rel="noopener">Patient Log In</a></li>
+          <li><a href="https://dimagi.atlassian.net/wiki/spaces/sa/overview" target="_blank" rel="noopener">Help Site</a></li>
+          <li><a href="index.html" aria-current="page">Contact Us</a></li>
+        </ul>
+        <div class="footer-badges">
+          <a href="https://apps.apple.com/us/app/sureadhere-by-dimagi/id6444502883" target="_blank" rel="noopener"><img src="../assets/images/badge-app-store.svg" alt="Download on the App Store" class="badge-apple"></a>
+          <a href="https://play.google.com/store/apps/details?id=com.dimagi.sureadhere&hl=en_US" target="_blank" rel="noopener"><img src="../assets/images/badge-google-play.png" alt="Get it on Google Play" class="badge-google"></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>About</h5>
+        <ul>
+          <li><a href="https://dimagi.com/" target="_blank" rel="noopener">About Dimagi</a></li>
+          <li><a href="https://dimagi.com/blog/" target="_blank" rel="noopener">Blog</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>// &copy; 2026 DIMAGI, INC.</span>
+      <span style="display:flex;gap:24px;flex-wrap:wrap;">
+        <a href="../privacy-policy/index.html">PRIVACY</a>
+        <a href="../privacy-policy-chinese/index.html">隐私政策 (中文)</a>
+        <a href="https://dimagi.com/terms-of-service/" target="_blank" rel="noopener">TERMS</a>
+        <a href="https://dimagi.safebase.us/" target="_blank" rel="noopener">SECURITY</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- ───── HUBSPOT FORM ───── -->
+<script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
+<script>
+  (function () {
+    function mountForm() {
+      if (typeof hbspt === 'undefined' || !hbspt.forms) return false;
+      hbspt.forms.create({
+        region: "na1",
+        portalId: "503070",
+        formId: "e20b08b5-de23-42b1-9040-b37acff28623",
+        target: "#hubspot-form",
+        onFormReady: function () {
+          var fb = document.getElementById('hubspot-form-fallback');
+          if (fb && fb.parentNode) fb.parentNode.removeChild(fb);
+        }
+      });
+      return true;
+    }
+    if (!mountForm()) {
+      var s = document.querySelector('script[src*="js.hsforms.net"]');
+      if (s) s.addEventListener('load', mountForm);
+    }
+  })();
+</script>
+
+<!-- Mobile nav toggle -->
+<script>
+(function () {
+  var ham = document.querySelector('.nav-hamburger');
+  if (ham) {
+    ham.addEventListener('click', function () {
+      this.classList.toggle('is-open');
+      document.querySelector('.nav-links').classList.toggle('is-open');
+      document.querySelector('.nav-cta').classList.toggle('is-open');
+    });
+  }
+  document.querySelectorAll('.nav-links a').forEach(function (a) {
+    a.addEventListener('click', function () {
+      document.querySelector('.nav-hamburger').classList.remove('is-open');
+      document.querySelector('.nav-links').classList.remove('is-open');
+      document.querySelector('.nav-cta').classList.remove('is-open');
+    });
+  });
+})();
+</script>
+</body>
+</html>
