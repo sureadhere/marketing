@@ -2419,7 +2419,7 @@ footer {
 .footer-col a { color: rgba(255,255,255,0.72); }
 .footer-bottom { color: rgba(255,255,255,0.55); }
 .footer-grid {
-  display: grid; grid-template-columns: 1.4fr repeat(4, 1fr); gap: 48px;
+  display: grid; grid-template-columns: 1.4fr repeat(3, 1fr); gap: 48px;
   margin-bottom: 80px;
 }
 .footer-brand { max-width: 320px; }
@@ -3457,7 +3457,7 @@ footer {
     z-index: 200;
     flex-direction: column;
     gap: 0;
-    background: #4d62c8;
+    background: #009090;
     border-top: 1px solid rgba(255,255,255,0.14);
     box-shadow: 0 12px 32px -8px rgba(10,6,32,0.30);
     padding: 8px 0 18px;
