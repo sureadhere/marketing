@@ -5,16 +5,17 @@
 <link rel="icon" type="image/png" href="../assets/favicon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Resources | SureAdhere</title>
-<meta name="description" content="SureAdhere resources: evidence base, product release notes, FAQs, and the people behind the platform.">
+<meta name="description" content="SureAdhere resources: peer-reviewed evidence base, product release notes, frequently asked questions, and the story behind the platform.">
 <meta property="og:type" content="website">
-  <meta property="og:url" content="https://dimagi.com/sureadhere/resources/">
-<link rel="canonical" href="https://dimagi.com/sureadhere/resources/">
+  <meta property="og:url" content="https://sureadhere.dimagi.com/resources/">
+<link rel="canonical" href="https://sureadhere.dimagi.com/resources/">
 <meta property="og:title" content="Resources | SureAdhere by Dimagi">
 <meta property="og:description" content="Evidence base, product updates, FAQs, and the story behind SureAdhere.">
-<meta property="og:image" content="https://dimagi.com/sureadhere/assets/images/kelly-collins.jpg">
+<meta property="og:image" content="https://sureadhere.dimagi.com/assets/images/kelly-collins.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.gtranslate.net">
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/styles.css">
 <style>
@@ -184,73 +185,76 @@
     .release-meta { border-right: none; border-bottom: 1px solid var(--line); flex-direction: row; gap: 12px; align-items: center; }
   }
 
-  /* ── FAQ accordion ── */
-  .faq-group { margin-bottom: 48px; }
-  .faq-group-title {
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #009090;
-    margin: 0 0 16px;
-  }
-  .faq-list {
-    border: 1px solid var(--line);
-    border-radius: var(--radius-lg);
-    overflow: hidden;
-  }
-  details.faq-item {
-    border-bottom: 1px solid var(--line);
-  }
-  details.faq-item:last-child { border-bottom: none; }
-  details.faq-item summary {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-    padding: 18px 24px;
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: var(--ink);
-    cursor: pointer;
-    user-select: none;
-    transition: background 150ms;
-  }
-  details.faq-item summary::-webkit-details-marker { display: none; }
-  details.faq-item summary:hover { background: var(--paper-warm); }
-  details.faq-item summary::after {
-    content: '+';
-    font-size: 1.1rem;
-    font-weight: 300;
-    color: var(--muted);
-    flex-shrink: 0;
-    transition: transform 200ms;
-  }
-  details.faq-item[open] summary::after { content: '–'; }
-  .faq-answer {
-    padding: 0 24px 20px;
-    font-size: 0.92rem;
-    color: var(--muted);
-    line-height: 1.75;
-    border-top: 1px solid var(--line);
-    background: var(--paper-2);
-  }
-  .faq-answer p { margin: 14px 0 0; }
-  .faq-answer p:first-child { margin-top: 14px; }
-  .faq-answer a { color: #009090; text-decoration: underline; text-underline-offset: 2px; }
-
-  /* ── FAQ columns ── */
+  /* ── FAQ accordion (CommCare-style minimal: hairline rows, no box) ── */
   .faq-cols {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 32px;
+    gap: 56px;
     align-items: start;
   }
-  @media (max-width: 780px) {
-    .faq-cols { grid-template-columns: 1fr; }
+  @media (max-width: 800px) {
+    .faq-cols { grid-template-columns: 1fr; gap: 36px; }
   }
+  .faq-group { margin-bottom: 40px; }
+  .faq-group:last-child { margin-bottom: 0; }
+  .faq-group-title {
+    font-family: var(--mono);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #009090;
+    margin: 0 0 12px;
+  }
+  .faq-list {
+    border-top: 1px solid var(--line);
+  }
+  details.faq-item {
+    border-bottom: 1px solid var(--line);
+    background: transparent;
+  }
+  details.faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 20px 4px;
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--ink);
+    letter-spacing: -0.005em;
+    transition: color 150ms;
+  }
+  details.faq-item summary::-webkit-details-marker { display: none; }
+  details.faq-item summary:hover { color: #009090; }
+  details.faq-item summary::after {
+    content: '+';
+    font-family: var(--mono);
+    font-size: 20px;
+    font-weight: 300;
+    color: #009090;
+    width: 24px;
+    text-align: center;
+    line-height: 1;
+    flex-shrink: 0;
+    transition: transform 200ms;
+  }
+  details.faq-item[open] summary { font-weight: 400; }
+  details.faq-item[open] summary::after { content: '−'; }
+  .faq-answer {
+    font-size: 14.5px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.7;
+    letter-spacing: -0.003em;
+    padding: 0 4px 24px;
+    max-width: 760px;
+  }
+  .faq-answer p { margin: 0; }
+  .faq-answer p + p { margin-top: 12px; }
+  .faq-answer a { color: #009090; text-decoration: underline; text-underline-offset: 2px; }
 
   /* ── Bio card ── */
   .bio-grid {
@@ -353,6 +357,36 @@
   }
 
 </style>
+<!-- Cookie banner is rendered by HubSpot (Settings, Privacy and Consent, Cookies in the
+     HubSpot dashboard) so it stays in sync with CommCare and dimagi.com. gtag('consent', 'default', ...)
+     denies all categories up front for EEA + UK + CH; _hsp.addPrivacyConsentListener bridges
+     the banner's choice back into gtag so any GA4 wired in later stays consistent. -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR',
+               'DE','GR','HU','IS','IE','IT','LV','LI','LT','LU',
+               'MT','NL','NO','PL','PT','RO','SK','SI','ES','SE',
+               'UK','CH']
+  });
+  var _hsp = window._hsp = window._hsp || [];
+  _hsp.push(['addPrivacyConsentListener', function (consent) {
+    var hasAnalyticsConsent = consent && (consent.allowed || (consent.categories && consent.categories.analytics));
+    var hasAdsConsent = consent && (consent.allowed || (consent.categories && consent.categories.advertisement));
+    gtag('consent', 'update', {
+      'ad_storage': hasAdsConsent ? 'granted' : 'denied',
+      'analytics_storage': hasAnalyticsConsent ? 'granted' : 'denied',
+      'ad_user_data': hasAdsConsent ? 'granted' : 'denied',
+      'ad_personalization': hasAdsConsent ? 'granted' : 'denied'
+    });
+  }]);
+</script>
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/503070.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -385,7 +419,7 @@
 </div>
 
 <!-- ───── HERO ───── -->
-<section id="main" class="hero" style="background:#009090;padding:80px 0 0;">
+<section id="main" class="hero" style="background:var(--indigo);padding:80px 0 0;">
   <div class="container">
     <span class="eyebrow on-dark">RESOURCES</span>
     <h1 class="hero-title" style="color:#fff;margin-bottom:20px;">Everything you need <em style="-webkit-text-fill-color:#fff;background:none;font-weight:600;">in one place.</em></h1>
@@ -413,8 +447,8 @@
     <div class="jump-nav-inner">
       <a class="jump-link active" href="#evidence">Evidence Base</a>
       <a class="jump-link" href="#updates">Product Updates</a>
-      <a class="jump-link" href="#faqs">FAQs</a>
       <a class="jump-link" href="#team">Story &amp; Team</a>
+      <a class="jump-link" href="#faqs">FAQs</a>
     </div>
   </div>
 </nav>
@@ -465,13 +499,10 @@
 <!-- ───── PRODUCT UPDATES ───── -->
 <section class="section warm" id="updates" style="padding:80px 0;">
   <div class="container">
-    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:40px;">
-      <div>
-        <span class="eyebrow">PRODUCT UPDATES</span>
-        <h2 class="section-title" style="margin-top:12px;">What's new in <em>SureAdhere.</em></h2>
-        <p class="section-lede">Recent platform releases, new features, and bug fixes.</p>
-      </div>
-      <a class="btn btn-ghost btn-arrow" href="https://dimagi.atlassian.net/wiki/spaces/sa/pages/2144174098/SureAdhere+release+notes" target="_blank" rel="noopener" style="flex-shrink:0;">View all releases</a>
+    <div style="margin-bottom:40px;">
+      <span class="eyebrow">PRODUCT UPDATES</span>
+      <h2 class="section-title" style="margin-top:12px;">What's new in <em>SureAdhere.</em></h2>
+      <p class="section-lede">Recent platform releases, new features, and bug fixes.</p>
     </div>
 
     <div class="release-list">
@@ -552,13 +583,79 @@
   </div>
 </section>
 
+<!-- ───── STORY &amp; TEAM ───── -->
+<section class="section warm" id="team" style="padding:80px 0;">
+  <div class="container">
+    <div style="margin-bottom:64px;">
+      <span class="eyebrow">STORY &amp; TEAM</span>
+      <h2 class="section-title" style="margin-top:12px;">Born in a lab. <em>Built for the real world.</em></h2>
+    </div>
+
+    <!-- Story -->
+    <div style="max-width:680px;margin:0 0 0;">
+      <p style="color:var(--muted);font-size:1rem;line-height:1.8;margin:0 0 24px;">Our journey began in 2009 when a group of innovative researchers at the University of California San Diego embarked on a groundbreaking mission. Collaborating closely with tuberculosis programs in California and Baja California, Mexico, they pioneered the world's first-ever video directly observed therapy intervention.</p>
+      <p style="color:var(--muted);font-size:1rem;line-height:1.8;margin:0 0 32px;">Today, SureAdhere is a Dimagi platform, operating in 18 countries and trusted by over 350 programs. The original commitment to rigorous evidence and patient-centered care hasn't changed.</p>
+      <a class="btn btn-ghost btn-arrow" href="https://dimagi.com/sureadheres-story/" target="_blank" rel="noopener">Read the full story</a>
+    </div>
+
+    <!-- Horizontal timeline -->
+    <div class="timeline-h" style="margin-bottom:96px;">
+      <div class="timeline-h-item">
+        <div class="timeline-h-dot"></div>
+        <div class="timeline-h-year">2009 – 2015</div>
+        <div class="timeline-h-text">Research team at UC San Diego pioneers <strong>Video Directly Observed Therapy (VDOT)</strong> to support TB treatment.</div>
+      </div>
+      <div class="timeline-h-item">
+        <div class="timeline-h-dot"></div>
+        <div class="timeline-h-year">2014 – 2016</div>
+        <div class="timeline-h-text"><strong>SureAdhere commercializes VDOT</strong>, bringing the methodology to programs around the world.</div>
+      </div>
+      <div class="timeline-h-item">
+        <div class="timeline-h-dot"></div>
+        <div class="timeline-h-year">2017 – 2018</div>
+        <div class="timeline-h-text"><strong>WHO endorses VDOT</strong>, making it a recognized standard of care for TB treatment globally.</div>
+      </div>
+      <div class="timeline-h-item">
+        <div class="timeline-h-dot"></div>
+        <div class="timeline-h-year">2022</div>
+        <div class="timeline-h-text"><strong>SureAdhere joins Dimagi</strong>, combining proven digital adherence technology with the world's leading global health platform.</div>
+      </div>
+      <div class="timeline-h-item">
+        <div class="timeline-h-dot"></div>
+        <div class="timeline-h-year">2023</div>
+        <div class="timeline-h-text"><strong>CDC recommends VDOT</strong> as an equivalent alternative to in-person DOT for TB treatment.</div>
+      </div>
+    </div>
+
+    <!-- Kelly bio -->
+    <div class="bio-grid">
+      <div class="bio-photo">
+        <img src="../assets/images/kelly-collins.webp" alt="Dr. Kelly Collins" width="1597" height="1597" loading="lazy">
+      </div>
+      <div class="bio-copy">
+        <div>
+          <div class="bio-role">Managing Director, SureAdhere</div>
+          <h3 class="bio-name">Dr. Kelly Collins</h3>
+        </div>
+        <p>As a social entrepreneur and infectious disease epidemiologist, Kelly's career mission has been to support the implementation and scale of evidence-based, high-impact digital health interventions globally. Kelly is the former CEO and Co-Founder of SureAdhere Mobile Technology, which was <a href="https://dimagi.com/blog/dimagi-acquires-sureadhere-digital-solutions/" target="_blank" rel="noopener">acquired by Dimagi</a> in February 2022.</p>
+        <p>Kelly's 12+ years of experience evaluating digital adherence interventions across 5 continents and 25 countries has resulted in 27 publications. She led SureAdhere through two randomized controlled trials evaluating video observed therapy for TB treatment adherence published in the <a href="https://pubmed.ncbi.nlm.nih.gov/30799062/" target="_blank" rel="noopener">Lancet</a> and <a href="https://pubmed.ncbi.nlm.nih.gov/35050357/" target="_blank" rel="noopener">JAMA Open</a>: studies which directly informed WHO treatment guidelines in <a href="https://apps.who.int/iris/bitstream/handle/10665/255052/9789241550000-eng.pdf" target="_blank" rel="noopener">2017</a> and <a href="https://www.who.int/publications/i/item/9789240047716" target="_blank" rel="noopener">2022</a>.</p>
+        <div style="margin-top:4px;">
+          <a class="btn btn-ghost btn-arrow" href="https://www.linkedin.com/in/kelly-collins-dimagi/" target="_blank" rel="noopener">Connect on LinkedIn</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FAQ-MOVED-TO-BOTTOM -->
 <!-- ───── FAQs ───── -->
 <section class="section" id="faqs" style="padding:80px 0;">
   <div class="container">
     <div style="margin-bottom:48px;max-width:680px;">
       <span class="eyebrow">FAQS</span>
       <h2 class="section-title" style="margin-top:12px;">Common <em>questions answered.</em></h2>
-      <p class="section-lede">Can't find what you need? Visit the <a href="https://dimagi.atlassian.net/wiki/spaces/sa/overview" target="_blank" rel="noopener" style="color:#009090;">full help site</a> or <a href="../contact/" style="color:#009090;">contact our team</a>.</p>
+      <p class="section-lede">Can't find what you need? Visit the <a href="https://dimagi.atlassian.net/wiki/spaces/sa/overview" target="_blank" rel="noopener" style="color:var(--indigo);">full help site</a> or <a href="../contact/" style="color:var(--indigo);">contact our team</a>.</p>
     </div>
 
     <div class="faq-cols">
@@ -671,71 +768,6 @@
   </div>
 </section>
 
-<!-- ───── STORY &amp; TEAM ───── -->
-<section class="section warm" id="team" style="padding:80px 0;">
-  <div class="container">
-    <div style="margin-bottom:64px;">
-      <span class="eyebrow">STORY &amp; TEAM</span>
-      <h2 class="section-title" style="margin-top:12px;">Born in a lab. <em>Built for the real world.</em></h2>
-    </div>
-
-    <!-- Story -->
-    <div style="max-width:680px;margin:0 0 0;">
-      <p style="color:var(--muted);font-size:1rem;line-height:1.8;margin:0 0 24px;">Our journey began in 2009 when a group of innovative researchers at the University of California San Diego embarked on a groundbreaking mission. Collaborating closely with tuberculosis programs in California and Baja California, Mexico, they pioneered the world's first-ever video directly observed therapy intervention.</p>
-      <p style="color:var(--muted);font-size:1rem;line-height:1.8;margin:0 0 32px;">Today, SureAdhere is a Dimagi platform, operating in 18 countries and trusted by over 350 programs. The original commitment to rigorous evidence and patient-centered care hasn't changed.</p>
-      <a class="btn btn-ghost btn-arrow" href="https://dimagi.com/sureadheres-story/" target="_blank" rel="noopener">Read the full story</a>
-    </div>
-
-    <!-- Horizontal timeline -->
-    <div class="timeline-h" style="margin-bottom:96px;">
-      <div class="timeline-h-item">
-        <div class="timeline-h-dot"></div>
-        <div class="timeline-h-year">2009 – 2015</div>
-        <div class="timeline-h-text">Research team at UC San Diego pioneers <strong>Video Directly Observed Therapy (VDOT)</strong> to support TB treatment.</div>
-      </div>
-      <div class="timeline-h-item">
-        <div class="timeline-h-dot"></div>
-        <div class="timeline-h-year">2014 – 2016</div>
-        <div class="timeline-h-text"><strong>SureAdhere commercializes VDOT</strong>, bringing the methodology to programs around the world.</div>
-      </div>
-      <div class="timeline-h-item">
-        <div class="timeline-h-dot"></div>
-        <div class="timeline-h-year">2017 – 2018</div>
-        <div class="timeline-h-text"><strong>WHO endorses VDOT</strong>, making it a recognized standard of care for TB treatment globally.</div>
-      </div>
-      <div class="timeline-h-item">
-        <div class="timeline-h-dot"></div>
-        <div class="timeline-h-year">2022</div>
-        <div class="timeline-h-text"><strong>SureAdhere joins Dimagi</strong>, combining proven digital adherence technology with the world's leading global health platform.</div>
-      </div>
-      <div class="timeline-h-item">
-        <div class="timeline-h-dot"></div>
-        <div class="timeline-h-year">2023</div>
-        <div class="timeline-h-text"><strong>CDC recommends VDOT</strong> as an equivalent alternative to in-person DOT for TB treatment.</div>
-      </div>
-    </div>
-
-    <!-- Kelly bio -->
-    <div class="bio-grid">
-      <div class="bio-photo">
-        <img src="../assets/images/kelly-collins.webp" alt="Dr. Kelly Collins" width="1597" height="1597" loading="lazy">
-      </div>
-      <div class="bio-copy">
-        <div>
-          <div class="bio-role">Managing Director, SureAdhere</div>
-          <h3 class="bio-name">Dr. Kelly Collins</h3>
-        </div>
-        <p>As a social entrepreneur and infectious disease epidemiologist, Kelly's career mission has been to support the implementation and scale of evidence-based, high-impact digital health interventions globally. Kelly is the former CEO and Co-Founder of SureAdhere Mobile Technology, which was <a href="https://dimagi.com/blog/dimagi-acquires-sureadhere-digital-solutions/" target="_blank" rel="noopener">acquired by Dimagi</a> in February 2022.</p>
-        <p>Kelly's 12+ years of experience evaluating digital adherence interventions across 5 continents and 25 countries has resulted in 27 publications. She led SureAdhere through two randomized controlled trials evaluating video observed therapy for TB treatment adherence published in the <a href="https://pubmed.ncbi.nlm.nih.gov/30799062/" target="_blank" rel="noopener">Lancet</a> and <a href="https://pubmed.ncbi.nlm.nih.gov/35050357/" target="_blank" rel="noopener">JAMA Open</a>: studies which directly informed WHO treatment guidelines in <a href="https://apps.who.int/iris/bitstream/handle/10665/255052/9789241550000-eng.pdf" target="_blank" rel="noopener">2017</a> and <a href="https://www.who.int/publications/i/item/9789240047716" target="_blank" rel="noopener">2022</a>.</p>
-        <div style="margin-top:4px;">
-          <a class="btn btn-ghost btn-arrow" href="https://www.linkedin.com/in/kelly-collins-dimagi/" target="_blank" rel="noopener">Connect on LinkedIn</a>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
 <!-- ───── CTA ───── -->
 <section class="section" style="background:var(--indigo-soft);text-align:center;">
   <div class="container" style="max-width:680px;">
@@ -763,7 +795,7 @@
         </div>
       </div>
       <div class="footer-col">
-        <h5>Product</h5>
+        <h2>Product</h2>
         <ul>
           <li><a href="../index.html">Overview</a></li>
           <li><a href="../clinical-trials/index.html">Clinical Trials</a></li>
@@ -774,7 +806,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Support</h5>
+        <h2>Support</h2>
         <ul>
           <li><a href="https://secure.sureadhere.com/" target="_blank" rel="noopener">Patient Log In</a></li>
           <li><a href="https://dimagi.atlassian.net/wiki/spaces/sa/overview" target="_blank" rel="noopener">Help Site</a></li>
@@ -782,7 +814,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h5>About</h5>
+        <h2>About</h2>
         <ul>
           <li><a href="https://dimagi.com/" target="_blank" rel="noopener">About Dimagi</a></li>
           <li><a href="https://dimagi.com/blog/" target="_blank" rel="noopener">Blog</a></li>
