@@ -212,6 +212,7 @@
 <a class="skip-link" href="#main">Skip to main content</a>
 
 <!-- ───── NAV ───── -->
+<header>
 <div class="nav-wrap">
   <div class="container">
     <nav class="primary">
@@ -224,22 +225,24 @@
         <a href="../behavioral-health/index.html">Behavioral Health</a>
         <a href="../resources/index.html" class="nav-sep">Resources</a>
       </div>
-      <div class="nav-cta">
+      <div class="nav-cta" id="nav-menu">
         <a class="btn btn-ghost" href="#hubspot-form">Schedule a demo</a>
         <a class="btn btn-primary" href="https://secure.sureadhere.com/" target="_blank" rel="noopener">Sign In</a>
         <div class="nav-lang" aria-label="Language">
           <div class="gtranslate_wrapper"></div>
         </div>
       </div>
-      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
         <span></span><span></span><span></span>
       </button>
     </nav>
   </div>
 </div>
+</header>
 
 <!-- ───── CONTACT (single dark teal section, two columns) ───── -->
-<section id="main" class="contact-section">
+<main id="main">
+<section class="contact-section">
   <div class="container">
     <div class="contact-stack">
 
@@ -252,6 +255,7 @@
         <div id="hubspot-form">
           <div class="form-fallback" id="hubspot-form-fallback">
             <strong>Loading form&hellip;</strong>
+            <p style="margin:8px 0 0;">If the form does not appear, email us at <a href="mailto:sureadhere-help@dimagi.com">sureadhere-help@dimagi.com</a>.</p>
           </div>
         </div>
       </div>
@@ -268,6 +272,8 @@
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- ───── FOOTER ───── -->
 <footer>

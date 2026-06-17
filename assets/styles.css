@@ -13,7 +13,7 @@
   --rule: #C9CCE0;
 
   /* Brand */
-  --indigo: #009090;
+  --indigo: #007575;
   --indigo-deep: #180F60;
   --indigo-soft: #E5F8F8;
   --sky: #50C4FF;
@@ -21,17 +21,17 @@
 
   /* Indigo scale (CommCare HQ B5) - for per-page header gradients */
   --indigo-300: #4DBBBA;
-  --indigo-400: #009090;
-  --indigo-500: #009090;
+  --indigo-400: #007575;
+  --indigo-500: #007575;
   --indigo-600: #180F60;
 
   /* Muted */
   --muted: #6B7388;
-  --muted-soft: #9DA3B5;
+  --muted-soft: #7A8199;
 
   /* Gradients */
   --grad: linear-gradient(135deg, var(--indigo-deep) 0%, var(--indigo) 50%, var(--sky) 100%);
-  --grad-text: linear-gradient(90deg, #180F60 0%, #009090 55%, #50C4FF 100%);
+  --grad-text: linear-gradient(90deg, #180F60 0%, #007575 55%, #50C4FF 100%);
   --grad-text-on-dark: linear-gradient(90deg, #FFFFFF 0%, #50C4FF 100%);
   --grad-deep: linear-gradient(135deg, #0A0930 0%, #180F60 50%, #1A2060 100%);
 
@@ -155,7 +155,7 @@ h1 em, h2 em, h3 em {
 /* ---- NAV ---- */
 .nav-wrap {
   position: sticky; top: 0; z-index: 50;
-  background: #009090;
+  background: #007575;
   border-bottom: none;
 }
 nav.primary {
@@ -382,7 +382,7 @@ h1.hero-title {
 
 /* Dark hero variant - homepage indigo-saturated header */
 .hero.hero-dark {
-  background: linear-gradient(160deg, #008C8E 0%, #009090 48%, #04A096 100%);
+  background: linear-gradient(160deg, #008C8E 0%, #007575 48%, #04A096 100%);
   color: var(--paper);
   padding: 96px 0 88px;
 }
@@ -1057,7 +1057,7 @@ h2.section-title {
 
 /* Variant: Providers (deep purple) */
 .path-card--providers .path-visual {
-  background: linear-gradient(135deg, #180F60 0%, #009090 100%);
+  background: linear-gradient(135deg, #180F60 0%, #007575 100%);
 }
 .path-card--providers .path-visual svg { color: rgba(255,255,255,0.92); }
 .path-card--providers .path-meta { border-left-color: var(--deep-purple); }
@@ -2394,7 +2394,7 @@ h3.feature-title {
 .page--enterprise .hero.hero-dark h1.hero-title em,
 .page--support .hero.hero-dark h1.hero-title em,
 .page--resources .hero.hero-dark h1.hero-title em {
-  background: linear-gradient(90deg, #180F60 0%, #009090 55%, #50C4FF 100%);
+  background: linear-gradient(90deg, #180F60 0%, #007575 55%, #50C4FF 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -2438,7 +2438,7 @@ h3.feature-title {
 
 /* ---- FOOTER ---- */
 footer {
-  background: #009090;
+  background: #007575;
   color: rgba(255,255,255,0.72);
   padding: 96px 0 36px;
   font-size: 14px;
@@ -3486,7 +3486,7 @@ footer {
     z-index: 200;
     flex-direction: column;
     gap: 0;
-    background: #009090;
+    background: #007575;
     border-top: 1px solid rgba(255,255,255,0.14);
     box-shadow: 0 12px 32px -8px rgba(10,6,32,0.30);
     padding: 8px 0 18px;
@@ -6320,7 +6320,7 @@ footer {
 .sol-hero .eyebrow::before { background: var(--indigo); }
 .sol-hero h1.hero-title { color: var(--ink); }
 .sol-hero h1.hero-title em {
-  background: linear-gradient(90deg, #180F60 0%, #009090 55%, #50C4FF 100%);
+  background: linear-gradient(90deg, #180F60 0%, #007575 55%, #50C4FF 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -6826,3 +6826,13 @@ footer {
 .goog-te-banner-frame, .skiptranslate { display: none !important; }
 body { top: 0 !important; }
 /* === /GTranslate === */
+
+/* === A11y: honor prefers-reduced-motion (added 2026-06-17 handover pass) === */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

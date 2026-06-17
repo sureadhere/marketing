@@ -164,6 +164,7 @@
 <a class="skip-link" href="#main">Skip to main content</a>
 
 <!-- ───── NAV ───── -->
+<header>
 <div class="nav-wrap">
   <div class="container">
     <nav class="primary">
@@ -176,22 +177,24 @@
         <a href="../behavioral-health/index.html" class="nav-active" aria-current="page">Behavioral Health</a>
         <a href="../resources/index.html" class="nav-sep">Resources</a>
       </div>
-      <div class="nav-cta">
+      <div class="nav-cta" id="nav-menu">
         <a class="btn btn-ghost" href="../contact/">Schedule a demo</a>
         <a class="btn btn-primary" href="https://secure.sureadhere.com/" target="_blank" rel="noopener">Sign In</a>
         <div class="nav-lang" aria-label="Language">
           <div class="gtranslate_wrapper"></div>
         </div>
       </div>
-      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
         <span></span><span></span><span></span>
       </button>
     </nav>
   </div>
 </div>
+</header>
 
 <!-- ───── HERO ───── -->
-<section id="main" class="hero" style="padding:96px 0 80px;">
+<main id="main">
+<section class="hero" style="padding:96px 0 80px;">
   <div class="container">
     <div class="hero-grid">
       <div>
@@ -371,10 +374,12 @@
       See how SureAdhere's virtual therapy platform can improve retention rates, reduce travel burden, and support your patients through recovery.
     </p>
     <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-      <a class="btn btn-indigo btn-arrow" href="../contact/">Contact us</a>
+      <a class="btn btn-indigo btn-arrow" href="../contact/">Schedule a demo</a>
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- ───── FOOTER ───── -->
 <footer>

@@ -76,7 +76,7 @@
     font-size: 0.82rem;
     color: var(--muted);
     line-height: 1.65;
-    border-left: 3px solid #009090;
+    border-left: 3px solid #007575;
     padding-left: 10px;
     margin-top: 4px;
   }
@@ -86,7 +86,7 @@
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: #009090;
+    color: #007575;
     background: rgba(0,144,144,0.08);
     border: 1px solid rgba(0,144,144,0.25);
     border-radius: 999px;
@@ -99,7 +99,7 @@
     font-family: var(--mono);
     font-size: 0.76rem;
     font-weight: 600;
-    color: #009090;
+    color: #007575;
     letter-spacing: 0.04em;
     padding-top: 3px;
   }
@@ -251,6 +251,7 @@
 <a class="skip-link" href="#main">Skip to main content</a>
 
 <!-- ───── NAV ───── -->
+<header>
 <div class="nav-wrap">
   <div class="container">
     <nav class="primary">
@@ -263,22 +264,24 @@
         <a href="../behavioral-health/index.html">Behavioral Health</a>
         <a href="../resources/index.html" class="nav-sep">Resources</a>
       </div>
-      <div class="nav-cta">
+      <div class="nav-cta" id="nav-menu">
         <a class="btn btn-ghost" href="../contact/">Schedule a demo</a>
         <a class="btn btn-primary" href="https://secure.sureadhere.com/" target="_blank" rel="noopener">Sign In</a>
         <div class="nav-lang" aria-label="Language">
           <div class="gtranslate_wrapper"></div>
         </div>
       </div>
-      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
         <span></span><span></span><span></span>
       </button>
     </nav>
   </div>
 </div>
+</header>
 
 <!-- ───── HERO ───── -->
-<section id="main" class="hero" style="padding:80px 0 72px;">
+<main id="main">
+<section class="hero" style="padding:80px 0 72px;">
   <div class="container">
     <div class="hero-grid">
       <div>
@@ -682,11 +685,13 @@
       See how the evidence-backed SureAdhere platform can improve outcomes and reduce burden for your patients and care teams.
     </p>
     <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;">
-      <a class="btn btn-indigo btn-arrow" href="../contact/">Contact us</a>
+      <a class="btn btn-indigo btn-arrow" href="../contact/">Schedule a demo</a>
       <a class="btn btn-ghost btn-arrow" href="../index.html">Back to overview</a>
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- ───── FOOTER ───── -->
 <footer>

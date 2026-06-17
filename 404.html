@@ -20,7 +20,7 @@
   }
   .err-hero {
     flex: 1;
-    background: #009090;
+    background: #007575;
     display: flex;
     align-items: center;
     padding: 80px 0 100px;
@@ -95,8 +95,8 @@
     transition: border-color 150ms, background 150ms;
   }
   .err-nav a:hover {
-    border-color: #009090;
-    color: #009090;
+    border-color: #007575;
+    color: #007575;
     background: var(--paper-2);
   }
 </style>
@@ -136,7 +136,8 @@
 
 <div class="err-page">
 
-  <div class="nav-wrap">
+  <header>
+<div class="nav-wrap">
     <div class="container">
       <nav class="primary">
         <a class="logo" href="index.html">
@@ -148,28 +149,30 @@
           <a href="behavioral-health/index.html">Behavioral Health</a>
           <a href="resources/index.html" class="nav-sep">Resources</a>
         </div>
-        <div class="nav-cta">
+        <div class="nav-cta" id="nav-menu">
           <a class="btn btn-ghost" href="contact/">Schedule a demo</a>
           <a class="btn btn-primary" href="https://secure.sureadhere.com/" target="_blank" rel="noopener">Sign In</a>
           <div class="nav-lang" aria-label="Language">
             <div class="gtranslate_wrapper"></div>
           </div>
         </div>
-        <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+        <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
           <span></span><span></span><span></span>
         </button>
       </nav>
     </div>
   </div>
+</header>
 
-  <div id="main" class="err-hero on-dark">
+  <main id="main">
+<div class="err-hero on-dark">
     <div class="container">
       <div class="err-inner">
         <p class="err-code">404 / Page not found</p>
         <h1 class="err-title">This page <strong>doesn't exist.</strong></h1>
         <p class="err-desc">The link may be outdated or mistyped. Try heading back to the homepage or one of the pages below.</p>
         <div class="err-actions">
-          <a class="btn btn-white btn-arrow" href="index.html">Go to homepage</a>
+          <a class="btn btn-on-dark btn-arrow" href="index.html">Go to homepage</a>
           <a class="btn btn-ghost" href="contact/">Contact us</a>
         </div>
       </div>
@@ -189,7 +192,9 @@
     </div>
   </div>
 
-  <footer>
+  </main>
+
+<footer>
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">

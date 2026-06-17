@@ -294,7 +294,7 @@
   }
   .hero-stats--on-teal .hero-stats-cell { border-right-color: rgba(0,144,144,0.15); }
   .hero-stats--on-teal .hero-stats-num { color: #0D1F1F; }
-  .hero-stats--on-teal .hero-stats-num span { color: #009090; }
+  .hero-stats--on-teal .hero-stats-num span { color: #007575; }
   .hero-stats--on-teal .hero-stats-lbl { color: rgba(13,31,31,0.65); }
 
   /* ── Logo marquee ── */
@@ -494,6 +494,7 @@
 <a class="skip-link" href="#main">Skip to main content</a>
 
 <!-- ───── NAV ───── -->
+<header>
 <div class="nav-wrap">
   <div class="container">
     <nav class="primary">
@@ -506,22 +507,24 @@
         <a href="behavioral-health/index.html">Behavioral Health</a>
         <a href="resources/index.html" class="nav-sep">Resources</a>
       </div>
-      <div class="nav-cta">
+      <div class="nav-cta" id="nav-menu">
         <a class="btn btn-ghost" href="contact/">Schedule a demo</a>
         <a class="btn btn-primary" href="https://secure.sureadhere.com/" target="_blank" rel="noopener">Sign In</a>
         <div class="nav-lang" aria-label="Language">
           <div class="gtranslate_wrapper"></div>
         </div>
       </div>
-      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu">
         <span></span><span></span><span></span>
       </button>
     </nav>
   </div>
 </div>
+</header>
 
 <!-- ───── HERO ───── -->
-<section id="main" class="hero hero-dark on-dark">
+<main id="main">
+<section class="hero hero-dark on-dark">
   <div class="container">
     <div class="hero-grid">
       <div>
@@ -545,7 +548,7 @@
           <img class="video-facade-poster" src="https://fast.wistia.com/embed/medias/htl85vr750/swatch" alt="" decoding="async" fetchpriority="high" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;filter:blur(10px) saturate(1.1);transform:scale(1.08);">
           <span aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,144,144,0.10) 0%,rgba(10,58,58,0.35) 100%);"></span>
           <span class="video-facade-play" aria-hidden="true" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:78px;height:78px;border-radius:50%;background:rgba(255,255,255,0.94);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(0,0,0,0.25);transition:transform 200ms;">
-            <svg viewBox="0 0 24 24" width="32" height="32" focusable="false"><path d="M8 5v14l11-7z" fill="#009090"/></svg>
+            <svg viewBox="0 0 24 24" width="32" height="32" focusable="false"><path d="M8 5v14l11-7z" fill="#007575"/></svg>
           </span>
         </div>
       </div>
@@ -862,6 +865,8 @@
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- ───── FOOTER ───── -->
 <footer>
