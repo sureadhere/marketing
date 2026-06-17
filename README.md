@@ -13,9 +13,7 @@ This repo is the staging copy. The site is moving to **`sureadhere.dimagi.com`**
 3. **DNS + deploy.** Point `sureadhere.dimagi.com` at the chosen host (Cloudflare Workers static assets, mirroring CommCare, is the working assumption). No CI workflow exists in this repo yet; the team wires push-to-main auto-deploy.
 4. **WordPress 301s.** Add redirects from `dimagi.com/sureadhere/*` to `sureadhere.dimagi.com/*` at the same time DNS flips.
 5. **App store fields.** Update the App Store and Play Store privacy-policy URL fields to `https://sureadhere.dimagi.com/privacy-policy/`.
-6. **HubSpot contact form.** Embed is wired (portalId `503070`, formId `e20b08b5-de23-42b1-9040-b37acff28623`). The team should confirm submissions land in a watched inbox.
-7. **HubSpot cookie banner.** The HubSpot tracking loader is wired site-wide and renders the cookie banner from the HubSpot dashboard (Settings, Privacy and Consent, Cookies), the same setup CommCare and dimagi.com use. Confirm categories (necessary, analytics, advertising) are enabled before launch.
-8. **Legal sign-off.** The two privacy policies (English and Mandarin) carry SureAdhere-specific language. Get Dimagi legal's written sign-off before launch.
+6. **HubSpot cookie banner — dashboard check only.** The HubSpot tracking loader and Consent Mode v2 bridge are already wired on all 10 pages (portal `503070`, same as CommCare and dimagi.com). The cookie banner itself is rendered by HubSpot from the dashboard (Settings → Privacy and Consent → Cookies); since the same portal already serves CommCare and dimagi.com, the categories should already be configured. Quick 30-second sanity check before cutover — no code change needed.
 
 ## Pages and where they live
 
