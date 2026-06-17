@@ -6,29 +6,33 @@ This README is the orientation guide. The day-to-day editing rules live in `CLAU
 
 ## Status: staging, awaiting handover
 
-This repo is the staging copy. Production hosting, repo home, and deploy pipeline are still to be decided by the SureAdhere team. Open items they need to resolve before launch:
+This repo is the staging copy. The site is moving to **`sureadhere.dimagi.com`** (mirroring `commcare.dimagi.com` and `connect.dimagi.com`). The HTML metadata, `sitemap.xml`, and `robots.txt` already point at the new host. The SureAdhere team will move this out of the current repo and wire DNS + deploy. Open items before launch:
 
 1. **Repo home.** This copy lives at `github.com/dimagi-internal/sureadhere-prelogin`. The team may move it into a SureAdhere-owned org or fold it into an existing main repo.
-2. **Production URL.** Working assumption is `sureadhere.com` (already owned; today it 301-redirects to `dimagi.com/sureadhere/`). Confirm and lock in.
-3. **Deploy pipeline.** No CI workflow exists in this repo. The team picks the host (GitHub Pages, Vercel/Netlify, the dimagi.com static migration pipeline, etc.) and wires push-to-main auto-deploy.
-4. **Cutover housekeeping.** At launch, three things need to happen together: (a) flip every `<link rel="canonical">`, `og:url`, JSON-LD `@id`/`url`, `sitemap.xml`, and `robots.txt` from `dimagi.com/sureadhere/` to the new host (the HTML metadata still uses the old URLs intentionally; do not flip until you cut over); (b) add WordPress 301s from `dimagi.com/sureadhere/*` to the new host; (c) update the App Store and Play Store privacy-policy URL fields to wherever `/privacy-policy/` ends up.
-5. **HubSpot contact form.** Embed is wired (portalId `503070`, formId `e20b08b5-de23-42b1-9040-b37acff28623`) but the team should confirm submissions land in a watched inbox.
-6. **Legal sign-off.** The two privacy policies (English and Mandarin) carry SureAdhere-specific language. Get Dimagi legal's written sign-off before launch.
+2. **Legacy `sureadhere.com`.** Already owned; today it 301-redirects to `dimagi.com/sureadhere/`. At cutover, repoint that redirect to `https://sureadhere.dimagi.com/`.
+3. **DNS + deploy.** Point `sureadhere.dimagi.com` at the chosen host (Cloudflare Workers static assets, mirroring CommCare, is the working assumption). No CI workflow exists in this repo yet; the team wires push-to-main auto-deploy.
+4. **WordPress 301s.** Add redirects from `dimagi.com/sureadhere/*` to `sureadhere.dimagi.com/*` at the same time DNS flips.
+5. **App store fields.** Update the App Store and Play Store privacy-policy URL fields to `https://sureadhere.dimagi.com/privacy-policy/`.
+6. **HubSpot contact form.** Embed is wired (portalId `503070`, formId `e20b08b5-de23-42b1-9040-b37acff28623`). The team should confirm submissions land in a watched inbox.
+7. **HubSpot cookie banner.** The HubSpot tracking loader is wired site-wide and renders the cookie banner from the HubSpot dashboard (Settings, Privacy and Consent, Cookies), the same setup CommCare and dimagi.com use. Confirm categories (necessary, analytics, advertising) are enabled before launch.
+8. **Legal sign-off.** The two privacy policies (English and Mandarin) carry SureAdhere-specific language. Get Dimagi legal's written sign-off before launch.
 
 ## Pages and where they live
 
+Live URLs are relative to `https://sureadhere.dimagi.com/`.
+
 | File | Live URL | Notes |
 |---|---|---|
-| `index.html` | `/sureadhere/` | Homepage |
-| `clinical-trials/index.html` | `/sureadhere/clinical-trials/` | Solution page |
-| `public-health/index.html` | `/sureadhere/public-health/` | Solution page |
-| `behavioral-health/index.html` | `/sureadhere/behavioral-health/` | Solution page |
-| `resources/index.html` | `/sureadhere/resources/` | FAQ, timeline, release notes |
-| `publications/index.html` | `/sureadhere/publications/` | Shown as "Evidence" in the nav: list of studies |
-| `contact/index.html` | `/sureadhere/contact/` | Demo request and contact |
-| `privacy-policy/index.html` | `/sureadhere/privacy-policy/` | Legal (sync with Dimagi legal) |
-| `privacy-policy-chinese/index.html` | `/sureadhere/privacy-policy-chinese/` | Legal, Chinese |
-| `login/index.html` | `/sureadhere/login/` | Bare redirect to the secure app |
+| `index.html` | `/` | Homepage |
+| `clinical-trials/index.html` | `/clinical-trials/` | Solution page |
+| `public-health/index.html` | `/public-health/` | Solution page |
+| `behavioral-health/index.html` | `/behavioral-health/` | Solution page |
+| `resources/index.html` | `/resources/` | FAQ, timeline, release notes |
+| `publications/index.html` | `/publications/` | Shown as "Evidence" in the nav: list of studies |
+| `contact/index.html` | `/contact/` | Demo request and contact |
+| `privacy-policy/index.html` | `/privacy-policy/` | Legal (sync with Dimagi legal) |
+| `privacy-policy-chinese/index.html` | `/privacy-policy-chinese/` | Legal, Chinese |
+| `login/index.html` | `/login/` | Bare redirect to the secure app |
 | `404.html` | served on not-found | Has nav and footer |
 
 Shared assets: `assets/styles.css` (all shared CSS), `assets/images/` (all images), `assets/favicon.png`.
@@ -59,8 +63,8 @@ Always view the page you changed plus one other page, to catch header/footer dri
 - **add-publication**: add a correctly formatted study to the Evidence page.
 
 ## SEO files to keep current
-- `sitemap.xml` lists every public URL. Update it when you add, remove, or rename a page.
-- `robots.txt` currently points the sitemap at `/sitemap.xml`. Update it to the absolute URL if SureAdhere moves to its own domain.
+- `sitemap.xml` lists every public URL on `sureadhere.dimagi.com`. Update it when you add, remove, or rename a page.
+- `robots.txt` points the sitemap at `https://sureadhere.dimagi.com/sitemap.xml`.
 - Each page has its own `<title>`, `<meta name="description">`, canonical URL, and Open Graph (`og:`) tags in its `<head>`. When you clone a page, change all of these; do not leave the source page's metadata in place.
 
 ## Brand and assets
@@ -75,6 +79,6 @@ Always view the page you changed plus one other page, to catch header/footer dri
 
 ## Deploy
 
-This repo is staging only — see the "Status" section at the top for the full list of decisions the SureAdhere team needs to make before launch (repo home, production URL, host, cutover housekeeping). Replace this section with the confirmed steps and the list of who can publish once the deploy pipeline is wired.
+This repo is staging only. See the "Status" section at the top for the open items (repo home, DNS, host, redirects) the SureAdhere team needs to resolve. Replace this section with the confirmed steps and the list of who can publish once the deploy pipeline is wired.
 
-Today's canonical URLs in the HTML (`<link rel="canonical">`, `og:url`, JSON-LD `@id`/`url`, `sitemap.xml`) all still point to `https://dimagi.com/sureadhere/`. They are intentionally left untouched in this staging state — they should be flipped to the new host as part of the cutover, not before.
+All canonical URLs, `og:url`, JSON-LD `@id`/`url`, `sitemap.xml`, and `robots.txt` already point to `https://sureadhere.dimagi.com/`. They are correct for the new host and do not need to be flipped at cutover.

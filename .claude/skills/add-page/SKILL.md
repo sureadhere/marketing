@@ -26,11 +26,11 @@ Fill in every value in CAPS. Keep the fonts and stylesheet links exactly as show
 <meta name="description" content="ONE SENTENCE DESCRIPTION OF THIS PAGE.">
 
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://dimagi.com/sureadhere/SLUG/">
-<link rel="canonical" href="https://dimagi.com/sureadhere/SLUG/">
+<meta property="og:url" content="https://sureadhere.dimagi.com/SLUG/">
+<link rel="canonical" href="https://sureadhere.dimagi.com/SLUG/">
 <meta property="og:title" content="PAGE TITLE">
 <meta property="og:description" content="ONE SENTENCE DESCRIPTION.">
-<meta property="og:image" content="https://dimagi.com/sureadhere/assets/images/SOME-REAL-IMAGE.png">
+<meta property="og:image" content="https://sureadhere.dimagi.com/assets/images/SOME-REAL-IMAGE.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,7 +53,7 @@ If this new page should appear in the top nav, add it to the `nav-links` and giv
 
 ## 4. Register the page
 
-- **`sitemap.xml`:** add a `<url>` block with `<loc>https://dimagi.com/sureadhere/SLUG/</loc>` and a sensible `changefreq` and `priority` (match the existing entries).
+- **`sitemap.xml`:** add a `<url>` block with `<loc>https://sureadhere.dimagi.com/SLUG/</loc>` and a sensible `changefreq` and `priority` (match the existing entries).
 - **Footer "Product" list:** if the page belongs there, add a `<li><a href="...">` entry, then propagate the footer to all pages with the `update-header-footer` skill.
 
 ## 5. Verify

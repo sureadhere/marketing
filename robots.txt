@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Update to the absolute sitemap URL once the standalone SureAdhere domain is live.
-Sitemap: /sitemap.xml
+Sitemap: https://sureadhere.dimagi.com/sitemap.xml

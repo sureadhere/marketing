@@ -1,6 +1,6 @@
 # SureAdhere pre-login site, working rules
 
-This folder is the **SureAdhere by Dimagi** marketing site: a hand-built static HTML site with no build step and no framework. It deploys under `https://dimagi.com/sureadhere/`. The rules below apply to every change. Read them before editing.
+This folder is the **SureAdhere by Dimagi** marketing site: a hand-built static HTML site with no build step and no framework. It deploys under `https://sureadhere.dimagi.com/`. The rules below apply to every change. Read them before editing.
 
 ## How the site is built
 - 10 pages, each a complete standalone HTML file. There is **no templating**: the `<head>`, the top nav, and the footer are copied inline into every page.
