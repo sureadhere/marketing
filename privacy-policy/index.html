@@ -5,16 +5,17 @@
 <link rel="icon" type="image/png" href="../assets/favicon.png">
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Privacy Policy | SureAdhere</title>
-<meta name="description" content="SureAdhere Privacy Policy: how we collect, use, and handle your information when you use SureAdhere services.">
+<meta name="description" content="SureAdhere Privacy Policy: how we collect, use, store, and protect your information when you use our patient adherence platform.">
 <meta property="og:type" content="website">
-  <meta property="og:url" content="https://dimagi.com/sureadhere/privacy-policy/">
-<link rel="canonical" href="https://dimagi.com/sureadhere/privacy-policy/">
+  <meta property="og:url" content="https://sureadhere.dimagi.com/privacy-policy/">
+<link rel="canonical" href="https://sureadhere.dimagi.com/privacy-policy/">
 <meta property="og:title" content="SureAdhere Privacy Policy">
 <meta property="og:description" content="How we collect, use, and handle your information when you use SureAdhere services.">
-<meta property="og:image" content="https://dimagi.com/sureadhere/assets/images/sureadhere-logo-full-color.png">
+<meta property="og:image" content="https://sureadhere.dimagi.com/assets/images/sureadhere-logo-full-color.png">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.gtranslate.net">
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/styles.css">
 <style>
@@ -79,6 +80,36 @@
   .policy-wrap [data-rte-list] { list-style: disc; }
   .policy-wrap span { font-size: inherit; }
 </style>
+<!-- Cookie banner is rendered by HubSpot (Settings, Privacy and Consent, Cookies in the
+     HubSpot dashboard) so it stays in sync with CommCare and dimagi.com. gtag('consent', 'default', ...)
+     denies all categories up front for EEA + UK + CH; _hsp.addPrivacyConsentListener bridges
+     the banner's choice back into gtag so any GA4 wired in later stays consistent. -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR',
+               'DE','GR','HU','IS','IE','IT','LV','LI','LT','LU',
+               'MT','NL','NO','PL','PT','RO','SK','SI','ES','SE',
+               'UK','CH']
+  });
+  var _hsp = window._hsp = window._hsp || [];
+  _hsp.push(['addPrivacyConsentListener', function (consent) {
+    var hasAnalyticsConsent = consent && (consent.allowed || (consent.categories && consent.categories.analytics));
+    var hasAdsConsent = consent && (consent.allowed || (consent.categories && consent.categories.advertisement));
+    gtag('consent', 'update', {
+      'ad_storage': hasAdsConsent ? 'granted' : 'denied',
+      'analytics_storage': hasAnalyticsConsent ? 'granted' : 'denied',
+      'ad_user_data': hasAdsConsent ? 'granted' : 'denied',
+      'ad_personalization': hasAdsConsent ? 'granted' : 'denied'
+    });
+  }]);
+</script>
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/503070.js"></script>
 </head>
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -145,7 +176,7 @@
 
     <h3>Cookies</h3>
     <p>Our Web and Mobile Application does not collect any cookies.</p>
-    <p>Our Informational Website (<a href="http://www.sureadhere.com/">www.sureadhere.com</a>) may log information using "cookies." Cookies are small data files stored on your hard drive by a website. We may use both session Cookies (which expire once you close your web browser) and persistent Cookies (which stay on your computer until you delete them) to provide you with a more personal and interactive experience on our Information Site. This type of information is collected to make the Information Website more useful to you and to tailor the experience with us to meet your special interests and needs.</p>
+    <p>Our Informational Website (<a href="https://www.sureadhere.com/">www.sureadhere.com</a>) may log information using "cookies." Cookies are small data files stored on your hard drive by a website. We may use both session Cookies (which expire once you close your web browser) and persistent Cookies (which stay on your computer until you delete them) to provide you with a more personal and interactive experience on our Information Site. This type of information is collected to make the Information Website more useful to you and to tailor the experience with us to meet your special interests and needs.</p>
     <p>Users are responsible for any third-party Personal Data obtained, published or shared through Services and confirm that they have the third party's consent to provide the Data to SureAdhere.</p>
 
     <h2>Mode and Place of Processing the Data</h2>
@@ -187,7 +218,7 @@
     <p>Personal Data is collected for the following purposes and using the following services:</p>
 
     <h3>Analytics</h3>
-    <p>SureAdhere uses analytics partners, including <a href="http://www.google.com/policies/privacy/partners/">Google Analytics</a> and <a href="https://legal.hubspot.com/privacy-policy">Hubspot</a> to analyze some of the Usage information we collect.</p>
+    <p>SureAdhere uses analytics partners, including <a href="https://policies.google.com/privacy/partners">Google Analytics</a> and <a href="https://legal.hubspot.com/privacy-policy">Hubspot</a> to analyze some of the Usage information we collect.</p>
     <p>If you do not consent to our analytics partners having access to your information, please let us know at <a href="mailto:privacy-sureadhere@dimagi.com">privacy-sureadhere@dimagi.com</a>.</p>
 
     <h3>Hosting and backend infrastructure</h3>
@@ -402,7 +433,7 @@
         </div>
       </div>
       <div class="footer-col">
-        <h5>Product</h5>
+        <h2>Product</h2>
         <ul>
           <li><a href="../index.html">Overview</a></li>
           <li><a href="../clinical-trials/index.html">Clinical Trials</a></li>
@@ -413,7 +444,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Support</h5>
+        <h2>Support</h2>
         <ul>
           <li><a href="https://secure.sureadhere.com/" target="_blank" rel="noopener">Patient Log In</a></li>
           <li><a href="https://dimagi.atlassian.net/wiki/spaces/sa/overview" target="_blank" rel="noopener">Help Site</a></li>
@@ -421,7 +452,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h5>About</h5>
+        <h2>About</h2>
         <ul>
           <li><a href="https://dimagi.com/" target="_blank" rel="noopener">About Dimagi</a></li>
           <li><a href="https://dimagi.com/blog/" target="_blank" rel="noopener">Blog</a></li>

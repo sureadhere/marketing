@@ -8,14 +8,15 @@
 <meta name="description" content="Browse 27 peer-reviewed publications supporting SureAdhere's video directly observed therapy platform for tuberculosis, HIV, and medication adherence.">
 
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://dimagi.com/sureadhere/publications/">
-<link rel="canonical" href="https://dimagi.com/sureadhere/publications/">
+<meta property="og:url" content="https://sureadhere.dimagi.com/publications/">
+<link rel="canonical" href="https://sureadhere.dimagi.com/publications/">
 <meta property="og:title" content="SureAdhere Evidence: Peer-Reviewed Research &amp; Publications">
 <meta property="og:description" content="Browse 27 peer-reviewed publications supporting SureAdhere's video directly observed therapy platform.">
-<meta property="og:image" content="https://dimagi.com/sureadhere/assets/images/evidence-base-hero.png">
+<meta property="og:image" content="https://sureadhere.dimagi.com/assets/images/evidence-base-hero.webp">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.gtranslate.net">
 <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/styles.css">
 <style>
@@ -215,6 +216,36 @@
     border-color: var(--indigo);
   }
 </style>
+<!-- Cookie banner is rendered by HubSpot (Settings, Privacy and Consent, Cookies in the
+     HubSpot dashboard) so it stays in sync with CommCare and dimagi.com. gtag('consent', 'default', ...)
+     denies all categories up front for EEA + UK + CH; _hsp.addPrivacyConsentListener bridges
+     the banner's choice back into gtag so any GA4 wired in later stays consistent. -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('consent', 'default', {
+    'analytics_storage': 'denied',
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'region': ['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR',
+               'DE','GR','HU','IS','IE','IT','LV','LI','LT','LU',
+               'MT','NL','NO','PL','PT','RO','SK','SI','ES','SE',
+               'UK','CH']
+  });
+  var _hsp = window._hsp = window._hsp || [];
+  _hsp.push(['addPrivacyConsentListener', function (consent) {
+    var hasAnalyticsConsent = consent && (consent.allowed || (consent.categories && consent.categories.analytics));
+    var hasAdsConsent = consent && (consent.allowed || (consent.categories && consent.categories.advertisement));
+    gtag('consent', 'update', {
+      'ad_storage': hasAdsConsent ? 'granted' : 'denied',
+      'analytics_storage': hasAnalyticsConsent ? 'granted' : 'denied',
+      'ad_user_data': hasAdsConsent ? 'granted' : 'denied',
+      'ad_personalization': hasAdsConsent ? 'granted' : 'denied'
+    });
+  }]);
+</script>
+<script type="text/javascript" id="hs-script-loader" async defer src="//js.hs-scripts.com/503070.js"></script>
 </head>
 <body class="page--resources">
 <a class="skip-link" href="#main">Skip to main content</a>
@@ -672,7 +703,7 @@
         </div>
       </div>
       <div class="footer-col">
-        <h5>Product</h5>
+        <h2>Product</h2>
         <ul>
           <li><a href="../index.html">Overview</a></li>
           <li><a href="../clinical-trials/index.html">Clinical Trials</a></li>
@@ -683,7 +714,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h5>Support</h5>
+        <h2>Support</h2>
         <ul>
           <li><a href="https://secure.sureadhere.com/" target="_blank" rel="noopener">Patient Log In</a></li>
           <li><a href="https://dimagi.atlassian.net/wiki/spaces/sa/overview" target="_blank" rel="noopener">Help Site</a></li>
@@ -691,7 +722,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h5>About</h5>
+        <h2>About</h2>
         <ul>
           <li><a href="https://dimagi.com/" target="_blank" rel="noopener">About Dimagi</a></li>
           <li><a href="https://dimagi.com/blog/" target="_blank" rel="noopener">Blog</a></li>
