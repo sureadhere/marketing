@@ -6827,6 +6827,28 @@ footer {
 body { top: 0 !important; }
 /* === /GTranslate === */
 
+/* === Footer external-link indicator (added 2026-06-17) === */
+/* Flag links in the footer columns + bottom row that open offsite, so visitors
+   know they will leave sureadhere.dimagi.com. Excludes the app-store badges
+   (which wrap an <img>) and any link without target=_blank. */
+footer .footer-col a[target="_blank"]::after,
+footer .footer-bottom a[target="_blank"]::after {
+  content: "\2197";
+  display: inline-block;
+  margin-left: 0.3em;
+  font-size: 0.85em;
+  line-height: 1;
+  vertical-align: 1px;
+  opacity: 0.7;
+  transition: transform 150ms ease, opacity 150ms ease;
+}
+footer .footer-col a[target="_blank"]:hover::after,
+footer .footer-bottom a[target="_blank"]:hover::after {
+  transform: translate(2px, -2px);
+  opacity: 1;
+}
+/* === /Footer external-link indicator === */
+
 /* === A11y: honor prefers-reduced-motion (added 2026-06-17 handover pass) === */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
