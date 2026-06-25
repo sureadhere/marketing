@@ -1,13 +1,22 @@
 {
-  // Cloudflare Workers static-assets deploy for the SureAdhere marketing site.
+  // Cloudflare Workers static-assets config for the SureAdhere marketing site.
   // No Worker script: this serves the repo's static HTML/CSS/images directly.
-  // NOTE: "name" must match the Cloudflare Worker that `wrangler versions
-  // upload` targets. Change it if your Worker is named differently.
-  "name": "sureadhere-marketing",
+  //
+  // Base settings come from Cloudflare's Workers Builds autoconfig so the
+  // dashboard Git integration stays in sync. "name" MUST match the Cloudflare
+  // Worker the build pipeline targets ("marketing"); do not rename it.
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "marketing",
   "compatibility_date": "2026-06-23",
+  "observability": {
+    "enabled": true
+  },
   "assets": {
-    "directory": "./",
-    // Serve 404.html for unknown paths instead of a default error.
+    "directory": ".",
+    // Serve 404.html for unknown paths instead of a default error page.
     "not_found_handling": "404-page"
-  }
+  },
+  "compatibility_flags": [
+    "nodejs_compat"
+  ]
 }

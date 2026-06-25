@@ -2,6 +2,9 @@
 
 This folder is the **SureAdhere by Dimagi** marketing site: a hand-built static HTML site with no build step and no framework. It deploys under `https://sureadhere.dimagi.com/`. The rules below apply to every change. Read them before editing.
 
+## Who runs this (important)
+This site is maintained by **non-developers**. Every routine workflow (editing content, previewing changes, and publishing) must be doable **entirely in a web browser, with no command line**. When proposing or documenting a process, always give the browser-based path first (GitHub web UI for edits/PRs/merges, the Cloudflare dashboard for builds and previews), and treat CLI steps as optional notes for engineers only. The end goal is a written, step-by-step runbook a non-technical teammate can follow.
+
 ## How the site is built
 - 10 pages, each a complete standalone HTML file. There is **no templating**: the `<head>`, the top nav, and the footer are copied inline into every page.
 - One shared stylesheet: `assets/styles.css`. Page-specific CSS lives in a `<style>` block in that page's `<head>`.
