@@ -1,15 +1,51 @@
-# SureAdhere site: edit, preview, and publish (no code required)
+# How to edit the SureAdhere website
 
-This guide is for non-technical teammates. You can make a change to the
-SureAdhere marketing site, see it in a private preview, and publish it to the
-live site **without writing code or using the command line**.
+**The one thing to know:** to change anything on the SureAdhere website, open
+Claude, point it at this project, and tell it what you want in plain English.
+Claude does everything else and shows you a preview and a publish button. You do
+**not** need to write code, use the command line, or open GitHub.
 
-There are two ways to do it:
+### The whole process in 60 seconds
+
+1. Open **Claude** on the `sureadhere/marketing` project.
+2. Type what you want changed, for example:
+   *"On the homepage, change the headline to 'adherence matters'."*
+3. Claude replies with a **preview link** — click it to check your change.
+4. Claude shows a **Merge now** button — click it to publish.
+5. Wait about a minute, then refresh the live site. Done.
+
+That is the entire job. Everything below just explains each step, how to get set
+up the first time, and what to do if something doesn't work.
+
+> **New here? Read the next section first.** It's a one-time setup checklist.
+
+---
+
+## Before your first edit: get set up (one time)
+
+You need three things. Ask your engineering contact (or whoever invited you) to
+confirm each one, then tick them off:
+
+- [ ] **A Claude session pointed at the `sureadhere/marketing` project.** This is
+      where you type your requests, and it's the main thing you need.
+- [ ] **GitHub access to the repo.** Claude uses this *on your behalf* to save
+      and publish changes. You normally never open GitHub yourself.
+- [ ] **A Cloudflare dashboard login** (optional). Only needed if you ever want
+      to find a preview link yourself instead of letting Claude hand it to you.
+
+**Quick test that you're ready:** open your Claude session and ask
+*"What pages does this website have?"* If it answers with the real pages
+(Homepage, Clinical Trials, Behavioral Health, and so on), you're set. If it
+can't, see **Troubleshooting: is Claude set up correctly?** near the bottom.
+
+---
+
+## Two ways to edit
 
 - **The easy way (recommended): just ask Claude.** You describe the change in
   plain language; Claude does all the GitHub work and hands you a preview link
-  and a merge button. You never open github.com. Start here.
-- **The manual way (fallback):** do the steps yourself in the GitHub website.
+  and a merge button. You never open github.com. **Start here.**
+- **The manual way (fallback):** do the steps yourself on the GitHub website.
   Use this only if Claude isn't available. It's further down under
   "Manual fallback."
 
@@ -154,6 +190,69 @@ couple of minutes.
    (**Ctrl+Shift+R** / **Cmd+Shift+R**) or open the page in a private/incognito
    window. Styling and images are cached by your browser and by the network, so
    a fresh load is sometimes needed.
+
+---
+
+## Troubleshooting: is Claude set up correctly?
+
+Most problems are about Claude's **access**. Here's how to check and fix each
+one. You can paste the suggested questions straight into your Claude session.
+
+### How to confirm Claude is connected to the right project
+
+Ask Claude:
+
+> "Can you confirm you have access to the `sureadhere/marketing` repository and
+> that you can open and merge pull requests?"
+
+A healthy answer names the repo and says it can open and merge PRs. If it says
+it cannot, use the fixes below.
+
+### "Claude can't find the project or the files"
+
+- **What it looks like:** Claude says it doesn't know what site you mean, or
+  can't list the pages.
+- **Fix:** Your session probably isn't pointed at the right project. Start a new
+  Claude session from the `sureadhere/marketing` project, or ask your
+  engineering contact to add the repo to your session.
+
+### "Claude made the change but can't save or publish it"
+
+- **What it looks like:** Claude edits text but then says it can't push, can't
+  open a pull request, or doesn't have permission.
+- **Fix:** Claude's GitHub access for this repo is missing. Ask your engineering
+  contact to grant the Claude integration (and your account) **write access** to
+  `sureadhere/marketing`. Then start a fresh session and try again.
+
+### "No preview link ever appears"
+
+- **First, wait a minute.** The preview is built after Claude saves the change
+  and usually takes about a minute.
+- **Then ask Claude:** *"Has the Cloudflare preview finished? Can you share the
+  preview link?"* Claude can check the change for you and pass along the link.
+- **If there's still no preview:** the Cloudflare auto-preview may not be
+  connected to the repo. Tell Claude *"There's no preview link, please check
+  why"*, and if it can't resolve it, ask your engineering contact to confirm
+  **Cloudflare Workers Builds** is connected to `sureadhere/marketing`.
+
+### "Claude opened the change but didn't publish it"
+
+- That's expected. Claude waits for **you** to approve. Click the **Merge now**
+  button (or tell Claude "publish it"). If Claude says it can't merge, that's a
+  permissions issue, see "can't save or publish it" above.
+
+### "I published, but the live site still looks old"
+
+- Give it 1–2 minutes, then do a **hard refresh**: **Cmd+Shift+R** (Mac) or
+  **Ctrl+Shift+R** (Windows). Browsers and the network cache the site, so a
+  normal refresh sometimes shows the old version. An incognito/private window
+  also works.
+
+### Still stuck?
+
+Tell Claude exactly what you see (copy any error message). If it can't fix it,
+contact your engineering contact and include: what you asked for, what Claude
+replied, and any link or error it gave you.
 
 ---
 
