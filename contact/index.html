@@ -182,7 +182,9 @@
   /* HubSpot sets submitted-message to white for its dark popup on dimagi.com;
      override so it's readable on this page's white card background. */
   #hubspot-form .submitted-message,
-  .submitted-message.hs-main-font-element {
+  #hubspot-form .submitted-message *,
+  .submitted-message.hs-main-font-element,
+  .submitted-message.hs-main-font-element * {
     color: var(--ink) !important;
   }
 </style>
