@@ -49,6 +49,10 @@ Copy-pasting a block from the homepage into a subpage without adding `../` break
 - If you added, removed, or renamed a page, update `sitemap.xml` and the footer "Product" list. The `add-page` skill does this.
 - The two privacy policies (English and Chinese) are legal documents: sync wording with Dimagi legal, do not freely rewrite them.
 
+## Known issues and pending work
+
+**Migration QA: verify HubSpot contact form on launch day.** HubSpot blocks form submissions from unregistered domains ("Unregistered Site Domain" spam). This cannot be tested from staging URLs (`*.workers.dev`, `sureadhere.github.io`) because those domains are unrelated to `dimagi.com` and will always be blocked. Since `dimagi.com` is already registered in HubSpot, `sureadhere.dimagi.com` is expected to work automatically. On launch day, submit a test form at `https://sureadhere.dimagi.com/contact/` and confirm a contact is created in HubSpot (portal `503070`). If it is flagged as spam, register `sureadhere.dimagi.com` in HubSpot under Settings → Website → Domains & URLs.
+
 ## Skills available in this folder
 - `update-header-footer`: change the nav or footer once, propagate to all pages.
 - `add-page`: scaffold a new page with the correct head, nav, footer, and paths, and register it in the sitemap and footer.
