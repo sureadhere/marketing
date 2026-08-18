@@ -2,17 +2,20 @@
 
 **The one thing to know:** to change anything on the SureAdhere website, open
 Claude, point it at this project, and tell it what you want in plain English.
-Claude does everything else and shows you a preview and a publish button. You do
-**not** need to write code, use the command line, or open GitHub.
+Claude does everything else and shows you exactly what will change plus a
+publish button. You do **not** need to write code, use the command line, or
+open GitHub.
 
 ### The whole process in 60 seconds
 
 1. Open **Claude** on the `sureadhere/marketing` project.
 2. Type what you want changed, for example:
    *"On the homepage, change the headline to 'adherence matters'."*
-3. Claude replies with a **preview link** — click it to check your change.
+3. Claude makes the change and **shows you exactly what changed** (the old
+   text and the new text, and which pages were touched). Check it reads right.
 4. Claude shows a **Merge now** button — click it to publish.
-5. Wait about a minute, then refresh the live site. Done.
+5. Wait about a minute, then refresh the live site
+   (**https://sureadhere.dimagi.com**). Done.
 
 That is the entire job. Everything below just explains each step, how to get set
 up the first time, and what to do if something doesn't work.
@@ -28,10 +31,9 @@ confirm each one, then tick them off:
 
 - [ ] **A Claude session pointed at the `sureadhere/marketing` project.** This is
       where you type your requests, and it's the main thing you need.
-- [ ] **GitHub access to the repo.** Claude uses this *on your behalf* to save
-      and publish changes. You normally never open GitHub yourself.
-- [ ] **A Cloudflare dashboard login** (optional). Only needed if you ever want
-      to find a preview link yourself instead of letting Claude hand it to you.
+- [ ] **GitHub access to the repo** (write access). Claude uses this *on your
+      behalf* to save and publish changes. You normally never open GitHub
+      yourself.
 
 **Quick test that you're ready:** open your Claude session and ask
 *"What pages does this website have?"* If it answers with the real pages
@@ -43,8 +45,8 @@ can't, see **Troubleshooting: is Claude set up correctly?** near the bottom.
 ## Two ways to edit
 
 - **The easy way (recommended): just ask Claude.** You describe the change in
-  plain language; Claude does all the GitHub work and hands you a preview link
-  and a merge button. You never open github.com. **Start here.**
+  plain language; Claude does all the GitHub work, shows you what changed, and
+  hands you a merge button. You never open github.com. **Start here.**
 - **The manual way (fallback):** do the steps yourself on the GitHub website.
   Use this only if Claude isn't available. It's further down under
   "Manual fallback."
@@ -62,15 +64,18 @@ This is the standard way to edit the site. Open a Claude session on the
 2. **Claude makes the change and prepares it.** It edits the file, saves it on
    a safe branch, and opens a proposed change (a "pull request") for you. You
    don't touch GitHub.
-3. **Claude sends you a preview link.** Within a minute or so, Claude posts a
-   private preview link (it ends in `.workers.dev`). Click it and confirm the
-   change looks right.
+3. **Claude shows you what changed.** It spells out the old wording, the new
+   wording, and which pages were touched. Read it and confirm it's what you
+   meant. (For anything visual — layout, images, colors — ask Claude to
+   describe the result carefully, or ask your engineering contact to
+   double-check before publishing.)
 4. **Claude shows you a publish button.** You'll see a choice like
    **"Publish this change?"** with **Merge now** / **Not yet**. Click
    **Merge now** when you're happy.
-5. **It goes live.** Claude publishes the change; the live site updates within a
-   minute or two. If you still see the old version, do a hard refresh
-   (**Cmd+Shift+R** on Mac, **Ctrl+Shift+R** on Windows).
+5. **It goes live.** Claude publishes the change; the live site rebuilds
+   automatically and updates within a minute or two. If you still see the old
+   version, do a hard refresh (**Cmd+Shift+R** on Mac, **Ctrl+Shift+R** on
+   Windows).
 
 That's it. If the preview doesn't look right, just tell Claude what to fix and
 it will update the same change and send a new preview.
@@ -90,9 +95,8 @@ Use this only if you can't use Claude. It does the same three things by hand:
 > **https://github.com/sureadhere/marketing**. A *"PR" (pull request)* is just a
 > proposed set of changes that you review before they go live.
 
-**What you need:** a **GitHub account** with access to the repo, and (optional
-but recommended) a **Cloudflare dashboard** login to see the preview. Ask your
-engineering contact for both.
+**What you need:** a **GitHub account** with write access to the repo. Ask your
+engineering contact if you don't have it.
 
 ### Step 1 — Edit a page
 
@@ -130,42 +134,27 @@ live*. Next you'll preview it.
 
 ---
 
-### Step 2 — Preview your change
+### Step 2 — Review your change
 
-You have two ways to preview, depending on what's set up. Use whichever is
-available to you.
+There is no automatic preview website for pull requests (the site only builds
+when a change is published). Instead, review the change itself:
 
-#### Option A (recommended): Cloudflare preview
+1. On your pull request page, click the **"Files changed"** tab.
+2. You'll see the old text in red and the new text in green. Read it and
+   confirm it says exactly what you want, on the page(s) you expected.
 
-When the repo is connected to **Cloudflare Workers Builds**, every pull request
-automatically gets its own private preview link.
+   > 📸 *Screenshot: the "Files changed" tab showing red/green text changes.*
 
-1. Log in at **https://dash.cloudflare.com**.
-2. Go to **Workers & Pages**, then open the **`marketing`** project.
-3. Click the **Builds** (or **Deployments**) tab.
-4. Find the build that matches your pull request. Click it.
-5. Open the **preview URL** it shows (it ends in `.workers.dev`).
-
-   > 📸 *Screenshot: the Builds tab with a preview build and its preview URL.*
-
-This preview shows your change exactly as it will look live, without affecting
-the real site.
-
-#### Option B: ask for a preview link in the PR
-
-If you don't have Cloudflare access, post a comment on your pull request asking
-your engineering contact (or the AI assistant watching the PR) to share the
-preview link. The same Cloudflare preview can be opened by anyone with access.
-
-> **Tip:** If a preview looks out of date, refresh the page. If it still looks
-> wrong, do a "hard refresh": **Ctrl+Shift+R** (Windows) or **Cmd+Shift+R**
-> (Mac). Browsers cache styling, so this forces the newest version to load.
+For simple wording changes, this red/green view is all you need. For anything
+**visual** (layout, images, styling), ask your engineering contact to check the
+change before you publish — they can open it on their computer and see it
+rendered.
 
 ---
 
 ### Step 3 — Publish (make it live)
 
-When the preview looks right:
+When the change looks right:
 
 1. Go back to your pull request on GitHub.
 2. Make sure any automatic checks at the bottom show green checkmarks. If
@@ -224,16 +213,16 @@ it cannot, use the fixes below.
   contact to grant the Claude integration (and your account) **write access** to
   `sureadhere/marketing`. Then start a fresh session and try again.
 
-### "No preview link ever appears"
+### "I want to see the change before publishing"
 
-- **First, wait a minute.** The preview is built after Claude saves the change
-  and usually takes about a minute.
-- **Then ask Claude:** *"Has the Cloudflare preview finished? Can you share the
-  preview link?"* Claude can check the change for you and pass along the link.
-- **If there's still no preview:** the Cloudflare auto-preview may not be
-  connected to the repo. Tell Claude *"There's no preview link, please check
-  why"*, and if it can't resolve it, ask your engineering contact to confirm
-  **Cloudflare Workers Builds** is connected to `sureadhere/marketing`.
+- **Ask Claude to spell it out:** *"Show me exactly what you changed — old text
+  and new text, and which pages."* For wording edits this tells you everything.
+- **Or look at the red/green view on GitHub:** open the pull request and click
+  **"Files changed"** — old text shows in red, new text in green.
+- **For visual changes** (layout, images, styling), ask your engineering
+  contact to open the change on their computer and confirm it renders right
+  before you click publish. There is no automatic preview website for
+  unpublished changes.
 
 ### "Claude opened the change but didn't publish it"
 
@@ -265,7 +254,8 @@ replied, and any link or error it gave you.
 | Commit | A saved change with a short description. |
 | Pull request (PR) | A proposed change you review before it goes live. |
 | Merge | The button that publishes a pull request to the live site. |
-| Preview / build | A private copy of the site showing your change before it's live. |
+| Files changed | The tab on a pull request showing old text (red) vs new text (green). |
+| Build / deploy | The automatic rebuild of the live site that runs after every publish. |
 | Hard refresh | Reloading a page while ignoring the cached (old) version. |
 
 ---

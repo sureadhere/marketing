@@ -4,16 +4,15 @@ The public marketing site for **SureAdhere by Dimagi**. It is a static HTML site
 
 This README is the orientation guide. The day-to-day editing rules live in `CLAUDE.md`, which Claude Code loads automatically.
 
-## Status: staging, awaiting handover
+## Status: live
 
-This repo is the staging copy. The site is moving to **`sureadhere.dimagi.com`** (mirroring `commcare.dimagi.com` and `connect.dimagi.com`). The HTML metadata, `sitemap.xml`, and `robots.txt` already point at the new host. The SureAdhere team will move this out of the current repo and wire DNS + deploy. Open items before launch:
+The site is **live at `https://sureadhere.dimagi.com/`** (launched 2026-07-27). How it's wired:
 
-1. **Repo home.** This copy lives at `github.com/dimagi-internal/sureadhere-prelogin`. The team may move it into a SureAdhere-owned org or fold it into an existing main repo.
-2. **Legacy `sureadhere.com`.** Already owned; today it 301-redirects to `dimagi.com/sureadhere/`. At cutover, repoint that redirect to `https://sureadhere.dimagi.com/`.
-3. **DNS + deploy.** Point `sureadhere.dimagi.com` at the chosen host (Cloudflare Workers static assets, mirroring CommCare, is the working assumption). No CI workflow exists in this repo yet; the team wires push-to-main auto-deploy.
-4. **WordPress 301s.** Add redirects from `dimagi.com/sureadhere/*` to `sureadhere.dimagi.com/*` at the same time DNS flips.
-5. **App store fields.** Update the App Store and Play Store privacy-policy URL fields to `https://sureadhere.dimagi.com/privacy-policy/`.
-6. **HubSpot cookie banner — dashboard check only.** The HubSpot tracking loader and Consent Mode v2 bridge are already wired on all 10 pages (portal `503070`, same as CommCare and dimagi.com). The cookie banner itself is rendered by HubSpot from the dashboard (Settings → Privacy and Consent → Cookies); since the same portal already serves CommCare and dimagi.com, the categories should already be configured. Quick 30-second sanity check before cutover — no code change needed.
+- **Hosting: GitHub Pages**, deployed from this repo (`sureadhere/marketing`), `main` branch, root folder. Merging to `main` publishes automatically; the live site updates about a minute later.
+- **Custom domain:** `sureadhere.dimagi.com` is set in Settings → Pages (the `CNAME` file in the repo root belongs to that setting — do not delete it), with **Enforce HTTPS** on. The domain is also **org-verified** for GitHub Pages (takeover protection).
+- **DNS:** a CNAME record `sureadhere.dimagi.com` → `sureadhere.github.io` in the dimagi.com Cloudflare zone, deliberately **DNS-only (grey cloud)** so GitHub can manage the TLS certificate. DNS changes go through Dimagi web infra.
+- **Legacy URLs:** `sureadhere.com` and `dimagi.com/sureadhere` both 301-redirect here. Old `sureadhere.github.io/marketing/*` URLs redirect automatically.
+- **Launch checklist (all done):** app-store privacy-policy URLs updated (Play live; iOS ships with the next app version), HubSpot cookie banner verified on the new domain.
 
 ## Pages and where they live
 
@@ -80,10 +79,10 @@ A few site-wide patterns set in `assets/styles.css` that are easy to undo by acc
 ## Handle with care
 - **Legal pages.** The two privacy policies are legal text. Coordinate edits with Dimagi legal.
 - **External links.** The "Sign In" button, the login redirect, the help site, and the app store badges point to live systems. Do not change these URLs without confirming the new target.
-- **Version control.** This folder is a git repository with its origin at `github.com/dimagi-internal/sureadhere-prelogin` (the staging copy). Commit every change there so the team has history and a safe undo, and run `git push` after committing. Confirm the repo's visibility (public vs private) in its GitHub settings before sharing it widely. The SureAdhere team may relocate this repo to a SureAdhere-owned org at handover.
+- **Version control.** This folder is a git repository with its origin at `github.com/sureadhere/marketing` — the production repo, since GitHub Pages deploys straight from `main`. Commit every change so the team has history and a safe undo, and push (or merge a PR) to publish.
 
 ## Deploy
 
-This repo is staging only. See the "Status" section at the top for the open items (repo home, DNS, host, redirects) the SureAdhere team needs to resolve. Replace this section with the confirmed steps and the list of who can publish once the deploy pipeline is wired.
+**Merging (or pushing) to `main` is the deploy.** GitHub Pages rebuilds automatically — watch the "pages build and deployment" run under the repo's **Actions** tab — and the live site updates in about a minute. There is no separate staging environment and no per-PR preview build; preview changes locally before merging (see "Run and preview locally" above). Anyone with **write access** to this repo can publish.
 
-All canonical URLs, `og:url`, JSON-LD `@id`/`url`, `sitemap.xml`, and `robots.txt` already point to `https://sureadhere.dimagi.com/`. They are correct for the new host and do not need to be flipped at cutover.
+All canonical URLs, `og:url`, JSON-LD `@id`/`url`, `sitemap.xml`, and `robots.txt` point to `https://sureadhere.dimagi.com/` and are correct as-is.

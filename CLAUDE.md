@@ -3,16 +3,16 @@
 This folder is the **SureAdhere by Dimagi** marketing site: a hand-built static HTML site with no build step and no framework. It deploys under `https://sureadhere.dimagi.com/`. The rules below apply to every change. Read them before editing.
 
 ## Who runs this (important)
-This site is maintained by **non-developers**. Every routine workflow (editing content, previewing changes, and publishing) must be doable **entirely in a web browser, with no command line**. When proposing or documenting a process, always give the browser-based path first (GitHub web UI for edits/PRs/merges, the Cloudflare dashboard for builds and previews), and treat CLI steps as optional notes for engineers only. The end goal is a written, step-by-step runbook a non-technical teammate can follow.
+This site is maintained by **non-developers**. Every routine workflow (editing content, previewing changes, and publishing) must be doable **entirely in a web browser, with no command line**. When proposing or documenting a process, always give the browser-based path first (GitHub web UI for edits/PRs/merges, the repo's Actions tab for deploy status), and treat CLI steps as optional notes for engineers only. The end goal is a written, step-by-step runbook a non-technical teammate can follow.
 
 ## Standard workflow for changes (Claude-driven, GitHub-free for the user)
 This repo's maintainers are non-developers and should **not** be asked to use github.com. For any content or site change, Claude handles all of GitHub on the user's behalf. This section is standing authorization to create and merge pull requests as the normal flow for this repo (it overrides the usual "don't open a PR unless asked" default). The steps:
 
 1. **Edit on a branch.** Make the change on a new branch (never commit directly to `main`), commit with a clear message, and push.
 2. **Open the PR** for the user (base `main`). Do not ask them to open it.
-3. **Surface a preview.** Production deploys come from Cloudflare Workers Builds, which posts a `*.workers.dev` **preview URL** as a check/comment on each PR (it appears ~1 minute after the push). Wait for it, then give the user that preview link as a clickable link. You can `subscribe_pr_activity` so you are notified when the build's preview is ready instead of polling.
+3. **Show the change.** There is no hosted per-PR preview build (GitHub Pages only deploys `main`). Instead, show the user exactly what changed in plain language (old text vs new text, which pages were touched). When working locally, also offer a local preview (`.claude/launch.json` serves the site on port 3030). For text-level edits, the before/after description is normally enough to decide.
 4. **Offer a merge button.** Present the publish decision as selectable options (the question tool renders real buttons), e.g. "Publish this change?" with `Merge now` / `Not yet`. Do not make the user click anything on GitHub.
-5. **Merge on approval.** When the user approves, merge the PR yourself (`merge_pull_request`). Then confirm it is live and remind them a hard refresh (Cmd+Shift+R / Ctrl+Shift+R) may be needed because CSS and images are cached.
+5. **Merge on approval.** When the user approves, merge the PR yourself (`merge_pull_request`). Merging to `main` is the deploy: GitHub Pages rebuilds (the "pages build and deployment" run in the Actions tab) and the live site at `https://sureadhere.dimagi.com/` updates in about a minute. Confirm it is live and remind them a hard refresh (Cmd+Shift+R / Ctrl+Shift+R) may be needed because CSS and images are cached.
 
 Keep GitHub as the engine under the hood (source of truth + deploy trigger); just never make the user touch it. The human-facing version of this is in `RUNBOOK.md`.
 
@@ -49,9 +49,11 @@ Copy-pasting a block from the homepage into a subpage without adding `../` break
 - If you added, removed, or renamed a page, update `sitemap.xml` and the footer "Product" list. The `add-page` skill does this.
 - The two privacy policies (English and Chinese) are legal documents: sync wording with Dimagi legal, do not freely rewrite them.
 
-## Known issues and pending work
+## Hosting facts (for context; launched 2026-07-27)
 
-**Migration QA: verify HubSpot contact form on launch day.** HubSpot blocks form submissions from unregistered domains ("Unregistered Site Domain" spam). This cannot be tested from staging URLs (`*.workers.dev`, `sureadhere.github.io`) because those domains are unrelated to `dimagi.com` and will always be blocked. Since `dimagi.com` is already registered in HubSpot, `sureadhere.dimagi.com` is expected to work automatically. On launch day, submit a test form at `https://sureadhere.dimagi.com/contact/` and confirm a contact is created in HubSpot (portal `503070`). If it is flagged as spam, register `sureadhere.dimagi.com` in HubSpot under Settings → Website → Domains & URLs.
+- The site deploys via **GitHub Pages** from `main` (root). The `CNAME` file in the repo root carries the custom-domain setting — never delete or edit it.
+- DNS (`sureadhere.dimagi.com` CNAME → `sureadhere.github.io`, kept DNS-only/grey-cloud in Cloudflare so GitHub can renew the TLS cert) and the legacy redirects (`sureadhere.com`, `dimagi.com/sureadhere`) are managed by Dimagi web infra, not from this repo.
+- **HubSpot forms:** if contact-form submissions are ever flagged as "Unregistered Site Domain" spam, register `sureadhere.dimagi.com` in HubSpot under Settings → Website → Domains & URLs (portal `503070`).
 
 ## Skills available in this folder
 - `update-header-footer`: change the nav or footer once, propagate to all pages.
