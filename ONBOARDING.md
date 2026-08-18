@@ -27,29 +27,29 @@ GitHub is where the website files are stored. Think of it like a shared folder i
 - Enter your Dimagi email address (`@dimagi.com`), choose a username and password, and complete the verification steps.
 - Check your inbox for a confirmation email and verify your account.
 
-## Request Access to the Dimagi-Internal Organization
+## Request Access to the SureAdhere Organization
 
-Once your account is created, you need to be added to the private organization where the websites live.
+Once your account is created, you need to be added to the repository where the website lives.
 
-- Send your **GitHub username** to the person who manages the websites (or post it in the relevant Slack channel).
-- You will receive an email invitation from GitHub titled something like *"You've been invited to join dimagi-internal."*
+- Send your **GitHub username** to the person who manages the website (or post it in the relevant Slack channel) and ask for **write access** to `sureadhere/marketing`.
+- You will receive an email invitation from GitHub titled something like *"You've been invited to collaborate on sureadhere/marketing."*
 - Click **Accept invitation** in that email.
 
-You now have access to the website repositories.
+You now have access to the website repository.
 
 ## Your Website's Repository
 
 | Item | Value |
 |------|-------|
-| GitHub repository | [dimagi-internal/sureadhere-prelogin](https://github.com/dimagi-internal/sureadhere-prelogin) |
+| GitHub repository | [sureadhere/marketing](https://github.com/sureadhere/marketing) |
 | Type | Static HTML (no build step, no framework) |
-| Hosting | To be wired by your team (Cloudflare Workers static assets is the working assumption) |
-| Public URL | `sureadhere.dimagi.com` *(migrating from `dimagi.com/sureadhere/`; DNS + deploy pending, see README)* |
+| Hosting | GitHub Pages, deployed automatically from the `main` branch |
+| Public URL | **https://sureadhere.dimagi.com** (live since 2026-07-27) |
 
-- Go to [github.com/dimagi-internal/sureadhere-prelogin](https://github.com/dimagi-internal/sureadhere-prelogin) while signed in.
+- Go to [github.com/sureadhere/marketing](https://github.com/sureadhere/marketing) while signed in.
 - Click the repository name to open it. You'll see all the files that make up the website.
 
-> The repo's **`README.md`** has a checklist of launch items still open (DNS, deploy pipeline, legacy `sureadhere.com` redirect, app-store privacy URLs). Review it with your engineering team before go-live.
+> The repo's **`README.md`** describes how the live site is wired (hosting, DNS, redirects) and is the orientation guide for anyone technical.
 
 ## Install Your Editing Tools
 
@@ -62,8 +62,8 @@ You'll use Claude Code (an AI assistant) to make edits without writing code. You
   ```
 - **Clone the repository** (download the files to your computer). Open a Terminal and run:
   ```
-  git clone https://github.com/dimagi-internal/sureadhere-prelogin.git
-  cd sureadhere-prelogin
+  git clone https://github.com/sureadhere/marketing.git
+  cd marketing
   ```
 - **Sign in to GitHub from the terminal** (recommended) so Claude can push changes on your behalf:
   ```
@@ -73,22 +73,13 @@ You'll use Claude Code (an AI assistant) to make edits without writing code. You
 
 > No Node.js or build tools are required. This site is just HTML and CSS files.
 
-## Connect to Your Main Website
+## How Publishing Works (already set up)
 
-The site is moving to its permanent home at `sureadhere.dimagi.com`. Wiring DNS and the publish pipeline is a one-time setup you do with your engineering team. The repo metadata, `sitemap.xml`, and `robots.txt` already point at the new host.
+The site is live at **https://sureadhere.dimagi.com** and everything is wired; there is nothing to set up. What you need to know:
 
-**What to ask engineering to set up:**
-
-- Point `sureadhere.dimagi.com` at the chosen host and set up push-to-main auto-deploy (no CI workflow exists in the repo yet).
-- Repoint the legacy `sureadhere.com` 301 redirect to `https://sureadhere.dimagi.com/`.
-- Add WordPress 301 redirects from `dimagi.com/sureadhere/*` to the new URLs at cutover.
-- Update the App Store and Play Store privacy-policy URL fields to `https://sureadhere.dimagi.com/privacy-policy/`.
-
-**What you will learn from them:**
-
-- How to test changes before they go public.
-- Whether you publish directly or through a review step.
-- Who else needs to approve changes before they go live.
+- **Publishing = merging (or pushing) to the `main` branch.** GitHub Pages rebuilds the site automatically and the live URL updates about a minute later.
+- **There is no separate staging site.** Check changes before publishing: preview the HTML file locally (see "Preview the Site Locally" below), or review the red/green text diff on the pull request.
+- **DNS and the legacy redirects** (`sureadhere.com` and `dimagi.com/sureadhere` both forward here) are managed by Dimagi web infrastructure — you'll never need to touch them; if something domain-related ever breaks, escalate to your engineering contact.
 
 ---
 
@@ -119,7 +110,7 @@ Claude works best when opened directly inside your repository folder. This gives
 
 - Open a Terminal and navigate into your repository folder:
   ```
-  cd path/to/sureadhere-prelogin
+  cd path/to/marketing
   ```
 - Launch Claude Code from that folder:
   ```
@@ -158,7 +149,7 @@ No server needed. To check a change before publishing, open the repo folder in [
 
 ## Verify Your Changes Are Live
 
-- Once your deploy pipeline is wired (see Part 1), open the live URL.
+- Wait about a minute after publishing, then open **https://sureadhere.dimagi.com**.
 - Do a hard refresh (**Cmd+Shift+R** on Mac, **Ctrl+Shift+R** on Windows) to clear the cache.
 - Confirm your changes appear as expected, and glance at a second page to confirm the header/footer still match.
 
