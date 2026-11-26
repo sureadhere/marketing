@@ -476,6 +476,481 @@
   }
   .partner-stories-dark .story-link:hover { color: #A5DFDB; }
   .partner-stories-dark .story-link:hover::after { transform: translateX(3px); }
+
+  /* ── Workflow scroll story (all classes prefixed wf- so nothing collides with assets/styles.css) ── */
+  .wf { --nav-h: 76px; }
+  .wf h1, .wf h2, .wf h3, .wf h4, .wf h5, .wf h6 { color: inherit; }
+  .wf svg, .wf img { display: inline; }
+  .wf {
+  
+    --bg: #0E0840;
+    --bg-2: #180F60;
+    --surface: #221A72;
+    --line: rgba(165, 223, 219, .18);
+    --text: #FAFBFF;
+    --muted: #B9BBDA;
+    --mint: #6ECAC5;
+    --teal: #019688;
+    --orange: #E2701F;
+    --rose: #F05D5A;
+    --amber: #FFCA28;
+  
+    --app-bg: #ECF1F4;
+    --app-card: #FFFFFF;
+    --app-ink: #09263A;
+    --app-text: #333333;
+    --app-sub: #666666;
+    --app-sep: #E3E3E3;
+    --app-sent: #DBF0E7;
+    --app-sched: #C4CDD5;
+    --font: var(--sans);
+    --ph: min(560px, 74vh);
+    --lw: min(680px, 47vw);
+  }
+  html { scroll-behavior: smooth; }
+  .wf {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wf .wf-gutter {
+    padding-left: max(24px, env(safe-area-inset-left, 0px));
+    padding-right: max(24px, env(safe-area-inset-right, 0px));
+  }
+  .wf h1, .wf h2, .wf h3 { text-wrap: balance; margin: 0; }
+  .wf p { margin: 0; }
+  .wf .wf-eyebrow {
+    font-size: 12px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--mint);
+  }
+  .wf .wf-topbar {
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+    padding-block: 22px;
+  }
+  .wf .wf-topbar img { height: 26px; width: auto; }
+  .wf .wf-keys { color: var(--muted); font-size: 13px; display: flex; gap: 8px; align-items: center; }
+  .wf kbd {
+    font-family: var(--font); font-size: 11px; font-weight: 700; color: var(--text);
+    border: 1px solid var(--line); border-bottom-width: 2px; border-radius: 6px; padding: 1px 7px;
+  }
+  .wf .wf-hero {
+    position: relative; overflow: hidden;
+    background:
+      radial-gradient(60% 80% at 85% 10%, rgba(0, 182, 181, .22), transparent 60%),
+      radial-gradient(50% 60% at 10% 100%, rgba(80, 196, 255, .10), transparent 60%),
+      linear-gradient(180deg, var(--bg-2), var(--bg));
+  }
+  .wf .wf-hero-inner {
+    max-width: 1240px; margin: 0 auto; min-height: 78vh;
+    display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: 48px; align-items: center;
+    padding-block: 32px 72px;
+  }
+  .wf .wf-hero .wf-title { font-size: clamp(40px, 5.4vw, 76px); line-height: 1.02; font-weight: 800; letter-spacing: -.02em; margin-top: 14px; }
+  .wf .wf-hero .wf-title span { color: var(--mint); }
+  .wf .wf-hero .wf-lead { font-size: clamp(17px, 1.4vw, 20px); color: var(--muted); max-width: 34em; margin-top: 22px; }
+  .wf .wf-loop-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; padding: 0; list-style: none; }
+  .wf .wf-loop-chips li {
+    display: flex; align-items: center; gap: 8px; padding: 8px 14px 8px 8px; border-radius: 999px;
+    background: rgba(255,255,255,.04); border: 1px solid var(--line); font-weight: 600; font-size: 14px;
+  }
+  .wf .wf-loop-chips .wf-dot { width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center; font-size: 11px; font-weight: 800; color: var(--bg); }
+  .wf .wf-who-p { background: var(--orange); }
+  .wf .wf-who-c { background: var(--mint); }
+  .wf .wf-begin {
+    margin-top: 40px; display: inline-flex; align-items: center; gap: 10px; color: var(--text);
+    text-decoration: none; font-weight: 700; font-size: 15px;
+  }
+  .wf .wf-begin .wf-arrow { width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--line); display: grid; place-items: center; animation: wf-bob 2.4s ease-in-out infinite; }
+  .wf .wf-begin:focus-visible, .wf .wf-rail button:focus-visible { outline: 2px solid var(--mint); outline-offset: 4px; border-radius: 999px; }
+  @keyframes wf-bob { 50% { transform: translateY(5px); } }
+  .wf .wf-hero-art { position: relative; height: min(460px, 56vh); }
+  .wf .wf-orbit { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .wf .wf-orbit text { font-family: var(--font); }
+  .wf .wf-story { position: relative; display: grid; grid-template-columns: minmax(0, 40fr) minmax(0, 60fr); max-width: 1440px; margin: 0 auto; }
+  .wf .wf-steps { position: relative; z-index: 2; }
+  .wf .wf-step { min-height: 100vh; display: flex; align-items: center; padding-block: 12vh; }
+  .wf .wf-step:first-child { min-height: 150vh; }
+  .wf .wf-card {
+    max-width: 440px; opacity: .32; transform: translateY(8px);
+    transition: opacity .5s ease, transform .5s ease;
+  }
+  .wf .wf-step.wf-is-active .wf-card { opacity: 1; transform: none; }
+  .wf .wf-who { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); }
+  .wf .wf-who i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+  .wf .wf-who .wf-t { color: var(--text); }
+  .wf .wf-step-no { font-variant-numeric: tabular-nums; color: var(--muted); font-weight: 700; font-size: 14px; margin-bottom: 14px; }
+  .wf .wf-card h2 { font-size: clamp(28px, 2.7vw, 40px); line-height: 1.12; font-weight: 800; letter-spacing: -.015em; margin-top: 12px; }
+  .wf .wf-card p { color: var(--muted); font-size: 18px; margin-top: 16px; max-width: 30em; }
+  .wf .wf-facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; padding: 0; list-style: none; }
+  .wf .wf-facts li { font-size: 13px; font-weight: 600; padding: 6px 12px; border-radius: 999px; border: 1px solid var(--line); color: var(--text); background: rgba(255,255,255,.03); }
+  .wf .wf-stage-col { position: relative; }
+  .wf .wf-stage { position: sticky; top: 0; height: 100vh; overflow: hidden; }
+  .wf .wf-stage::before {
+    content: ""; position: absolute; inset: 8% 4% 8% 4%; border-radius: 40px;
+    background: radial-gradient(60% 60% at 50% 45%, rgba(1,150,136,.20), transparent 70%);
+    transition: background .8s;
+  }
+  .wf .wf-stage[data-mode="provider"]::before { background: radial-gradient(60% 60% at 55% 45%, rgba(136,205,176,.14), transparent 70%); }
+  .wf .wf-devices { position: absolute; inset: 0; }
+  .wf .wf-link-line { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0; transition: opacity .6s; }
+  .wf .wf-stage[data-step="6"] .wf-link-line { opacity: 1; }
+  .wf .wf-link-line path { stroke: var(--mint); stroke-width: 2; fill: none; stroke-dasharray: 2 9; stroke-linecap: round; animation: wf-flow 1.2s linear infinite; }
+  @keyframes wf-flow { to { stroke-dashoffset: -22; } }
+  .wf .wf-phone {
+    --pw: calc(var(--ph) * .49);
+    position: absolute; left: 50%; top: 50%; z-index: 3;
+    width: var(--pw); height: var(--ph);
+    transform: translate(-50%, -50%);
+    transition: transform .9s cubic-bezier(.65,0,.25,1), opacity .6s;
+    font-size: calc(var(--ph) / 40);
+  }
+  .wf .wf-stage[data-mode="provider"] .wf-phone { transform: translate(calc(-50% - var(--lw) * .45), -30%) scale(.52); }
+  .wf .wf-stage[data-step="7"] .wf-phone { opacity: 0; }
+  .wf .wf-phone-body {
+    position: absolute; inset: 0; border-radius: calc(var(--pw) * .16);
+    background: #0B1620; padding: calc(var(--pw) * .035);
+    box-shadow: 0 0 0 1.5px #2C3E4C, 0 40px 80px -20px rgba(0,0,0,.6), 0 0 0 7px rgba(255,255,255,.03);
+  }
+  .wf .wf-phone-screen { position: relative; width: 100%; height: 100%; border-radius: calc(var(--pw) * .13); overflow: hidden; background: var(--app-bg); }
+  .wf .wf-island { position: absolute; top: 1.1em; left: 50%; width: 32%; height: 1.9em; transform: translateX(-50%); background: #05090D; border-radius: 99px; z-index: 20; }
+  .wf .wf-statusbar {
+    position: absolute; top: 0; left: 0; right: 0; height: 4em; z-index: 15;
+    display: flex; align-items: center; justify-content: space-between; padding: .6em 1.9em 0 2.3em;
+    font-weight: 700; font-size: .95em; color: var(--app-text); font-variant-numeric: tabular-nums;
+  }
+  .wf .wf-statusbar.wf-light { color: #fff; }
+  .wf .wf-statusbar .wf-icons { display: flex; gap: .35em; align-items: center; }
+  .wf .wf-statusbar .wf-bars { display: flex; gap: 2px; align-items: flex-end; height: .8em; }
+  .wf .wf-statusbar .wf-bars b { width: 3px; background: currentColor; border-radius: 1px; }
+  .wf .wf-statusbar .wf-batt { width: 1.7em; height: .85em; border: 1.5px solid currentColor; border-radius: 3px; position: relative; opacity: .9; }
+  .wf .wf-statusbar .wf-batt::after { content: ""; position: absolute; inset: 1.5px; right: 30%; background: currentColor; border-radius: 1px; }
+  .wf .wf-screen { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity .45s ease, visibility 0s linear .45s; }
+  .wf .wf-screen.wf-on { opacity: 1; visibility: visible; transition: opacity .45s ease, visibility 0s; }
+  .wf .wf-lock { background: linear-gradient(165deg, #1E4A63 0%, #0E2C40 45%, #2A2236 100%); color: #fff; text-align: center; }
+  .wf .wf-lock .wf-date { margin-top: 5.6em; font-size: 1.05em; font-weight: 600; opacity: .85; }
+  .wf .wf-lock .wf-clock { font-size: 5.4em; font-weight: 700; line-height: 1; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+  .wf .wf-notif {
+    margin: 2.2em 1em 0; text-align: left; border-radius: 1.5em; overflow: hidden;
+    background: rgba(245, 248, 250, .86); color: #111; backdrop-filter: blur(10px);
+    box-shadow: 0 12px 30px -10px rgba(0,0,0,.5);
+  }
+  .wf .wf-notif-head { display: flex; gap: .8em; align-items: center; padding: .9em 1em; }
+  .wf .wf-notif-head img { width: 2.6em; height: 2.6em; border-radius: .65em; }
+  .wf .wf-notif-head .wf-nt { flex: 1; min-width: 0; }
+  .wf .wf-notif-head b { display: block; font-size: 1em; }
+  .wf .wf-notif-head span { font-size: 1em; color: #333; }
+  .wf .wf-notif-head small { align-self: flex-start; color: #777; font-size: .8em; }
+  .wf .wf-notif-actions { border-top: 1px solid rgba(0,0,0,.08); display: grid; }
+  .wf .wf-notif-actions div { padding: .8em 1em; font-weight: 600; color: #0A6CDA; font-size: .95em; }
+  .wf .wf-notif-actions div + div { border-top: 1px solid rgba(0,0,0,.08); }
+  .wf .wf-notif-actions .wf-tapme { position: relative; }
+  .wf .wf-lock .wf-hint { position: absolute; bottom: 1.6em; left: 0; right: 0; font-size: .85em; opacity: .7; }
+  .wf .wf-lock .wf-homebar { position: absolute; bottom: .7em; left: 50%; width: 36%; height: 5px; transform: translateX(-50%); background: #fff; border-radius: 9px; opacity: .8; }
+  .wf .wf-screen.wf-on .wf-notif { animation: wf-drop .7s cubic-bezier(.2,.9,.3,1.2) .35s both; }
+  @keyframes wf-drop { from { opacity: 0; transform: translateY(-2.5em) scale(.96); } }
+  .wf .wf-screen.wf-on .wf-notif-actions { animation: wf-grow .5s ease 1.4s both; }
+  @keyframes wf-grow { from { opacity: 0; max-height: 0; } to { opacity: 1; max-height: 8em; } }
+  .wf .wf-tap { position: absolute; width: 2.6em; height: 2.6em; border-radius: 50%; background: rgba(9, 38, 58, .25); pointer-events: none; opacity: 0; }
+  .wf .wf-screen.wf-on .wf-tap { animation: wf-tap 1.2s ease 2.4s both; }
+  .wf .wf-lock .wf-tap { left: 2.2em; top: .3em; background: rgba(10,108,218,.25); }
+  @keyframes wf-tap { 0% { opacity: 0; transform: scale(.2); } 30% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(1.8); } }
+  .wf .wf-app { background: var(--app-bg); color: var(--app-text); }
+  .wf .wf-app-top { padding: 4.6em 1.4em 0; }
+  .wf .wf-app-top h4 { margin: 0; font-size: 1.75em; font-weight: 800; color: var(--app-ink); letter-spacing: -.01em; }
+  .wf .wf-app-top .wf-sub { font-size: .95em; color: var(--app-sub); margin-top: .2em; }
+  .wf .wf-progress { margin: 1.2em 1.4em 0; background: var(--app-card); border-radius: 1em; padding: .9em 1em; }
+  .wf .wf-progress .wf-row { display: flex; justify-content: space-between; font-size: .85em; color: var(--app-sub); font-weight: 600; }
+  .wf .wf-progress .wf-row b { color: var(--app-ink); }
+  .wf .wf-bar { height: .45em; background: var(--app-bg); border-radius: 9px; margin-top: .6em; overflow: hidden; }
+  .wf .wf-bar i { display: block; height: 100%; width: 43%; background: var(--mint); border-radius: 9px; }
+  .wf .wf-week { display: flex; justify-content: space-between; margin-top: .8em; }
+  .wf .wf-week span { display: grid; gap: .25em; justify-items: center; font-size: .72em; color: var(--app-sub); font-weight: 600; }
+  .wf .wf-week span i { width: 1.6em; height: 1.6em; border-radius: 50%; display: block; }
+  .wf .wf-dose {
+    margin: .9em 1.4em 0; background: var(--app-card); border-radius: 1.1em; padding: 1.1em;
+    box-shadow: 0 1px 0 rgba(9,38,58,.04), 0 10px 24px -16px rgba(9,38,58,.4);
+  }
+  .wf .wf-dose-head { display: flex; gap: .9em; align-items: center; }
+  .wf .wf-pill-img { width: 3.4em; height: 3.4em; border-radius: .9em; background: #F5F2E8; display: grid; place-items: center; flex: none; }
+  .wf .wf-pill-img svg { width: 80%; }
+  .wf .wf-dose-head .wf-nm { font-weight: 800; color: var(--app-ink); font-size: 1.08em; }
+  .wf .wf-dose-head .wf-qty { font-size: .9em; color: var(--app-sub); }
+  .wf .wf-dose-meta { display: flex; align-items: center; justify-content: space-between; margin-top: .9em; font-size: .9em; }
+  .wf .wf-dose-meta .wf-due { color: var(--app-sub); font-weight: 600; font-variant-numeric: tabular-nums; }
+  .wf .wf-chip { display: inline-flex; align-items: center; gap: .35em; padding: .25em .7em; border-radius: 99px; font-weight: 700; font-size: .82em; white-space: nowrap; }
+  .wf .wf-chip.wf-ready { background: #E2F3EC; color: #1F6B52; }
+  .wf .wf-chip.wf-sent { background: var(--app-sent); color: #1F6B52; }
+  .wf .wf-chip.wf-up { background: #E9EEF2; color: #4A5864; }
+  .wf .wf-btn-primary {
+    position: relative; display: block; width: 100%; margin-top: 1em; border: 0; border-radius: .8em;
+    background: var(--app-ink); color: #fff; font-family: var(--font); font-weight: 700; font-size: 1em; padding: .95em; text-align: center;
+  }
+  .wf .wf-btn-ghost { display: block; margin-top: 1em; border-radius: .8em; border: 1.5px solid var(--app-ink); color: var(--app-ink); font-weight: 700; padding: .8em; text-align: center; }
+  .wf .wf-home .wf-tap { left: 50%; margin-left: -1.3em; top: .05em; }
+  .wf .wf-tabbar { position: absolute; bottom: 0; left: 0; right: 0; height: 4.4em; background: var(--app-card); border-top: 1px solid var(--app-sep); display: flex; justify-content: space-around; align-items: center; padding-bottom: .6em; }
+  .wf .wf-tabbar span { width: 1.4em; height: 1.4em; border-radius: .4em; background: #C4CDD5; }
+  .wf .wf-tabbar span.wf-on { background: var(--app-ink); }
+  .wf .wf-camera { background: #000; }
+  .wf .wf-camera .wf-person { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .wf .wf-guide { position: absolute; left: 14%; right: 14%; top: 17%; height: 46%; border: 2px dashed rgba(255,255,255,.45); border-radius: 50%; }
+  .wf .wf-rec { position: absolute; top: 4.4em; left: 50%; transform: translateX(-50%); display: flex; gap: .5em; align-items: center; background: rgba(0,0,0,.5); color: #fff; padding: .35em .9em; border-radius: 99px; font-weight: 700; font-size: .9em; font-variant-numeric: tabular-nums; }
+  .wf .wf-rec i { width: .6em; height: .6em; border-radius: 50%; background: var(--rose); animation: wf-blink 1s steps(2) infinite; }
+  @keyframes wf-blink { 50% { opacity: .2; } }
+  .wf .wf-cam-controls { position: absolute; bottom: 0; left: 0; right: 0; height: 8.5em; background: linear-gradient(transparent, rgba(0,0,0,.7)); display: flex; align-items: center; justify-content: center; }
+  .wf .wf-shutter { width: 4.6em; height: 4.6em; border-radius: 50%; border: 4px solid #fff; display: grid; place-items: center; }
+  .wf .wf-shutter i { width: 1.8em; height: 1.8em; border-radius: .35em; background: var(--rose); }
+  .wf .wf-cam-note { position: absolute; bottom: 9em; left: 0; right: 0; text-align: center; color: #fff; font-size: .85em; font-weight: 600; opacity: .85; }
+  .wf .wf-person .wf-hand { animation: wf-dose 4.8s ease-in-out infinite; }
+  .wf .wf-person .wf-pill { animation: wf-swallow 4.8s linear infinite; }
+  @keyframes wf-dose { 0%, 16% { transform: translate(0, 0); } 38%, 58% { transform: translate(-42px, -74px); } 80%, 100% { transform: translate(0, 0); } }
+  @keyframes wf-swallow { 0%, 50% { opacity: 1; } 52%, 92% { opacity: 0; } 96%, 100% { opacity: 1; } }
+  .wf .wf-checkin { background: var(--app-bg); }
+  .wf .wf-sheet { position: absolute; left: 0; right: 0; bottom: 0; top: 4.2em; background: var(--app-card); border-radius: 1.6em 1.6em 0 0; padding: 1.8em 1.4em; transition: transform .6s cubic-bezier(.65,0,.25,1); }
+  .wf .wf-sheet h5 { margin: 0; font-size: 1.3em; line-height: 1.25; color: var(--app-ink); font-weight: 800; }
+  .wf .wf-sheet .wf-sub { font-size: .9em; color: var(--app-sub); margin-top: .4em; }
+  .wf .wf-opts { display: grid; gap: .55em; margin-top: 1.2em; }
+  .wf .wf-opt { display: flex; align-items: center; gap: .7em; padding: .75em .9em; border-radius: .8em; border: 1.5px solid var(--app-sep); font-weight: 600; font-size: .95em; color: var(--app-text); }
+  .wf .wf-opt i { width: 1.2em; height: 1.2em; border-radius: .35em; border: 1.5px solid #B0B8BD; flex: none; display: grid; place-items: center; }
+  .wf .wf-opt.wf-sel { border-color: var(--app-ink); background: #F3F7F9; }
+  .wf .wf-opt.wf-sel i { background: var(--app-ink); border-color: var(--app-ink); }
+  .wf .wf-opt.wf-sel i::after { content: ""; width: .35em; height: .65em; border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg) translate(-1px, -1px); }
+  .wf .wf-sheet .wf-btn-primary { position: absolute; left: 1.4em; right: 1.4em; bottom: 2em; width: auto; }
+  .wf .wf-screen.wf-on .wf-opt.wf-sel { animation: wf-pick .4s ease 1s both; }
+  @keyframes wf-pick { from { border-color: var(--app-sep); background: transparent; } }
+  .wf .wf-sent-view { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; text-align: center; gap: .6em; opacity: 0; transition: opacity .5s ease .2s; }
+  .wf .wf-sent-view .wf-big { width: 6em; height: 6em; border-radius: 50%; background: var(--mint); display: grid; place-items: center; transform: scale(.6); transition: transform .6s cubic-bezier(.2,.9,.3,1.3) .3s; }
+  .wf .wf-sent-view .wf-big svg { width: 48%; }
+  .wf .wf-sent-view b { font-size: 1.5em; color: var(--app-ink); font-weight: 800; margin-top: .4em; }
+  .wf .wf-sent-view span { color: var(--app-sub); font-size: .95em; max-width: 16em; }
+  .wf .wf-screen.wf-phase2 .wf-sent-view { opacity: 1; }
+  .wf .wf-screen.wf-phase2 .wf-sent-view .wf-big { transform: scale(1); }
+  .wf .wf-q-top { position: absolute; top: 4em; left: 1.2em; font-size: 1.8em; line-height: 1; color: var(--app-ink); font-weight: 600; }
+  .wf .wf-q-body { position: absolute; inset: 7.4em 1.4em 2em; transition: opacity .45s ease; }
+  .wf .wf-q-title { margin: 0; font-size: 1.45em; line-height: 1.25; color: var(--app-ink); font-weight: 800; }
+  .wf .wf-q-label { font-size: .85em; font-weight: 700; color: var(--app-sub); margin: 1.3em 0 .5em; }
+  .wf .wf-radio { display: flex; align-items: center; gap: .8em; background: var(--app-card); border: 1.5px solid var(--app-sep); border-radius: .9em; padding: .75em .9em; margin-top: .5em; }
+  .wf .wf-radio i { width: 1.3em; height: 1.3em; border-radius: 50%; border: 2px solid var(--app-ink); flex: none; display: grid; place-items: center; }
+  .wf .wf-radio b { display: block; color: var(--app-ink); font-weight: 700; }
+  .wf .wf-radio span { font-size: .85em; color: var(--app-sub); }
+  .wf .wf-radio.wf-sel { border-color: var(--app-ink); }
+  .wf .wf-radio.wf-sel i::after { content: ""; width: .62em; height: .62em; border-radius: 50%; background: var(--app-ink); }
+  .wf .wf-screen.wf-on .wf-radio.wf-sel { animation: wf-pick .4s ease .9s both; }
+  .wf .wf-screen.wf-on .wf-radio.wf-sel i::after { animation: wf-dotin .3s ease 1s both; }
+  @keyframes wf-dotin { from { transform: scale(0); } }
+  .wf .wf-tfield { display: flex; align-items: center; gap: .7em; background: var(--app-card); border: 1.5px solid var(--app-sep); border-radius: .9em; padding: .8em .9em; color: var(--app-ink); font-weight: 700; font-size: 1.05em; font-variant-numeric: tabular-nums; }
+  .wf .wf-tfield svg { width: 1.4em; height: 1.4em; flex: none; }
+  .wf .wf-q-body .wf-btn-primary { position: absolute; left: 0; right: 0; bottom: 0; width: auto; }
+  .wf .wf-meal .wf-tap, .wf .wf-prov .wf-tap { left: 50%; margin-left: -1.3em; top: .05em; }
+  .wf .wf-yn { display: grid; gap: .8em; margin-top: 2em; }
+  .wf .wf-yn div { position: relative; text-align: center; font-weight: 800; font-size: 1.1em; padding: 1em; border-radius: .9em; border: 1.5px solid var(--app-ink); color: var(--app-ink); background: var(--app-card); }
+  .wf .wf-screen.wf-on .wf-yn .wf-yes { animation: wf-pickyes .35s ease 1.1s both; }
+  @keyframes wf-pickyes { from { background: var(--app-card); color: var(--app-ink); } to { background: var(--app-ink); color: #fff; } }
+  .wf .wf-screen.wf-on.wf-prov .wf-tap { animation-delay: .8s; }
+  .wf .wf-prov.wf-phase2 .wf-q-body, .wf .wf-prov.wf-phase2 .wf-q-top { opacity: 0; }
+  .wf .wf-prov .wf-sent-view { transition: opacity .5s ease .25s; }
+  .wf .wf-callout { position: absolute; z-index: 6; left: 50%; top: calc(50% - var(--ph) / 2 - 3.1em); transform: translate(-50%, 8px); opacity: 0; transition: opacity .45s ease, transform .45s ease; display: inline-flex; align-items: center; gap: .55em; white-space: nowrap; background: var(--orange); color: #fff; font-weight: 800; font-size: 14px; padding: .45em .95em .45em .5em; border-radius: 99px; box-shadow: 0 10px 24px -10px rgba(226,112,31,.7); pointer-events: none; }
+  .wf .wf-callout i { font-style: normal; width: 1.6em; height: 1.6em; border-radius: 50%; background: #fff; color: var(--orange); display: grid; place-items: center; font-size: .85em; }
+  .wf .wf-callout.wf-c-review { top: calc(50% - var(--lw) * .36 - 3.1em); left: calc(50% + var(--lw) * .22); }
+  .wf .wf-stage[data-step="4"] .wf-c-meal, .wf .wf-stage[data-step="5"] .wf-c-prov, .wf .wf-stage[data-step="7"] .wf-c-review { opacity: 1; transform: translate(-50%, 0); transition-delay: .35s; }
+  .wf .wf-step .wf-ed-tag { display: inline-block; margin-left: 10px; padding: 3px 10px; border-radius: 99px; background: var(--orange); color: #fff; font-size: 11px; letter-spacing: .1em; vertical-align: 1px; }
+  .wf .wf-laptop {
+    --lh: calc(var(--lw) * .625);
+    position: absolute; left: 50%; top: 50%; z-index: 2;
+    width: var(--lw);
+    transform: translate(-30%, -50%) scale(.86); opacity: 0;
+    transition: transform .9s cubic-bezier(.65,0,.25,1), opacity .6s ease;
+    font-size: calc(var(--lw) / 56);
+  }
+  .wf .wf-stage[data-mode="provider"] .wf-laptop { transform: translate(-50%, -50%); opacity: 1; }
+  .wf .wf-lid { background: #0B1620; border-radius: 1.4em 1.4em .5em .5em; padding: 1.3em 1.3em 1.4em; box-shadow: 0 0 0 1.5px #2C3E4C, 0 50px 90px -30px rgba(0,0,0,.7); }
+  .wf .wf-lscreen { position: relative; height: var(--lh); background: #F6F8FA; border-radius: .3em; overflow: hidden; color: var(--app-text); }
+  .wf .wf-base { height: 1.6em; margin: 0 -7%; background: linear-gradient(#2A3B49, #15222D); border-radius: 0 0 1.6em 1.6em; position: relative; }
+  .wf .wf-base::before { content: ""; position: absolute; left: 50%; top: 0; width: 16%; height: .6em; transform: translateX(-50%); background: #0E1821; border-radius: 0 0 .6em .6em; }
+  .wf .wf-web-top { height: 3.6em; background: var(--app-ink); color: #fff; display: flex; align-items: center; justify-content: space-between; padding: 0 1.4em; }
+  .wf .wf-web-top img { height: 1.5em; width: auto; }
+  .wf .wf-web-top .wf-r { display: flex; align-items: center; gap: 1.2em; font-size: .95em; opacity: .9; }
+  .wf .wf-bell { position: relative; width: 1.4em; height: 1.4em; }
+  .wf .wf-bell svg { width: 100%; height: 100%; }
+  .wf .wf-bell b { position: absolute; top: -.35em; right: -.45em; min-width: 1.2em; height: 1.2em; border-radius: 99px; background: #B42318; font-size: .72em; display: grid; place-items: center; padding: 0 .3em; opacity: 0; transform: scale(.4); transition: all .4s cubic-bezier(.2,.9,.3,1.4) .9s; }
+  .wf .wf-lscreen.wf-s-queue .wf-bell b { opacity: 1; transform: none; }
+  .wf .wf-web-body { display: grid; grid-template-columns: 11.5em 1fr; height: calc(100% - 3.6em); }
+  .wf .wf-side { background: #EDF1F4; border-right: 1px solid var(--app-sep); padding: 1.3em 1em; display: grid; align-content: start; gap: 1.1em; }
+  .wf .wf-side span { display: flex; align-items: center; gap: .7em; }
+  .wf .wf-side span i { width: 1.4em; height: 1.4em; border-radius: 50%; background: #C4CDD5; flex: none; }
+  .wf .wf-side span u { height: .55em; flex: 1; border-radius: 9px; background: #D3DAE0; text-decoration: none; }
+  .wf .wf-side span.wf-on i { background: var(--orange); }
+  .wf .wf-side span.wf-on u { background: var(--app-ink); }
+  .wf .wf-main { position: relative; padding: 1.4em 1.6em; overflow: hidden; min-width: 0; }
+  .wf .wf-view { position: absolute; inset: 1.4em 1.6em; opacity: 0; visibility: hidden; transition: opacity .45s, visibility 0s linear .45s; }
+  .wf .wf-lscreen.wf-s-queue .wf-v-queue, .wf .wf-lscreen.wf-s-review .wf-v-review, .wf .wf-lscreen.wf-s-regimen .wf-v-regimen { opacity: 1; visibility: visible; transition: opacity .45s, visibility 0s; }
+  .wf .wf-view h6 { margin: 0; font-size: 1.35em; font-weight: 800; color: var(--app-ink); }
+  .wf .wf-view .wf-vsub { font-size: .9em; color: var(--app-sub); margin-top: .15em; }
+  .wf .wf-rows { display: grid; gap: .6em; margin-top: 1.2em; }
+  .wf .wf-qrow { display: grid; grid-template-columns: 2.4em 1fr auto auto; gap: .9em; align-items: center; background: #fff; border: 1px solid var(--app-sep); border-radius: .8em; padding: .75em .9em; }
+  .wf .wf-av { width: 2.4em; height: 2.4em; border-radius: 50%; display: grid; place-items: center; color: #fff; font-weight: 800; font-size: .9em; }
+  .wf .wf-qrow .wf-n { font-weight: 800; color: var(--app-ink); font-size: 1em; }
+  .wf .wf-qrow .wf-d { font-size: .85em; color: var(--app-sub); }
+  .wf .wf-qchip { font-size: .8em; font-weight: 700; padding: .25em .75em; border-radius: 99px; white-space: nowrap; }
+  .wf .wf-q-new { background: #E2F3EC; color: #1F6B52; }
+  .wf .wf-q-late { background: #FFF4CC; color: #7A5B00; }
+  .wf .wf-q-miss { background: #FDE3E2; color: #A3221F; }
+  .wf .wf-qbtn { font-size: .85em; font-weight: 700; color: #fff; background: var(--app-ink); border-radius: .5em; padding: .4em .9em; }
+  .wf .wf-qbtn.wf-ghost { background: transparent; color: var(--app-ink); border: 1px solid #C4CDD5; }
+  .wf .wf-qrow.wf-new { border-color: var(--mint); box-shadow: 0 0 0 3px rgba(136,205,176,.3); }
+  .wf .wf-lscreen.wf-s-queue .wf-qrow.wf-new { animation: wf-slidein .7s cubic-bezier(.2,.9,.3,1.1) .5s both; }
+  @keyframes wf-slidein { from { opacity: 0; transform: translateY(-1.2em); } }
+  .wf .wf-toast { position: absolute; top: 4.4em; right: 1.2em; z-index: 5; display: flex; gap: .8em; align-items: center; background: var(--app-ink); color: #fff; border-radius: .9em; padding: .75em 1em; box-shadow: 0 14px 30px -12px rgba(0,0,0,.5); font-size: .95em; opacity: 0; transform: translateX(1em); transition: all .5s ease; pointer-events: none; }
+  .wf .wf-toast img { width: 2em; height: 2em; border-radius: .5em; }
+  .wf .wf-toast b { display: block; }
+  .wf .wf-toast span { opacity: .75; font-size: .9em; }
+  .wf .wf-lscreen.wf-s-queue .wf-toast { opacity: 1; transform: none; transition-delay: 1.2s; }
+  .wf .wf-review-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 1.4em; margin-top: 1.1em; }
+  .wf .wf-player { background: #0B1620; border-radius: .8em; overflow: hidden; position: relative; }
+  .wf .wf-player .wf-person { display: block; width: 100%; aspect-ratio: 4 / 3.8; height: auto; }
+  .wf .wf-pbar { padding: .7em .9em .8em; background: #0B1620; color: #fff; font-size: .8em; font-variant-numeric: tabular-nums; }
+  .wf .wf-track { position: relative; height: .4em; background: #2C3E4C; border-radius: 9px; margin-bottom: .5em; }
+  .wf .wf-track i { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: var(--mint); border-radius: 9px; }
+  .wf .wf-lscreen.wf-s-review .wf-track i { animation: wf-play 4.8s linear infinite; }
+  @keyframes wf-play { to { width: 100%; } }
+  .wf .wf-track .wf-mark { position: absolute; left: 48%; top: -.45em; width: 2px; height: 1.3em; background: var(--amber); }
+  .wf .wf-track .wf-mark::after { content: "Dose"; position: absolute; top: -1.5em; left: 50%; transform: translateX(-50%); font-size: .9em; font-weight: 700; color: var(--amber); }
+  .wf .wf-pbar .wf-t { display: flex; justify-content: space-between; opacity: .8; }
+  .wf .wf-panel { display: grid; gap: .8em; align-content: start; }
+  .wf .wf-kv { background: #fff; border: 1px solid var(--app-sep); border-radius: .8em; padding: .8em 1em; display: grid; gap: .45em; font-size: .9em; }
+  .wf .wf-kv div { display: flex; justify-content: space-between; gap: 1em; }
+  .wf .wf-kv span { color: var(--app-sub); }
+  .wf .wf-kv b { color: var(--app-ink); text-align: right; font-variant-numeric: tabular-nums; }
+  .wf .wf-decide { display: grid; grid-template-columns: 1fr 1fr; gap: .6em; }
+  .wf .wf-decide div { text-align: center; font-weight: 800; padding: .75em; border-radius: .7em; border: 1.5px solid var(--app-ink); color: var(--app-ink); transition: all .35s ease; }
+  .wf .wf-lscreen.wf-phase2 .wf-decide .wf-yes { background: var(--app-ink); color: #fff; transform: scale(.97); }
+  .wf .wf-result { display: flex; gap: .5em; flex-wrap: wrap; opacity: 0; transform: translateY(.5em); transition: all .5s ease .25s; }
+  .wf .wf-lscreen.wf-phase2 .wf-result { opacity: 1; transform: none; }
+  .wf .wf-rchip { font-size: .85em; font-weight: 700; padding: .35em .8em; border-radius: 99px; }
+  .wf .wf-rchip.wf-taken { background: var(--mint); color: #0B3A2B; }
+  .wf .wf-rchip.wf-edc { background: #E9EEF2; color: var(--app-ink); }
+  .wf .wf-ediary { background: #fff; border: 1.5px solid var(--app-sep); border-radius: .8em; padding: .75em 1em .8em; display: grid; gap: .5em; font-size: .9em; transition: border-color .4s, box-shadow .4s; }
+  .wf .wf-lscreen.wf-s-review .wf-ediary { animation: wf-edglow .6s ease .5s both; }
+  @keyframes wf-edglow { from { border-color: var(--app-sep); box-shadow: none; } to { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(226,112,31,.2); } }
+  .wf .wf-ed-head { display: flex; justify-content: space-between; align-items: center; }
+  .wf .wf-ed-head b { color: var(--app-ink); font-weight: 800; }
+  .wf .wf-ed-head span { font-size: .78em; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: #fff; background: var(--orange); padding: .2em .65em; border-radius: 99px; }
+  .wf .wf-ed-row { display: flex; justify-content: space-between; align-items: center; gap: .8em; padding: .45em .5em; margin: 0 -.5em; border-radius: .5em; }
+  .wf .wf-ed-row span { color: var(--app-sub); display: inline-flex; align-items: center; gap: .5em; white-space: nowrap; }
+  .wf .wf-ed-row span i { font-style: normal; width: 1.45em; height: 1.45em; border-radius: 50%; background: var(--orange); color: #fff; font-weight: 800; font-size: .85em; display: grid; place-items: center; flex: none; }
+  .wf .wf-ed-row b { color: var(--app-ink); text-align: right; font-variant-numeric: tabular-nums; }
+  .wf .wf-lscreen.wf-s-review .wf-ed-row.wf-r1 { animation: wf-rowhi 1.2s ease 1s both; }
+  .wf .wf-lscreen.wf-s-review .wf-ed-row.wf-r2 { animation: wf-rowhi 1.2s ease 1.9s both; }
+  @keyframes wf-rowhi { 0% { background: transparent; } 35% { background: #FCEBDD; } 100% { background: #FDF4EC; } }
+  .wf .wf-label { font-size: .75em; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--app-sub); }
+  .wf .wf-reg-grid { display: grid; grid-template-columns: 1fr 1.05fr; gap: 1.4em; margin-top: 1.1em; }
+  .wf .wf-reg-card { background: #fff; border: 1px solid var(--app-sep); border-radius: .9em; padding: 1em 1.1em; display: grid; gap: .7em; align-content: start; }
+  .wf .wf-field { display: grid; gap: .25em; }
+  .wf .wf-field span { font-size: .78em; font-weight: 700; color: var(--app-sub); }
+  .wf .wf-field b { display: block; border: 1px solid #D3DAE0; border-radius: .5em; padding: .5em .7em; font-weight: 700; color: var(--app-ink); font-variant-numeric: tabular-nums; position: relative; transition: all .4s ease; }
+  .wf .wf-field .wf-swap .wf-old, .wf .wf-field .wf-swap .wf-new { transition: opacity .35s ease; }
+  .wf .wf-field .wf-swap .wf-new { position: absolute; left: .7em; opacity: 0; }
+  .wf .wf-lscreen.wf-phase2 .wf-field .wf-swap { border-color: var(--teal); box-shadow: 0 0 0 3px rgba(1,150,136,.2); }
+  .wf .wf-lscreen.wf-phase2 .wf-field .wf-swap .wf-old { opacity: 0; }
+  .wf .wf-lscreen.wf-phase2 .wf-field .wf-swap .wf-new { opacity: 1; }
+  .wf .wf-save { text-align: center; font-weight: 800; color: #fff; background: var(--app-ink); border-radius: .6em; padding: .6em; transition: background .3s; }
+  .wf .wf-lscreen.wf-phase2 .wf-save { background: var(--teal); }
+  .wf .wf-synced { font-size: .82em; font-weight: 700; color: var(--teal); opacity: 0; transition: opacity .4s ease .5s; }
+  .wf .wf-lscreen.wf-phase2 .wf-synced { opacity: 1; }
+  .wf .wf-cal { background: #fff; border: 1px solid var(--app-sep); border-radius: .9em; padding: 1em 1.1em; }
+  .wf .wf-cal-head { display: flex; justify-content: space-between; align-items: baseline; }
+  .wf .wf-cal-head b { color: var(--app-ink); font-weight: 800; }
+  .wf .wf-cal-head span { font-size: .8em; color: var(--app-sub); }
+  .wf .wf-days { display: grid; grid-template-columns: repeat(7, 1fr); gap: .35em; margin-top: .7em; }
+  .wf .wf-days .wf-dn { font-size: .7em; text-align: center; color: var(--app-sub); font-weight: 700; }
+  .wf .wf-days .wf-c { aspect-ratio: 1; border-radius: .45em; display: grid; place-items: center; font-size: .75em; font-weight: 700; color: var(--app-ink); font-variant-numeric: tabular-nums; }
+  .wf .wf-c.wf-taken { background: var(--mint); }
+  .wf .wf-c.wf-sent { background: var(--app-sent); }
+  .wf .wf-c.wf-missed { background: var(--rose); color: #fff; }
+  .wf .wf-c.wf-sched { background: #EEF2F5; color: #7A8893; }
+  .wf .wf-c.wf-blank { background: transparent; }
+  .wf .wf-c.wf-today { box-shadow: 0 0 0 2px var(--app-ink); }
+  .wf .wf-legend { display: flex; flex-wrap: wrap; gap: .4em .9em; margin-top: .8em; font-size: .72em; color: var(--app-sub); font-weight: 600; }
+  .wf .wf-legend i { display: inline-block; width: .8em; height: .8em; border-radius: .25em; margin-right: .35em; vertical-align: -1px; }
+  .wf .wf-rail { position: fixed; right: max(18px, env(safe-area-inset-right, 0px)); top: 50%; transform: translateY(-50%); z-index: 20; display: grid; gap: 10px; opacity: 0; transition: opacity .4s; pointer-events: none; }
+  .wf .wf-rail.wf-show { opacity: 1; pointer-events: auto; }
+  .wf .wf-rail button { width: 12px; height: 12px; border-radius: 50%; border: 1.5px solid var(--muted); background: transparent; padding: 0; cursor: pointer; transition: all .3s; }
+  .wf .wf-rail button.wf-on { background: var(--mint); border-color: var(--mint); transform: scale(1.25); }
+  .wf .wf-recap { background: linear-gradient(180deg, var(--bg), var(--bg-2)); border-top: 1px solid var(--line); }
+  .wf .wf-recap-inner { max-width: 1240px; margin: 0 auto; padding-block: 120px 64px; }
+  .wf .wf-recap h2 { font-size: clamp(34px, 4vw, 56px); font-weight: 800; letter-spacing: -.02em; line-height: 1.05; margin-top: 14px; }
+  .wf .wf-recap h2 span { color: var(--mint); }
+  .wf .wf-loop { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; margin: 48px 0 0; padding: 0; list-style: none; counter-reset: n; }
+  .wf .wf-loop li { position: relative; border: 1px solid var(--line); border-radius: 18px; padding: 22px; background: rgba(255,255,255,.025); }
+  .wf .wf-loop li:not(:last-child)::after { content: "→"; position: absolute; right: -14px; top: 50%; transform: translateY(-50%); color: var(--mint); font-weight: 800; z-index: 1; }
+  .wf .wf-loop .wf-who { margin-bottom: 10px; }
+  .wf .wf-loop b { display: block; font-size: 20px; font-weight: 800; }
+  .wf .wf-loop span { color: var(--muted); font-size: 15px; }
+  .wf .wf-stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 56px; }
+  .wf .wf-stat { border-top: 2px solid var(--mint); padding-top: 16px; }
+  .wf .wf-stat b { display: block; color: var(--mint); font-size: clamp(34px, 3.4vw, 48px); font-weight: 800; letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+  .wf .wf-stat span { display: block; color: var(--text); font-weight: 600; margin-top: 4px; }
+  .wf .wf-stat small { display: block; color: var(--muted); font-size: 13px; margin-top: 6px; }
+  .wf .wf-footnote { color: var(--muted); font-size: 13px; margin-top: 64px; padding-top: 20px; border-top: 1px solid var(--line); display: flex; flex-wrap: wrap; gap: 8px 24px; justify-content: space-between; }
+  @media (max-width: 860px) {
+  .wf { --ph: min(440px, 50vh); --lw: min(560px, 88vw); }
+  .wf .wf-hero-inner { grid-template-columns: 1fr; min-height: 0; padding-block: 16px 56px; }
+  .wf .wf-hero-art { display: none; }
+  .wf .wf-keys { display: none; }
+  .wf .wf-story { grid-template-columns: 1fr; }
+  .wf .wf-stage-col { order: -1; position: sticky; top: 0; height: 58vh; z-index: 1; }
+  .wf .wf-stage { position: relative; height: 58vh; }
+  .wf .wf-steps { margin-top: -58vh; padding-top: 58vh; }
+  .wf .wf-step { min-height: 80vh; align-items: flex-end; padding-block: 4vh; }
+  .wf .wf-step:first-child { min-height: 110vh; }
+  .wf .wf-card { background: rgba(14, 8, 64, .92); border: 1px solid var(--line); border-radius: 18px; padding: 20px; backdrop-filter: blur(6px); }
+  .wf .wf-stage[data-mode="provider"] .wf-phone { opacity: 0; }
+  .wf .wf-callout, .wf .wf-callout.wf-c-review { top: .6em; left: 50%; font-size: 12px; }
+  .wf .wf-rail { display: none; }
+  .wf .wf-loop { grid-template-columns: 1fr 1fr; }
+  .wf .wf-loop li:not(:last-child)::after { display: none; }
+  .wf .wf-stats { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .wf *::before, .wf *::after { animation: none !important; transition-duration: .01ms !important; transition-delay: 0s !important; }
+  }
+  /* ── Site-brand overrides ── */
+  .wf { --ph: min(540px, 68vh); }
+  .wf .wf-hero .wf-title, .wf .wf-card h2, .wf .wf-recap h2 { font-weight: 300; letter-spacing: -.025em; }
+  .wf .wf-hero .wf-title span, .wf .wf-recap h2 span { font-weight: 500; }
+  .wf .wf-hero .wf-title { font-size: clamp(34px, 4.4vw, 58px); line-height: 1.06; }
+  .wf .wf-recap h2 { font-size: clamp(28px, 3.2vw, 44px); line-height: 1.1; }
+  .wf .wf-hero-inner { min-height: 0; padding-block: 104px 72px; }
+  .wf .wf-hero-art { height: min(400px, 48vh); }
+  .wf .wf-recap { border-top: 0; }
+  .wf .wf-recap-inner { padding-block: 72px 56px; }
+  .wf .wf-footnote { margin-top: 48px; }
+  .wf .wf-eyebrow, .wf .wf-who, .wf .wf-step-no { font-family: var(--mono); font-weight: 600; }
+  .wf .wf-actions { margin-top: 40px; display: flex; flex-wrap: wrap; align-items: center; gap: 20px 28px; }
+  .wf .wf-begin { margin-top: 0; }
+  .wf a.wf-begin:hover { color: var(--mint); }
+  .wf .wf-keys { margin-top: 22px; }
+  .wf .wf-stage { top: var(--nav-h); height: calc(100vh - var(--nav-h)); }
+  .wf .wf-stat small { font-family: var(--mono); letter-spacing: .04em; }
+  .wf .wf-gutter { padding-left: max(32px, env(safe-area-inset-left, 0px)); padding-right: max(32px, env(safe-area-inset-right, 0px)); }
+  .wf .wf-hero-inner, .wf .wf-recap-inner { max-width: 1136px; }
+  .wf .wf-steps { padding-left: max(32px, calc((min(100vw, 1440px) - 1136px) / 2)); }
+  .wf .wf-who { flex-wrap: wrap; }
+  @media (max-width: 860px) {
+    .wf { --ph: min(420px, 46vh); }
+    .wf .wf-stage-col { top: var(--nav-h); }
+    .wf .wf-stage { top: 0; height: 58vh; }
+    .wf .wf-steps { padding-left: 16px; padding-right: 16px; }
+    .wf .wf-card { padding: 16px 18px; }
+    .wf .wf-card h2 { font-size: 23px; margin-top: 8px; }
+    .wf .wf-card p { font-size: 15px; margin-top: 10px; }
+    .wf .wf-step-no { margin-bottom: 8px; font-size: 12px; }
+    .wf .wf-facts { margin-top: 14px; gap: 6px; }
+    .wf .wf-facts li { font-size: 12px; padding: 4px 10px; }
+    .wf .wf-step .wf-ed-tag { margin-left: 0; }
+  }
 </style>
 <!-- Cookie banner is rendered by HubSpot (Settings, Privacy and Consent, Cookies in the
      HubSpot dashboard) so it stays in sync with CommCare and dimagi.com. gtag('consent', 'default', ...)
@@ -749,6 +1224,334 @@
   </div>
 </section>
 
+<!-- ───── HOW IT WORKS (workflow scroll story) ───── -->
+<div class="wf" id="how-it-works">
+<section class="wf-hero">
+  <div class="wf-gutter">
+    <div class="wf-hero-inner">
+      <div>
+        <div class="wf-eyebrow">How it works</div>
+        <h2 class="wf-title">Every dose, <span>verified</span> in seconds.</h2>
+        <p class="wf-lead">A reminder on the patient's phone, a short dose video with a couple of e-diary questions, and a quick review where the care team sees the answers right next to the video.</p>
+        <ul class="wf-loop-chips" aria-label="The five moments">
+          <li><span class="wf-dot wf-who-p">1</span>Reminder</li>
+          <li><span class="wf-dot wf-who-p">2</span>Record</li>
+          <li><span class="wf-dot wf-who-p">3</span>E-diary</li>
+          <li><span class="wf-dot wf-who-c">4</span>Review</li>
+          <li><span class="wf-dot wf-who-c">5</span>Regimen</li>
+        </ul>
+        <div class="wf-actions">
+          <a class="wf-begin" href="#wf-s1" data-go="1"><span class="wf-arrow" aria-hidden="true">↓</span>See the steps</a>
+        </div>
+        <div class="wf-keys" aria-hidden="true"><kbd>↓</kbd><kbd>Space</kbd> next step <kbd>↑</kbd> back</div>
+      </div>
+      <div class="wf-hero-art" aria-hidden="true">
+        <svg class="wf-orbit" viewBox="0 0 460 460" preserveAspectRatio="xMidYMid meet">
+          <circle cx="230" cy="230" r="160" fill="none" stroke="#6ECAC5" stroke-opacity=".28" stroke-width="2" stroke-dasharray="2 10" stroke-linecap="round"/>
+          <circle cx="230" cy="230" r="96" fill="#221A72"/>
+          <text x="230" y="222" text-anchor="middle" fill="#FAFBFF" font-size="22" font-weight="600">Every dose</text>
+          <text x="230" y="250" text-anchor="middle" fill="#6ECAC5" font-size="22" font-weight="600">seen</text>
+          <g font-size="15" font-weight="700" fill="#FAFBFF">
+            <g transform="translate(230 70)"><circle r="34" fill="#E2701F"/><text y="62" text-anchor="middle">Reminder</text><path d="M-9 6h18l-3-4v-7a6 6 0 0 0-12 0v7z M-3 9a3 3 0 0 0 6 0" fill="#fff"/></g>
+            <g transform="translate(382 181)"><circle r="34" fill="#E2701F"/><text y="62" text-anchor="middle">Record</text><rect x="-13" y="-9" width="18" height="18" rx="4" fill="#fff"/><path d="M7 -5 L14 -9 V9 L7 5z" fill="#fff"/></g>
+            <g transform="translate(324 359)"><circle r="34" fill="#E2701F"/><text y="62" text-anchor="middle">E-diary</text><rect x="-10" y="-13" width="20" height="26" rx="3" fill="none" stroke="#fff" stroke-width="3"/><path d="M-5 -4h10M-5 3h10M-5 9h6" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></g>
+            <g transform="translate(136 359)"><circle r="34" fill="#6ECAC5"/><text y="62" text-anchor="middle">Review</text><path d="M-11 0 l7 7 l15 -15" stroke="#0E0840" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+            <g transform="translate(78 181)"><circle r="34" fill="#6ECAC5"/><text y="62" text-anchor="middle">Regimen</text><rect x="-12" y="-11" width="24" height="22" rx="4" fill="none" stroke="#0E0840" stroke-width="3"/><path d="M-12 -3h24M-5 -15v6M5 -15v6" stroke="#0E0840" stroke-width="3"/></g>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wf-story" id="wf-story">
+  <div class="wf-steps wf-gutter">
+    <section class="wf-step" id="wf-s1" data-step="1">
+      <div class="wf-card">
+        <div class="wf-step-no">1 / 8</div>
+        <div class="wf-who"><i class="wf-who-p"></i><span class="wf-t">Patient</span> · 8:00 AM</div>
+        <h2>A reminder arrives at dose time.</h2>
+        <p>The phone shows a simple prompt: it's time for your video. Patients can record right away or snooze for 30 minutes.</p>
+        <ul class="wf-facts"><li>Follows each patient's schedule</li><li>Follow-up if a video is missed</li></ul>
+      </div>
+    </section>
+    <section class="wf-step" id="wf-s2" data-step="2">
+      <div class="wf-card">
+        <div class="wf-step-no">2 / 8</div>
+        <div class="wf-who"><i class="wf-who-p"></i><span class="wf-t">Patient</span></div>
+        <h2>One tap opens today's dose.</h2>
+        <p>The home screen shows what's due, with a picture of the medication and where they are in treatment.</p>
+        <ul class="wf-facts"><li>Face ID or fingerprint to unlock</li><li>Pill images for each medication</li></ul>
+      </div>
+    </section>
+    <section class="wf-step" id="wf-s3" data-step="3">
+      <div class="wf-card">
+        <div class="wf-step-no">3 / 8</div>
+        <div class="wf-who"><i class="wf-who-p"></i><span class="wf-t">Patient</span> · a few seconds</div>
+        <h2>They record themselves taking it.</h2>
+        <p>A short selfie video captures the dose. It's encrypted on the phone, kept out of the camera roll, and saved if there's no signal.</p>
+        <ul class="wf-facts"><li>Works offline</li><li>Deleted from the phone after upload</li></ul>
+      </div>
+    </section>
+    <section class="wf-step" id="wf-s4" data-step="4">
+      <div class="wf-card">
+        <div class="wf-step-no">4 / 8</div>
+        <div class="wf-who"><i class="wf-who-p"></i><span class="wf-t">Patient</span><span class="wf-ed-tag">E-diary</span></div>
+        <h2>When did they last eat?</h2>
+        <p>Right after the video, the app asks the e-diary questions the study needs. Mealtime comes first: the patient picks today or yesterday and the time of their last meal.</p>
+        <ul class="wf-facts"><li>Questions set per study</li><li>Or a simple yes/no: ate in the hour before?</li></ul>
+      </div>
+    </section>
+    <section class="wf-step" id="wf-s5" data-step="5">
+      <div class="wf-card">
+        <div class="wf-step-no">5 / 8</div>
+        <div class="wf-who"><i class="wf-who-p"></i><span class="wf-t">Patient</span><span class="wf-ed-tag">E-diary</span></div>
+        <h2>Was a treatment supporter there?</h2>
+        <p>One tap answers whether a treatment support provider was with them. The video and the answers send together, and the patient is done.</p>
+        <ul class="wf-facts"><li>One tap: Yes or No</li><li>Sends with the dose video</li></ul>
+      </div>
+    </section>
+    <section class="wf-step" id="wf-s6" data-step="6">
+      <div class="wf-card">
+        <div class="wf-step-no">6 / 8</div>
+        <div class="wf-who"><i class="wf-who-c"></i><span class="wf-t">Care team</span> · moments later</div>
+        <h2>The care team is notified.</h2>
+        <p>New videos land in a review queue. Late and missed doses rise to the top, so the team sees who needs attention first.</p>
+        <ul class="wf-facts"><li>Email alerts for critical events</li><li>Two-way messaging with patients</li></ul>
+      </div>
+    </section>
+    <section class="wf-step" id="wf-s7" data-step="7">
+      <div class="wf-card">
+        <div class="wf-step-no">7 / 8</div>
+        <div class="wf-who"><i class="wf-who-c"></i><span class="wf-t">Care team</span> · about 10 seconds<span class="wf-ed-tag">E-diary</span></div>
+        <h2>The e-diary answers sit beside the video.</h2>
+        <p>In the review, the patient's answers show under Reported details, right next to the dose video: when they last ate and whether a treatment supporter was there. The reviewer checks them, confirms the dose, and moves on.</p>
+        <ul class="wf-facts"><li>Last meal with date and time</li><li>Reviewers can correct an answer</li><li>Confirmed doses flow to the EDC</li></ul>
+      </div>
+    </section>
+    <section class="wf-step" id="wf-s8" data-step="8">
+      <div class="wf-card">
+        <div class="wf-step-no">8 / 8</div>
+        <div class="wf-who"><i class="wf-who-c"></i><span class="wf-t">Care team</span></div>
+        <h2>Change the regimen once. The app follows.</h2>
+        <p>When a schedule changes, the care team updates it in one place. The patient's app and reminders update to match, and every dose shows on the treatment calendar.</p>
+        <ul class="wf-facts"><li>Synced to the patient app</li><li>Adherence at a glance</li></ul>
+      </div>
+    </section>
+  </div>
+
+  <div class="wf-stage-col" aria-hidden="true">
+    <div class="wf-stage" id="wf-stage" data-step="1" data-mode="patient">
+      <div class="wf-devices">
+        <div class="wf-callout wf-c-meal"><i>1</i>E-diary question: mealtime</div>
+        <div class="wf-callout wf-c-prov"><i>2</i>E-diary question: treatment supporter</div>
+        <div class="wf-callout wf-c-review"><i>&#8595;</i>E-diary answers in the review</div>
+        <svg class="wf-link-line" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M18 64 C 28 40, 38 36, 50 40" vector-effect="non-scaling-stroke"/></svg>
+
+        <!-- PHONE -->
+        <div class="wf-phone">
+          <div class="wf-phone-body"><div class="wf-phone-screen">
+            <div class="wf-island"></div>
+
+            <!-- 1: lock screen -->
+            <div class="wf-screen wf-lock" data-screen="lock">
+              <div class="wf-statusbar wf-light"><span>8:00</span><span class="wf-icons"><span class="wf-bars"><b style="height:40%"></b><b style="height:60%"></b><b style="height:80%"></b><b style="height:100%"></b></span><span class="wf-batt"></span></span></div>
+              <div class="wf-date">Tuesday, November 17</div>
+              <div class="wf-clock">8:00</div>
+              <div class="wf-notif">
+                <div class="wf-notif-head">
+                  <img src="assets/images/sureadhere-app-icon.png" alt="" width="96" height="96">
+                  <div class="wf-nt"><b>SureAdhere</b><span>It's time for your video</span></div>
+                  <small>now</small>
+                </div>
+                <div class="wf-notif-actions">
+                  <div class="wf-tapme">Record video<span class="wf-tap"></span></div>
+                  <div>Remind me in 30 min</div>
+                </div>
+              </div>
+              <div class="wf-homebar"></div>
+            </div>
+
+            <!-- 2: home, dose ready -->
+            <div class="wf-screen wf-app wf-home" data-screen="home">
+              <div class="wf-statusbar"><span>8:00</span><span class="wf-icons"><span class="wf-bars"><b style="height:40%"></b><b style="height:60%"></b><b style="height:80%"></b><b style="height:100%"></b></span><span class="wf-batt"></span></span></div>
+              <div class="wf-app-top"><h4>Good morning!</h4><div class="wf-sub">Today, Nov 17</div></div>
+              <div class="wf-progress">
+                <div class="wf-row"><span>Treatment</span><b>Day 12 of 28</b></div>
+                <div class="wf-bar"><i></i></div>
+                <div class="wf-week">
+                  <span><i style="background:var(--mint)"></i>Wed</span>
+                  <span><i style="background:var(--mint)"></i>Thu</span>
+                  <span><i style="background:var(--rose)"></i>Fri</span>
+                  <span><i style="background:var(--mint)"></i>Sat</span>
+                  <span><i style="background:var(--mint)"></i>Sun</span>
+                  <span><i style="background:var(--mint)"></i>Mon</span>
+                  <span><i style="background:#FFCA28"></i>Tue</span>
+                </div>
+              </div>
+              <div class="wf-dose">
+                <div class="wf-dose-head"><div class="wf-pill-img"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-32 -20 64 40"><defs><linearGradient id="pg1" x2=".3" y2="1"><stop stop-color="#fffaf0"/><stop offset="1" stop-color="#e5dec9"/></linearGradient></defs><circle r="17" transform="translate(0 2)" fill="#b6ac95"/><circle r="17" fill="url(#pg1)" stroke="#b6ac95" stroke-width=".6"/><path d="M-15 -6Q0-18 15-6" fill="none" stroke="#fff" opacity=".4"/></svg></div><div><div class="wf-nm">Study medication</div><div class="wf-qty">1 tablet</div></div></div>
+                <div class="wf-dose-meta"><span class="wf-due">Due 8:00 AM</span><span class="wf-chip wf-ready">Ready to record</span></div>
+                <div class="wf-btn-primary">Record video<span class="wf-tap"></span></div>
+              </div>
+              <div class="wf-tabbar"><span class="wf-on"></span><span></span><span></span></div>
+            </div>
+
+            <!-- 3: camera -->
+            <div class="wf-screen wf-camera" data-screen="camera">
+              <div class="wf-statusbar wf-light"><span>8:01</span><span class="wf-icons"><span class="wf-bars"><b style="height:40%"></b><b style="height:60%"></b><b style="height:80%"></b><b style="height:100%"></b></span><span class="wf-batt"></span></span></div>
+              <div class="wf-person-slot" data-person="cam"></div>
+              <div class="wf-guide"></div>
+              <div class="wf-rec"><i></i><span class="wf-rec-time">0:00</span></div>
+              <div class="wf-cam-controls"><div class="wf-shutter"><i></i></div></div>
+            </div>
+
+            <!-- 4: e-diary, mealtime -->
+            <div class="wf-screen wf-app wf-meal" data-screen="meal">
+              <div class="wf-statusbar"><span>8:02</span><span class="wf-icons"><span class="wf-bars"><b style="height:40%"></b><b style="height:60%"></b><b style="height:80%"></b><b style="height:100%"></b></span><span class="wf-batt"></span></span></div>
+              <div class="wf-q-top">&#8249;</div>
+              <div class="wf-q-body">
+                <h5 class="wf-q-title">When did you last eat before taking your medications?</h5>
+                <div class="wf-q-label">Date</div>
+                <div class="wf-radio"><i></i><div><b>Yesterday</b><span>Nov 16</span></div></div>
+                <div class="wf-radio wf-sel"><i></i><div><b>Today</b><span>Nov 17</span></div></div>
+                <div class="wf-q-label">Time</div>
+                <div class="wf-tfield"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="#09263A" stroke-width="1.8"/><path d="M12 7.5V12l3 2" fill="none" stroke="#09263A" stroke-width="1.8" stroke-linecap="round"/></svg>7:15 AM</div>
+                <div class="wf-btn-primary">Continue<span class="wf-tap"></span></div>
+              </div>
+            </div>
+
+            <!-- 5: e-diary, treatment supporter, then sent -->
+            <div class="wf-screen wf-app wf-prov" data-screen="provider">
+              <div class="wf-statusbar"><span>8:02</span><span class="wf-icons"><span class="wf-bars"><b style="height:40%"></b><b style="height:60%"></b><b style="height:80%"></b><b style="height:100%"></b></span><span class="wf-batt"></span></span></div>
+              <div class="wf-q-top">&#8249;</div>
+              <div class="wf-q-body">
+                <h5 class="wf-q-title">Are you with a treatment support provider?</h5>
+                <div class="wf-yn"><div class="wf-yes">Yes<span class="wf-tap"></span></div><div>No</div></div>
+              </div>
+              <div class="wf-sent-view">
+                <div class="wf-big"><svg viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" stroke="#09263A" stroke-width="2.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+                <b>Video sent</b>
+                <span>Thanks. Your care team will see it.</span>
+              </div>
+            </div>
+
+            <!-- 8: home, next dose updated -->
+            <div class="wf-screen wf-app" data-screen="next">
+              <div class="wf-statusbar"><span>8:04</span><span class="wf-icons"><span class="wf-bars"><b style="height:40%"></b><b style="height:60%"></b><b style="height:80%"></b><b style="height:100%"></b></span><span class="wf-batt"></span></span></div>
+              <div class="wf-app-top"><h4>Good morning!</h4><div class="wf-sub">Today, Nov 17</div></div>
+              <div class="wf-dose">
+                <div class="wf-dose-head"><div class="wf-pill-img"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-32 -20 64 40"><defs><linearGradient id="pg2" x2=".3" y2="1"><stop stop-color="#fffaf0"/><stop offset="1" stop-color="#e5dec9"/></linearGradient></defs><circle r="17" transform="translate(0 2)" fill="#b6ac95"/><circle r="17" fill="url(#pg2)" stroke="#b6ac95" stroke-width=".6"/><path d="M-15 -6Q0-18 15-6" fill="none" stroke="#fff" opacity=".4"/></svg></div><div><div class="wf-nm">Study medication</div><div class="wf-qty">1 tablet</div></div></div>
+                <div class="wf-dose-meta"><span class="wf-due">Today 8:00 AM</span><span class="wf-chip wf-sent">Video sent</span></div>
+              </div>
+              <div class="wf-dose">
+                <div class="wf-dose-head"><div class="wf-pill-img"><svg xmlns="http://www.w3.org/2000/svg" viewBox="-32 -20 64 40"><defs><linearGradient id="pg3" x2=".3" y2="1"><stop stop-color="#fffaf0"/><stop offset="1" stop-color="#e5dec9"/></linearGradient></defs><circle r="17" transform="translate(0 2)" fill="#b6ac95"/><circle r="17" fill="url(#pg3)" stroke="#b6ac95" stroke-width=".6"/><path d="M-15 -6Q0-18 15-6" fill="none" stroke="#fff" opacity=".4"/></svg></div><div><div class="wf-nm">Study medication</div><div class="wf-qty">1 tablet</div></div></div>
+                <div class="wf-dose-meta"><span class="wf-due wf-next-due">Tomorrow 8:00 AM</span><span class="wf-chip wf-up">Upcoming</span></div>
+              </div>
+              <div class="wf-tabbar"><span class="wf-on"></span><span></span><span></span></div>
+            </div>
+          </div></div>
+        </div>
+
+        <!-- LAPTOP -->
+        <div class="wf-laptop">
+          <div class="wf-lid">
+            <div class="wf-lscreen" id="wf-lscreen">
+              <div class="wf-web-top">
+                <img src="assets/images/sureadhere-logo-full-color.png" alt="" width="520" height="151" style="filter:brightness(0) invert(1);">
+                <div class="wf-r"><span>Care team</span><span class="wf-bell"><svg viewBox="0 0 24 24"><path d="M6 16h12l-1.6-2.2V10a4.4 4.4 0 0 0-8.8 0v3.8z M10 18.5a2 2 0 0 0 4 0" fill="none" stroke="#fff" stroke-width="1.8" stroke-linejoin="round"/></svg><b>3</b></span></div>
+              </div>
+              <div class="wf-toast"><img src="assets/images/sureadhere-app-icon.png" alt="" width="96" height="96"><div><b>New video from Sam R.</b><span>Study medication · 8:01 AM</span></div></div>
+              <div class="wf-web-body">
+                <div class="wf-side"><span class="wf-on"><i></i><u></u></span><span><i></i><u></u></span><span><i></i><u></u></span><span><i></i><u></u></span><span><i></i><u></u></span></div>
+                <div class="wf-main">
+                  <!-- queue -->
+                  <div class="wf-view wf-v-queue">
+                    <h6>Needs attention</h6>
+                    <div class="wf-vsub">Today · 4 patients</div>
+                    <div class="wf-rows">
+                      <div class="wf-qrow"><div class="wf-av" style="background:#B0423F">AP</div><div><div class="wf-n">Alex P.</div><div class="wf-d">Missed yesterday's dose</div></div><span class="wf-qchip wf-q-miss">Missed</span><span class="wf-qbtn wf-ghost">Follow up</span></div>
+                      <div class="wf-qrow"><div class="wf-av" style="background:#9A7A12">JM</div><div><div class="wf-n">Jordan M.</div><div class="wf-d">Due 6:30 AM · no video yet</div></div><span class="wf-qchip wf-q-late">Over an hour late</span><span class="wf-qbtn wf-ghost">Message</span></div>
+                      <div class="wf-qrow wf-new"><div class="wf-av" style="background:var(--orange)">SR</div><div><div class="wf-n">Sam R.</div><div class="wf-d">New video · 8:01 AM</div></div><span class="wf-qchip wf-q-new">Ready to review</span><span class="wf-qbtn">Review</span></div>
+                      <div class="wf-qrow"><div class="wf-av" style="background:#3E6A80">RT</div><div><div class="wf-n">Riley T.</div><div class="wf-d">New video · 7:42 AM</div></div><span class="wf-qchip wf-q-new">Ready to review</span><span class="wf-qbtn">Review</span></div>
+                    </div>
+                  </div>
+                  <!-- review -->
+                  <div class="wf-view wf-v-review">
+                    <h6>Sam R. · dose review</h6>
+                    <div class="wf-vsub">Study medication · Day 12 of 28</div>
+                    <div class="wf-review-grid">
+                      <div class="wf-player">
+                        <div class="wf-person-slot" data-person="rev"></div>
+                        <div class="wf-pbar"><div class="wf-track"><i></i><span class="wf-mark"></span></div><div class="wf-t"><span>Recorded 8:01 AM</span><span>0:12</span></div></div>
+                      </div>
+                      <div class="wf-panel">
+                        <div class="wf-kv">
+                          <div><span>Due</span><b>8:00 AM</b></div>
+                          <div><span>Recorded</span><b>8:01 AM</b></div>
+                        </div>
+                        <div class="wf-ediary">
+                          <div class="wf-ed-head"><b>Reported details</b><span>E-diary</span></div>
+                          <div class="wf-ed-row wf-r1"><span><i>1</i>Last meal</span><b>Nov 17, 2026, 7:15 AM</b></div>
+                          <div class="wf-ed-row wf-r2"><span><i>2</i>Provider present</span><b>Yes</b></div>
+                        </div>
+                        <div class="wf-label">Dose taken?</div>
+                        <div class="wf-decide"><div class="wf-yes">Adherent</div><div>Not adherent</div></div>
+                        <div class="wf-result"><span class="wf-rchip wf-taken">Taken</span><span class="wf-rchip wf-edc">Sent to EDC</span></div>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- regimen -->
+                  <div class="wf-view wf-v-regimen">
+                    <h6>Sam R. · regimen</h6>
+                    <div class="wf-vsub">Changes sync to the patient app</div>
+                    <div class="wf-reg-grid">
+                      <div class="wf-reg-card">
+                        <div class="wf-field"><span>Medication</span><b>Study medication</b></div>
+                        <div class="wf-field"><span>Dose</span><b>1 tablet</b></div>
+                        <div class="wf-field"><span>Frequency</span><b>Once daily</b></div>
+                        <div class="wf-field"><span>Dose time</span><b class="wf-swap"><span class="wf-old">8:00 AM</span><span class="wf-new">9:00 AM</span></b></div>
+                        <div class="wf-save">Save changes</div>
+                        <div class="wf-synced">Saved · patient app updated</div>
+                      </div>
+                      <div class="wf-cal">
+                        <div class="wf-cal-head"><b>November</b><span>Day 12 of 28</span></div>
+                        <div class="wf-days" id="wf-days"></div>
+                        <div class="wf-legend"><span><i style="background:var(--mint)"></i>Taken</span><span><i style="background:var(--app-sent)"></i>Sent</span><span><i style="background:var(--rose)"></i>Missed</span><span><i style="background:#EEF2F5"></i>Scheduled</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="wf-base"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<nav class="wf-rail" id="wf-rail" aria-label="Steps"></nav>
+
+<section class="wf-recap">
+  <div class="wf-gutter">
+    <div class="wf-recap-inner">
+      <div class="wf-eyebrow">The loop</div>
+      <h2>Reminder, record, e-diary, review, regimen. <span>Every dose, seen.</span></h2>
+      <ul class="wf-loop">
+        <li><div class="wf-who"><i class="wf-who-p"></i><span class="wf-t">Patient</span></div><b>Reminder</b><span>A nudge at dose time, with snooze.</span></li>
+        <li><div class="wf-who"><i class="wf-who-p"></i><span class="wf-t">Patient</span></div><b>Record</b><span>A few seconds of video, sent securely.</span></li>
+        <li><div class="wf-who"><i class="wf-who-p"></i><span class="wf-t">Patient</span></div><b>E-diary</b><span>Mealtime and treatment supporter, answered in seconds.</span></li>
+        <li><div class="wf-who"><i class="wf-who-c"></i><span class="wf-t">Care team</span></div><b>Review</b><span>Answers beside the video; confirm in about 10 seconds.</span></li>
+        <li><div class="wf-who"><i class="wf-who-c"></i><span class="wf-t">Care team</span></div><b>Regimen</b><span>Update once; the app keeps up.</span></li>
+      </ul>
+      <div class="wf-footnote"><span>Screens are simplified illustrations of the SureAdhere patient app and care-team tools.</span><span>Sam R. and all patient data shown in the screens are made up.</span></div>
+    </div>
+  </div>
+</section>
+</div>
+
 <!-- ───── PARTNER STORIES ───── -->
 <section class="partner-stories-dark" id="stories">
   <div class="container">
@@ -997,6 +1800,178 @@
 
   /* Failsafe: never leave the numbers stuck at 0 if rAF/IO are throttled */
   setTimeout(function () { if (!done) finish(); }, 2600);
+})();
+</script>
+<script>
+// Workflow scroll story: swaps the phone and care team screens as each step scrolls into view.
+(function () {
+  function person(id) {
+    return '<svg class="wf-person" viewBox="0 0 200 260" preserveAspectRatio="xMidYMid slice" aria-hidden="true">' +
+      '<defs><linearGradient id="room' + id + '" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2E5266"/><stop offset="1" stop-color="#163042"/></linearGradient></defs>' +
+      '<rect width="200" height="260" fill="url(#room' + id + ')"/>' +
+      '<rect x="130" y="16" width="54" height="72" rx="6" fill="#4C7C92" opacity=".5"/>' +
+      '<line x1="157" y1="16" x2="157" y2="88" stroke="#2E5266" stroke-width="3"/>' +
+      '<rect x="18" y="40" width="34" height="46" rx="4" fill="#3A6276" opacity=".45"/>' +
+      '<path d="M12 262 C16 208 58 190 100 190 C142 190 184 208 188 262 Z" fill="#E2701F"/>' +
+      '<rect x="88" y="150" width="24" height="44" rx="11" fill="#8A5537"/>' +
+      '<path d="M80 192 Q100 212 120 192" fill="none" stroke="#F6DCC8" stroke-width="6" stroke-linecap="round"/>' +
+      '<circle cx="60" cy="122" r="9" fill="#8A5537"/><circle cx="140" cy="122" r="9" fill="#8A5537"/>' +
+      '<ellipse cx="100" cy="120" rx="40" ry="45" fill="#9C6243"/>' +
+      '<g fill="#2A1A12"><circle cx="64" cy="98" r="15"/><circle cx="72" cy="80" r="16"/><circle cx="88" cy="70" r="17"/><circle cx="106" cy="67" r="17"/><circle cx="123" cy="73" r="16"/><circle cx="135" cy="88" r="15"/><circle cx="139" cy="104" r="9"/><circle cx="61" cy="111" r="8"/><circle cx="98" cy="84" r="16"/><circle cx="80" cy="88" r="11"/><circle cx="118" cy="88" r="11"/></g>' +
+      '<circle cx="86" cy="123" r="4" fill="#1B120D"/><circle cx="114" cy="123" r="4" fill="#1B120D"/>' +
+      '<circle cx="76" cy="137" r="7" fill="#E07B6A" opacity=".45"/><circle cx="124" cy="137" r="7" fill="#E07B6A" opacity=".45"/>' +
+      '<path d="M89 144 Q100 154 111 144" stroke="#4A2A1C" stroke-width="3" fill="none" stroke-linecap="round"/>' +
+      '<g class="wf-hand"><g transform="translate(150 238)">' +
+        '<rect x="-15" y="-12" width="30" height="40" rx="14" fill="#9C6243"/>' +
+        '<rect x="-19" y="-18" width="12" height="18" rx="6" fill="#8A5537"/>' +
+        '<ellipse class="wf-pill" cx="-2" cy="-19" rx="7" ry="5" fill="#FFFAF0" stroke="#B6AC95" stroke-width="1.2"/>' +
+      '</g></g>' +
+      '</svg>';
+  }
+  document.querySelectorAll('[data-person]').forEach(function (el) {
+    el.outerHTML = person(el.getAttribute('data-person'));
+  });
+
+  // Treatment calendar: 28-day course from Nov 6; today is Nov 17 (day 12).
+  var days = document.getElementById('wf-days');
+  var html = ['Su','Mo','Tu','We','Th','Fr','Sa'].map(function (d) { return '<span class="wf-dn">' + d + '</span>'; }).join('');
+  for (var d = 1; d <= 30; d++) {
+    var cls = 'wf-blank';
+    if (d >= 6) {
+      if (d < 17) cls = (d === 13) ? 'wf-missed' : 'wf-taken';
+      else if (d === 17) cls = 'wf-sent wf-today';
+      else cls = 'wf-sched';
+    }
+    html += '<span class="wf-c ' + cls + '"' + (d === 17 ? ' id="wf-today"' : '') + '>' + d + '</span>';
+  }
+  days.innerHTML = html;
+
+  var stage = document.getElementById('wf-stage');
+  var lscreen = document.getElementById('wf-lscreen');
+  var steps = Array.prototype.slice.call(document.querySelectorAll('.wf-step'));
+  var rail = document.getElementById('wf-rail');
+  var story = document.getElementById('wf-story');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var phoneScreens = {};
+  document.querySelectorAll('.wf-phone .wf-screen').forEach(function (s) { phoneScreens[s.getAttribute('data-screen')] = s; });
+
+  var plan = {
+    1: { mode: 'patient', phone: 'lock' },
+    2: { mode: 'patient', phone: 'home' },
+    3: { mode: 'patient', phone: 'camera' },
+    4: { mode: 'patient', phone: 'meal' },
+    5: { mode: 'patient', phone: 'provider', phase2: 2600 },
+    6: { mode: 'provider', phone: 'provider', phonePhase2: true, laptop: 'queue' },
+    7: { mode: 'provider', phone: 'provider', phonePhase2: true, laptop: 'review', phase2: 3800 },
+    8: { mode: 'provider', phone: 'next', laptop: 'regimen', phase2: 2200 }
+  };
+
+  steps.forEach(function (s, i) {
+    var b = document.createElement('button');
+    b.type = 'button';
+    b.setAttribute('aria-label', 'Step ' + (i + 1));
+    b.addEventListener('click', function () { go(i); });
+    rail.appendChild(b);
+  });
+  var dots = rail.querySelectorAll('button');
+
+  var current = 0, timers = [], recTimer = null;
+  function clearTimers() { timers.forEach(clearTimeout); timers = []; if (recTimer) { clearInterval(recTimer); recTimer = null; } }
+  function restart(el) { el.classList.remove('wf-on'); void el.offsetWidth; el.classList.add('wf-on'); }
+
+  function activate(n) {
+    if (n === current) return;
+    current = n;
+    clearTimers();
+    var p = plan[n];
+    stage.setAttribute('data-step', n);
+    stage.setAttribute('data-mode', p.mode);
+    steps.forEach(function (s, i) { s.classList.toggle('wf-is-active', i === n - 1); });
+    dots.forEach(function (d, i) { d.classList.toggle('wf-on', i === n - 1); });
+
+    // phone
+    Object.keys(phoneScreens).forEach(function (k) { if (k !== p.phone) phoneScreens[k].classList.remove('wf-on'); });
+    var ps = phoneScreens[p.phone];
+    restart(ps);
+    var prov = phoneScreens.provider;
+    prov.classList.toggle('wf-phase2', !!p.phonePhase2);
+    if (n === 5) {
+      if (reduce) prov.classList.add('wf-phase2');
+      else timers.push(setTimeout(function () { prov.classList.add('wf-phase2'); }, p.phase2));
+    }
+    if (n === 3) {
+      var t = 0, label = ps.querySelector('.wf-rec-time');
+      label.textContent = '0:00';
+      recTimer = setInterval(function () { t = (t + 1) % 13; label.textContent = '0:' + (t < 10 ? '0' : '') + t; }, 1000);
+    }
+    // next-dose time follows the regimen edit
+    var nextDue = phoneScreens.next.querySelector('.wf-next-due');
+    nextDue.textContent = 'Tomorrow 8:00 AM';
+
+    // laptop
+    lscreen.classList.remove('wf-s-queue', 'wf-s-review', 'wf-s-regimen', 'wf-phase2');
+    var today = document.getElementById('wf-today');
+    today.className = 'wf-c wf-sent wf-today';
+    if (p.laptop) {
+      void lscreen.offsetWidth;
+      lscreen.classList.add('wf-s-' + p.laptop);
+      if (n === 8) today.className = 'wf-c wf-taken wf-today';
+      if (p.phase2) {
+        var fire = function () {
+          lscreen.classList.add('wf-phase2');
+          if (n === 8) nextDue.textContent = 'Tomorrow 9:00 AM';
+        };
+        if (reduce) fire(); else timers.push(setTimeout(fire, p.phase2));
+      }
+    }
+  }
+
+  function go(i) {
+    i = Math.max(0, Math.min(steps.length - 1, i));
+    steps[i].scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'center' });
+  }
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) activate(parseInt(e.target.getAttribute('data-step'), 10));
+    });
+  }, { rootMargin: '-45% 0px -45% 0px' });
+  steps.forEach(function (s) { io.observe(s); });
+  activate(1);
+
+  var railIo = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { rail.classList.toggle('wf-show', e.isIntersecting); });
+  }, { threshold: 0.15 });
+  railIo.observe(story);
+
+  document.querySelector('[data-go]').addEventListener('click', function (e) { e.preventDefault(); go(0); });
+
+  // Keyboard: arrows and Space step through the story, but only while it is on screen
+  // and never while the visitor is typing in a field or using a control.
+  document.addEventListener('keydown', function (e) {
+    if (e.metaKey || e.ctrlKey || e.altKey) return;
+    var el = e.target;
+    if (el && el.closest && el.closest('input, textarea, select, [contenteditable]')) return;
+    if (e.key === ' ' && el && el.closest && el.closest('a, button, summary')) return;
+    var fwd = e.key === 'ArrowDown' || e.key === 'PageDown' || (e.key === ' ' && !e.shiftKey);
+    var back = e.key === 'ArrowUp' || e.key === 'PageUp' || (e.key === ' ' && e.shiftKey);
+    if (!fwd && !back) return;
+    var r = story.getBoundingClientRect();
+    var mid = window.innerHeight * 0.5;
+    if (r.top >= mid || r.bottom <= mid) return;
+    if (fwd && current === steps.length) {
+      e.preventDefault();
+      document.querySelector('.wf-recap').scrollIntoView({ behavior: reduce ? 'auto' : 'smooth' });
+      return;
+    }
+    if (back && current === 1) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' });
+      return;
+    }
+    e.preventDefault();
+    go(current - 1 + (fwd ? 1 : -1));
+  });
 })();
 </script>
 <script>
