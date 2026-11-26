@@ -881,7 +881,7 @@
   .wf .wf-recap-inner { max-width: 1240px; margin: 0 auto; padding-block: 120px 64px; }
   .wf .wf-recap h2 { font-size: clamp(34px, 4vw, 56px); font-weight: 800; letter-spacing: -.02em; line-height: 1.05; margin-top: 14px; }
   .wf .wf-recap h2 span { color: var(--mint); }
-  .wf .wf-loop { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; margin: 48px 0 0; padding: 0; list-style: none; counter-reset: n; }
+  .wf .wf-loop { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin: 48px 0 0; padding: 0; list-style: none; counter-reset: n; }
   .wf .wf-loop li { position: relative; border: 1px solid var(--line); border-radius: 18px; padding: 22px; background: rgba(255,255,255,.025); }
   .wf .wf-loop li:not(:last-child)::after { content: "→"; position: absolute; right: -14px; top: 50%; transform: translateY(-50%); color: var(--mint); font-weight: 800; z-index: 1; }
   .wf .wf-loop .wf-who { margin-bottom: 10px; }
@@ -1538,11 +1538,10 @@
   <div class="wf-gutter">
     <div class="wf-recap-inner">
       <div class="wf-eyebrow">The loop</div>
-      <h2>Reminder, record, e-diary, review, regimen. <span>Every dose, seen.</span></h2>
+      <h2>Reminder, record, review, regimen. <span>Every dose, seen.</span></h2>
       <ul class="wf-loop">
         <li><div class="wf-who"><i class="wf-who-p"></i><span class="wf-t">Patient</span></div><b>Reminder</b><span>A nudge at dose time, with snooze.</span></li>
         <li><div class="wf-who"><i class="wf-who-p"></i><span class="wf-t">Patient</span></div><b>Record</b><span>A few seconds of video, sent securely.</span></li>
-        <li><div class="wf-who"><i class="wf-who-p"></i><span class="wf-t">Patient</span></div><b>E-diary</b><span>Mealtime and treatment supporter, answered in seconds.</span></li>
         <li><div class="wf-who"><i class="wf-who-c"></i><span class="wf-t">Care team</span></div><b>Review</b><span>Answers beside the video; confirm in about 10 seconds.</span></li>
         <li><div class="wf-who"><i class="wf-who-c"></i><span class="wf-t">Care team</span></div><b>Regimen</b><span>Update once; the app keeps up.</span></li>
       </ul>
