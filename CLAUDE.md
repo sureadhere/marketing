@@ -17,7 +17,7 @@ This repo's maintainers are non-developers and should **not** be asked to use gi
 Keep GitHub as the engine under the hood (source of truth + deploy trigger); just never make the user touch it. The human-facing version of this is in `RUNBOOK.md`.
 
 ## How the site is built
-- 10 pages, each a complete standalone HTML file. There is **no templating**: the `<head>`, the top nav, and the footer are copied inline into every page.
+- 11 pages, each a complete standalone HTML file. There is **no templating**: the `<head>`, the top nav, and the footer are copied inline into every page.
 - One shared stylesheet: `assets/styles.css`. Page-specific CSS lives in a `<style>` block in that page's `<head>`.
 - Images live in `assets/images/`.
 - `login/index.html` is a bare redirect to the secure app. It has no nav or footer; leave it alone unless the login URL changes.
@@ -25,7 +25,7 @@ Keep GitHub as the engine under the hood (source of truth + deploy trigger); jus
 ## The two rules that break the site most often
 
 **1. The header and footer must stay identical on every page.**
-If you change the nav or the footer, apply the same change to all 10 pages. Do not edit one page's footer and leave the others behind. Use the `update-header-footer` skill, which does this for you.
+If you change the nav or the footer, apply the same change to all 11 pages. Do not edit one page's footer and leave the others behind. Use the `update-header-footer` skill, which does this for you.
 
 **2. Root pages and subpages use different link paths.**
 - Root-level pages (`index.html`, `404.html`) link like `clinical-trials/index.html` and `assets/styles.css`.

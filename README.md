@@ -24,6 +24,7 @@ Live URLs are relative to `https://sureadhere.dimagi.com/`.
 | `clinical-trials/index.html` | `/clinical-trials/` | Solution page |
 | `public-health/index.html` | `/public-health/` | Solution page |
 | `behavioral-health/index.html` | `/behavioral-health/` | Solution page |
+| `how-it-works/index.html` | `/how-it-works/` | Scroll-through of the core dose workflow (reminder, record, e-diary, review, regimen) |
 | `resources/index.html` | `/resources/` | FAQ, timeline, release notes |
 | `publications/index.html` | `/publications/` | Shown as "Evidence" in the nav: list of studies |
 | `contact/index.html` | `/contact/` | Demo request and contact |
@@ -55,7 +56,7 @@ Always view the page you changed plus one other page, to catch header/footer dri
 | Change colors, spacing, or shared components | Edit `assets/styles.css`, using the existing CSS variables. |
 
 ## Skills (in `.claude/skills/`)
-- **update-header-footer**: propagate a nav/footer change to all 10 pages, handling the root-vs-subpage path difference and the active-nav state.
+- **update-header-footer**: propagate a nav/footer change to all 11 pages, handling the root-vs-subpage path difference and the active-nav state.
 - **add-page**: create a new page from the canonical template and register it everywhere it needs to appear.
 - **add-publication**: add a correctly formatted study to the Evidence page.
 
