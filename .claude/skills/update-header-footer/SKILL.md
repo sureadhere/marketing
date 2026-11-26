@@ -7,7 +7,7 @@ description: Propagate a change to the site-wide top navigation or footer across
 
 The SureAdhere site has no templating, so the nav and footer are copied into every page. This skill makes a header/footer change once and applies it consistently everywhere.
 
-## Pages that contain the shared nav and footer (11 total)
+## Pages that contain the shared nav and footer (10 total)
 
 **Root-level** (links use no prefix, e.g. `clinical-trials/index.html`, `assets/styles.css`):
 - `index.html`
@@ -15,7 +15,6 @@ The SureAdhere site has no templating, so the nav and footer are copied into eve
 
 **Subpages** (links use `../`, e.g. `../clinical-trials/index.html`, `../assets/styles.css`):
 - `clinical-trials/index.html`
-- `how-it-works/index.html`
 - `public-health/index.html`
 - `behavioral-health/index.html`
 - `resources/index.html`
@@ -64,7 +63,7 @@ Run from the site root to spot drift:
 
 ```bash
 # Count footers per page (every listed page should show exactly 1)
-for f in index.html 404.html clinical-trials/index.html how-it-works/index.html public-health/index.html behavioral-health/index.html resources/index.html publications/index.html contact/index.html privacy-policy/index.html privacy-policy-chinese/index.html; do printf "%-36s footer:%s nav:%s\n" "$f" "$(grep -c '<footer' "$f")" "$(grep -c 'nav-wrap' "$f")"; done
+for f in index.html 404.html clinical-trials/index.html public-health/index.html behavioral-health/index.html resources/index.html publications/index.html contact/index.html privacy-policy/index.html privacy-policy-chinese/index.html; do printf "%-36s footer:%s nav:%s\n" "$f" "$(grep -c '<footer' "$f")" "$(grep -c 'nav-wrap' "$f")"; done
 
 # Compare the nav links block between the homepage and a subpage
 grep -A6 'nav-links' index.html

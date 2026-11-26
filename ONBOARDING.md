@@ -91,7 +91,7 @@ Your ongoing workflow for making edits to the website.
 
 This site has no templating, so a few things are manual. Claude and the built-in skills handle them, but know they exist:
 
-1. **The header and footer must be identical on every page.** There are 11 pages, and each has its own copy of the nav and footer. If you change one, you must change all of them. Always ask Claude to use the **`update-header-footer`** skill so it propagates everywhere.
+1. **The header and footer must be identical on every page.** There are 10 pages, and each has its own copy of the nav and footer. If you change one, you must change all of them. Always ask Claude to use the **`update-header-footer`** skill so it propagates everywhere.
 2. **Root pages and subpages use different link paths.** Subpages link with `../` in front (e.g. `../assets/styles.css`); the homepage does not. Copy-pasting a block between them without fixing the `../` breaks the links. The **`add-page`** skill handles this when you create a page.
 
 ## Built-In Skills
